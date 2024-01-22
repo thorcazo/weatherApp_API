@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.logo {
+    font-size: 4rem;
+    position: relative;
+    margin: 0 0 40px 0;
+    font-weight: bolder;
+
+    & span {
+        display: block;
+        background: linear-gradient(267deg, #39F 43.89%, #45C7FF 99.28%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        position: absolute;
+        bottom: -40%;
+        left: 40px;
+    }
+}

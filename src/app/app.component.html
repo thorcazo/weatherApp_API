@@ -1,19 +1,21 @@
-<div>
-  <h3>Haz tu busqueda</h3>
-  <input #busqueda (keydown.enter)="mostrarPronostico(busqueda.value)" type="text" placeholder="Buscar una ciudad">
-</div>
+<app-nav> </app-nav>
+<section>
+  <div>
+    <input #busqueda (keydown.enter)="mostrarPronostico(busqueda.value)" type="text" placeholder="Buscar una ciudad">
+  </div>
 
-<div>Resultados</div>
-@if(posts.length != 0){
-<div>
-  <h2>{{ posts.name }}</h2>
-  <p>Temp mínima: {{ posts.main.temp_min }}°C</p>
-  <p>Temp máxima: {{ posts.main.temp_max }}°C</p>
-  <p>Humedad: {{ posts.main.humidity }}%</p>
-  <p>Presión: {{ posts.main.pressure }} hPa</p>
-  <p>Descripción: {{ posts.weather[0].description }}</p>
-</div>
-}
-<app-tiempo> </app-tiempo>
+  <header>
+    <div>
+      <h2>Lunes</h2>
+      <p>22º</p>
+      <p>Viento moderado</p>
+    </div>
+    <div>
+      <div>
+        <img src="../assets/icons/atardecer.png" alt="atardecer">
+      </div>
+    </div>
+  </header>
+</section>
 
 <router-outlet></router-outlet>

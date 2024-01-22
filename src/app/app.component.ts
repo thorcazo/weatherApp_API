@@ -6,11 +6,18 @@ import { Observable, Subject, switchMap } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { TiempoComponent } from './components/tiempo/tiempo.component';
+import { NavComponent } from './components/nav/nav.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [AsyncPipe, CommonModule, RouterOutlet, TiempoComponent],
+  imports: [
+    AsyncPipe,
+    CommonModule,
+    RouterOutlet,
+    TiempoComponent,
+    NavComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
