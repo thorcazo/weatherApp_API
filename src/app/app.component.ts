@@ -5,11 +5,12 @@ import { OpenWeatherService } from './services/open-weather.service';
 import { Observable, Subject, switchMap } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import { TiempoComponent } from './components/tiempo/tiempo.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [AsyncPipe, CommonModule, RouterOutlet],
+  imports: [AsyncPipe, CommonModule, RouterOutlet, TiempoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
