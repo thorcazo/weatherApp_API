@@ -13,13 +13,43 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
+[x: string]: any;
   http = inject(HttpClient);
   posts: any = [];
 
+  hourlyForecastData: any = []; // Nueva propiedad para los datos del pronóstico horario
+  dieciseisDiasforecastData: any = []; // Nueva propiedad para los datos del pronóstico a 16 días
   constructor(private service: OpenWeatherService) {}
 
-  ngOnInit(): void {}
-
+  ngOnInit(): void {
+    this.fetchPosts('Murcia'); // Carga inicial con la ciudad de Murcia
+    this.loadHourlyForecast(37.9922, -1.1307); // Latitud y longitud de Murcia
+    this.loadDiecesisDiasForecast(37.9922, -1.1307); // Latitud y longitud de Murcia
+  }
+  loadHourlyForecast(lat: number, lon: number): void {
+    this.service.getHourlyForecast(lat, lon).subscribe(
+      (res) => {
+        console.log('Respuesta de la API de pronóstico horario:', res);
+        this.hourlyForecastData = res.list; 
+      },
+      (error) => {
+        console.error('Error al obtener el pronóstico horario:', error);
+      }
+    );
+  }
+  
+  loadDiecesisDiasForecast(lat: number, lon: number): void {
+    this.service.get16DaysForecast(lat, lon).subscribe(
+      (res) => {
+        console.log('Respuesta de la API de pronóstico a 16 días:', res);
+        this.dieciseisDiasforecastData = res.list; 
+      },
+      (error) => {
+        console.error('Error al obtener el pronóstico a 16 días:', error);
+      }
+    );
+  }
+  
   fetchPosts(ciudad: string): void {
     this.service.getOpenWeather(ciudad).subscribe((res) => {
       console.log(res);
@@ -31,5 +61,6 @@ export class AppComponent implements OnInit {
     return this.fetchPosts(ciudad);
   }
 
-  busqueda = this.mostrarDatos('Murcia');
+  
+
 }
