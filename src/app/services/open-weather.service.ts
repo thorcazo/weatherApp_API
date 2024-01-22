@@ -13,7 +13,13 @@ export class OpenWeatherService {
 
   getOpenWeather(ciudad: string): Observable<any> {
     return this.http.get<any>(
-      `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${this.apiKey}&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&lang=es&appid=${this.apiKey}&units=metric`
+    );
+  }
+
+  getForecast(ciudad: string, lat: number, lon: number): Observable<any> {
+    return this.http.get<any>(
+      `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&lang=es&appid=${this.apiKey}&units=metric`
     );
   }
 }
