@@ -10,7 +10,7 @@
     font-weight: bolder;
 }
 
-.logo span {
+.logo>span {
     display: block;
     background: linear-gradient(267deg, #39F 43.89%, #45C7FF 99.28%);
     background-clip: text;
@@ -20,4 +20,3 @@
     bottom: -40%;
     left: 40px;
 }
-
