@@ -3,20 +3,43 @@
 @tailwind components;
 @tailwind utilities;
 
-.logo {
-    font-size: 4rem;
-    position: relative;
-    margin: 0 0 40px 0;
-    font-weight: bolder;
+
+body {
+    margin: auto;
 }
 
-.logo>span {
-    display: block;
+nav {
+    width: 100%;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 44px;
+}
+
+.logo h1 {
+    position: relative;
+
+}
+
+.logo span {
+    position: absolute;
+    top: 25px;
+    left: 20px;
+
     background: linear-gradient(267deg, #39F 43.89%, #45C7FF 99.28%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    position: absolute;
-    bottom: -40%;
-    left: 40px;
+}
+
+.tiempo-container {
+    box-shadow: 8px 8px 0px rgb(1, 10, 91);
+}
+
+.img_publi {
+    border-radius: 15px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
 }
