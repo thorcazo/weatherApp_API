@@ -1,19 +1,78 @@
-<div>
-  <h3>Haz tu busqueda</h3>
-  <input #busqueda (keydown.enter)="mostrarPronostico(busqueda.value)" type="text" placeholder="Buscar una ciudad">
-</div>
+<!-- FILEPATH: /c:/Users/Rocío/Documents/DNEC2324/Angular/weatherApp_API/src/app/app.component.html -->
+<!DOCTYPE html>
+<html lang="en">
 
-<div>Resultados</div>
-@if(posts.length != 0){
-<div>
-  <h2>{{ posts.name }}</h2>
-  <p>Temp mínima: {{ posts.main.temp_min }}°C</p>
-  <p>Temp máxima: {{ posts.main.temp_max }}°C</p>
-  <p>Humedad: {{ posts.main.humidity }}%</p>
-  <p>Presión: {{ posts.main.pressure }} hPa</p>
-  <p>Descripción: {{ posts.weather[0].description }}</p>
-</div>
-}
-<app-tiempo> </app-tiempo>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
 
-<router-outlet></router-outlet>
+<body>
+  <div class="container">
+    <div>
+      <h3>Haz tu búsqueda</h3>
+      <input #busqueda (keydown.enter)="mostrarDatos(busqueda.value)" type="text" placeholder="Buscar una ciudad">
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        Resultados
+      </div>
+      <div class="card-body" *ngIf="posts.length != 0">
+        <div>
+          <h2>{{ posts.name }}</h2>
+          <p>Temp mínima: {{ posts.main.temp_min }}°C</p>
+          <p>Temp máxima: {{ posts.main.temp_max }}°C</p>
+          <p>Humedad: {{ posts.main.humidity }}%</p>
+          <p>Presión: {{ posts.main.pressure }} hPa</p>
+          <p>Descripción: {{ posts.weather[0].description }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="card">
+      <div class="card-header">
+        Pronóstico 16 días
+      </div>
+      <div class="card-body" *ngIf="dieciseisDiasforecastData.length != 0">
+        <div *ngFor="let forecast of dieciseisDiasforecastData">
+          <h2>{{ forecast.name }}</h2>
+          <p>Temp mínima: {{ forecast.main.temp_min }}°C</p>
+          <p>Temp máxima: {{ forecast.main.temp_max }}°C</p>
+          <p>Humedad: {{ forecast.main.humidity }}%</p>
+          <p>Presión: {{ forecast.main.pressure }} hPa</p>
+          <p>Descripción: {{ forecast.weather[0].description }}</p>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="card">
+
+      <div class="card-header">
+        Pronóstico Horario
+      </div>
+      <div class="card-body" *ngIf="hourlyForecastData.length != 0">
+        <div>
+          <div *ngFor="let forecast of hourlyForecastData">
+            <h2>{{ forecast.name }}</h2>
+            <h2>Fecha y hora: {{ forecast.dt_txt }}</h2>
+            <p>Temperatura: {{ forecast.main.temp }} °C</p>
+            <p>Descripción: {{ forecast.weather[0].description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <router-outlet></router-outlet>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
