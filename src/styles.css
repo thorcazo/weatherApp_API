@@ -12,6 +12,11 @@ nav {
     width: 100%;
 }
 
+input {
+    @apply rounded-full border-2 border-gray-900 focus:outline-none focus:border-blue-600 w-full p-6;
+}
+
+
 .logo {
     font-weight: 700;
     font-size: 44px;
@@ -38,8 +43,6 @@ nav {
 }
 
 .img_publi {
-    border-radius: 15px;
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+    @apply rounded-lg aspect-square;
+
 }

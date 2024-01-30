@@ -1,8 +1,25 @@
-<nav class="flex justify-around items-center p-4">
-    <div class="logo flex w-full">
-        <h1 class="">Social <span>Weather</span></h1>
+<nav class=" justify-around items-center p-4">
+    <div class="flex flex-row">
+        <div class="logo w-full">
+            <h1 class="">Social <span>Weather</span></h1>
+        </div>
+        <div class="  icono w-full flex justify-end items-center">
+            <div (click)="clicked()" class="cursor-pointer p-1 burger {{ clickToggle ? 'cross' : '' }}">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
     </div>
-    <div class="icono w-full flex justify-end items-center  ">
-        <img src="../../../assets/burguer.svg" alt="">
-    </div>
+    @if (clickToggle) {
+
+    <ul class="menu toggle">
+        <li class="cursor-pointer"><a routerLink="/home">Home</a></li>
+        <li class="cursor-pointer"><a routerLink="/about">About</a></li>
+        <li class="cursor-pointer"><a routerLink="/contact">Contact</a></li>
+    </ul>
+
+
+    }
+
 </nav>

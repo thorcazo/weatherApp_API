@@ -1,47 +1,47 @@
-<main class="w-4/5 m-auto flex flex-col justify-between">
+<main class="w-4/5 m-auto flex flex-col justify-between max-h-screen">
   <app-nav class="w-full"></app-nav>
 
   <!-- SECTION TIEMPO DE HOY -->
-  <section class="flex flex-col gap-4 mt-8 tiempo-container  border-2 border-slate-800 rounded-[30px] p-[35px]">
+  <section class=" h-max flex flex-col gap-4 mt-8 tiempo-container border-2 border-slate-800 rounded-[30px] p-[35px]">
     <!-- Ciudad -->
-    <h2 class="text-5xl font-bold">Murcia, <span>ES</span></h2>
+    <h2 class="text-5xl font-bold">Murcia,ES</h2>
     <!-- Temperaturas -->
     <div class="grid grid-cols-3">
-      <div class="">
+      <div class="flex flex-row col-span-2">
         <h3 class="temperatura text-7xl font-bold">22</h3>
-      </div>
-      <div class="text-xl font-bold flex flex-col mt-2">
-        <span>ºC</span>
-        <span>ºF</span>
+        <div class="text-xl font-bold flex flex-col ml-2 mt-2">
+          <span>ºC</span>
+          <span>ºF</span>
+        </div>
       </div>
       <div class="flex items-center">
-        <img src="" alt="icon">
+        <img src="../assets/icons/sol_medio_dia.png" alt="icon">
       </div>
     </div>
     <!-- max y min -->
-    <div class="text-xl flex flex-row gap-5 font-bold">
-      <div class="">
-        <img src="" alt="">
-        <h4>25º</h4>
+    <div class="text-4xl flex flex-row gap-5 font-bold">
+      <div class="flex flex-row justify-center items-center gap-2 ">
+        <img class="w-6" src="../assets/icons/temp_up.svg" alt="">
+        <h4 class="">25º</h4>
       </div>
-      <div>
-        <img src="" alt="">
-        <h4>9º</h4>
+      <div class="flex flex-row justify-center items-center gap-2 ">
+        <img class="w-6" src="../assets/icons/temp_down.svg" alt="">
+        <h4 class="">9º</h4>
       </div>
     </div>
     <!-- Descripcion, dia semana y hora actual -->
-    <div class="text-xl font-bold">
+    <div class="text-2xl font-bold">
       <p>Despejado Vie, 12:00</p>
     </div>
     <!-- Publicaciones -->
-    <div class="grid grid-cols-2 mt-8 mb-16">
-      <img class="img_publi "
-        src="https://images.unsplash.com/photo-1439792675105-701e6a4ab6f0?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt="">
-      <img class="img_publi"
-        src="https://images.unsplash.com/photo-1439792675105-701e6a4ab6f0?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt="">
+    <div class="grid grid-cols-2 mt-4  gap-4">
+      <img class="img_publi " src="{{ imgAbstracta }}" alt="">
+      <img class="img_publi" src="{{ imagenDesierto }}" alt="">
     </div>
+  </section>
+  <!-- INPUT DE BUSQUEDA -->
+  <section class="my-8 h-28 ">
+    <input class="" type="text" placeholder="Buscar ciudad" id="busqueda">
   </section>
   <router-outlet></router-outlet>
 </main>
