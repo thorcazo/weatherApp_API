@@ -1,8 +1,38 @@
-<main class="w-4/5 m-auto flex flex-col justify-between max-h-screen">
+<!-- TODO:Hay que hacer la maquetacion con grid Ya que en distintas resoluciones los objetos se moverán de un lugar a otro, Eso me da la posibilidad de tambien mover el buscador de arriba a abajo. 
+
+BREAKPOINTS
+
+// tailwind.config.js
+module.exports = {
+  theme: {
+    screens: {
+      'sm': '640px',
+      // => @media (min-width: 640px) { ... }
+
+      'md': '768px',
+      // => @media (min-width: 768px) { ... }
+
+      'lg': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      'xl': '1280px',
+      // => @media (min-width: 1280px) { ... }
+    }
+  }
+}
+
+-->
+
+
+<main class="  w-4/5 m-auto flex flex-col justify-between max-h-screen">
   <app-nav class="w-full"></app-nav>
+  <!-- INPUT DE BUSQUEDA -->
+  <section class="my-4 h-28 ">
+    <input class="" type="text" placeholder="Buscar ciudad" id="busqueda">
+  </section>
 
   <!-- SECTION TIEMPO DE HOY -->
-  <section class=" h-max flex flex-col gap-4 mt-8 tiempo-container border-2 border-slate-800 rounded-[30px] p-[35px]">
+  <section class="mb-8 flex flex-col gap-4 tiempo-container border-2 border-slate-800 rounded-[30px] p-[35px]">
     <!-- Ciudad -->
     <h2 class="text-5xl font-bold">Murcia,ES</h2>
     <!-- Temperaturas -->
@@ -39,9 +69,6 @@
       <img class="img_publi" src="{{ imagenDesierto }}" alt="">
     </div>
   </section>
-  <!-- INPUT DE BUSQUEDA -->
-  <section class="my-8 h-28 ">
-    <input class="" type="text" placeholder="Buscar ciudad" id="busqueda">
-  </section>
+
   <router-outlet></router-outlet>
 </main>
