@@ -4,17 +4,11 @@
 @tailwind utilities;
 
 
+
 body {
-    margin: auto;
+    @apply w-full mx-auto;
 }
 
-nav {
-    width: 100%;
-}
-
-input {
-    @apply rounded-full border-2 border-gray-900 focus:outline-none focus:border-blue-600 w-full p-6;
-}
 
 
 .logo {
@@ -43,6 +37,6 @@ input {
 }
 
 .img_publi {
-    @apply rounded-lg aspect-square;
+    @apply rounded-lg aspect-square w-[200px];
 
 }

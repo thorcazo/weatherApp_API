@@ -1,73 +1,56 @@
 <!-- TODO:Hay que hacer la maquetacion con grid Ya que en distintas resoluciones los objetos se moverán de un lugar a otro, Eso me da la posibilidad de tambien mover el buscador de arriba a abajo. 
 
-BREAKPOINTS
-
-// tailwind.config.js
-module.exports = {
-  theme: {
-    screens: {
-      'sm': '640px',
-      // => @media (min-width: 640px) { ... }
-
-      'md': '768px',
-      // => @media (min-width: 768px) { ... }
-
-      'lg': '1024px',
-      // => @media (min-width: 1024px) { ... }
-
-      'xl': '1280px',
-      // => @media (min-width: 1280px) { ... }
-    }
-  }
-}
-
 -->
 
 
-<main class="  w-4/5 m-auto flex flex-col justify-between max-h-screen">
-  <app-nav class="w-full"></app-nav>
+<section class="border">
+  <app-nav class=""></app-nav>
+</section>
+<main class="main w-4/5 m-auto">
   <!-- INPUT DE BUSQUEDA -->
-  <section class="my-4 h-28 ">
+  <section class="input border">
     <input class="" type="text" placeholder="Buscar ciudad" id="busqueda">
   </section>
 
   <!-- SECTION TIEMPO DE HOY -->
-  <section class="mb-8 flex flex-col gap-4 tiempo-container border-2 border-slate-800 rounded-[30px] p-[35px]">
-    <!-- Ciudad -->
-    <h2 class="text-5xl font-bold">Murcia,ES</h2>
-    <!-- Temperaturas -->
-    <div class="grid grid-cols-3">
-      <div class="flex flex-row col-span-2">
-        <h3 class="temperatura text-7xl font-bold">22</h3>
-        <div class="text-xl font-bold flex flex-col ml-2 mt-2">
+  <section class="tiempo-container border">
+    <section class="temperaturas  p-4">
+      <!-- Ciudad -->
+      <h2 class="text-4xl font-black ">Murcia,ES</h2>
+      <!-- Temperaturas -->
+      <div class="flex flex-row justify-between items-center">
+        <h3 class="text-7xl font-black">22º</h3>
+        <div class="flex flex-col mt-2 text-2xl font-black">
           <span>ºC</span>
           <span>ºF</span>
         </div>
+        <div>
+          <img src="../assets/icons/sol_medio_dia.png" alt="icon">
+        </div>
       </div>
-      <div class="flex items-center">
-        <img src="../assets/icons/sol_medio_dia.png" alt="icon">
+      <!-- max y min -->
+      <div class="info flex flex-col">
+        <article class="flex flex-row gap-4 mt-4">
+          <div class="flex flex-row">
+            <img src="../assets/icons/temp_up.svg" alt="">
+            <h4>25º</h4>
+          </div>
+          <div class="flex flex-row">
+            <img src="../assets/icons/temp_down.svg" alt="">
+            <h4>9º</h4>
+          </div>
+        </article>
+        <!-- Descripcion, dia semana y hora actual -->
+        <div class="text-lg mb-4 font-bold">
+          <p>Despejado Vie, 12:00</p>
+        </div>
       </div>
-    </div>
-    <!-- max y min -->
-    <div class="text-4xl flex flex-row gap-5 font-bold">
-      <div class="flex flex-row justify-center items-center gap-2 ">
-        <img class="w-6" src="../assets/icons/temp_up.svg" alt="">
-        <h4 class="">25º</h4>
+      <!-- Publicaciones -->
+      <div class="grid grid-cols-2 gap-5 w-full ">
+        <img class="aspect-square w-full" src="{{ imgAbstracta }}" alt="">
+        <img class="aspect-square w-full" src="{{ imagenDesierto }}" alt="">
       </div>
-      <div class="flex flex-row justify-center items-center gap-2 ">
-        <img class="w-6" src="../assets/icons/temp_down.svg" alt="">
-        <h4 class="">9º</h4>
-      </div>
-    </div>
-    <!-- Descripcion, dia semana y hora actual -->
-    <div class="text-2xl font-bold">
-      <p>Despejado Vie, 12:00</p>
-    </div>
-    <!-- Publicaciones -->
-    <div class="grid grid-cols-2 mt-4  gap-4">
-      <img class="img_publi " src="{{ imgAbstracta }}" alt="">
-      <img class="img_publi" src="{{ imagenDesierto }}" alt="">
-    </div>
+    </section>
   </section>
 
   <router-outlet></router-outlet>

@@ -1,0 +1,53 @@
+
+
+/* GRID TEMPLATE
+BREAKPOINTS
+
+// tailwind.config.js
+module.exports = {
+  theme: {
+    screens: {
+      'sm': '640px',
+      // => @media (min-width: 640px) { ... }
+
+      'md': '768px',
+      // => @media (min-width: 768px) { ... }
+
+      'lg': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      'xl': '1280px',
+      // => @media (min-width: 1280px) { ... }
+    }
+  }
+}
+
+
+*/
+
+
+main{
+    display: grid;
+    grid-template-areas: 
+    
+    "tiempo-container"
+    "input"
+}
+
+.tiempo-container{
+    grid-area: tiempo-container;
+}
+
+.input{
+    grid-area: input;
+}
+
+
+@media screen and (min-width: 640px){
+    main{
+        grid-template-areas: 
+        " input"
+        "tiempo-container"
+    }
+    
+}
