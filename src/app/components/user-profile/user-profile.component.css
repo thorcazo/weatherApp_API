@@ -1,0 +1,8 @@
+.publicacion img {
+    @apply transition-all duration-500 ease-in-out;
+}
+
+.publicacion:hover img {
+    @apply transform scale-105 transition-all duration-200 ease-in-out opacity-85;
+
+}

@@ -1,7 +1,10 @@
 <nav class=" justify-around items-center p-4 mb-8">
     <div class="flex flex-row">
         <div class="logo w-full">
-            <h1 class="">Social <span>Weather</span></h1>
+            <a routerLink="/">
+                <h1 class="">Social <span>Weather</span></h1>
+            </a>
+
         </div>
         <div class="  icono w-full flex justify-end items-center">
             <div (click)="clicked()" class="cursor-pointer p-1 burger {{ clickToggle ? 'cross' : '' }}">
@@ -14,7 +17,7 @@
 
 
     <ul class="{{ clickToggle ? 'menu-active' : 'menu' }}">
-        <li class="cursor-pointer"><a routerLink="/home">Home</a></li>
+        <li class="cursor-pointer"><a routerLink="/user">Publicaciones</a></li>
         <li class="cursor-pointer"><a routerLink="/about">About</a></li>
         <li class="cursor-pointer"><a routerLink="/contact">Contact</a></li>
     </ul>
