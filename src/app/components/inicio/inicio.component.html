@@ -1,16 +1,17 @@
 <!-- COMPONENTE INICIO -->
 
-<!-- Info Tiempo (section) y Comentarios usuarios (Aside) -->
+<!-- SECCION INFO TIEMPO y SECCION USUARIOS (Aside) -->
 <main class="sm:grid sm:grid-cols-3 w-4/5  sm:w-full sm:ml-2 m-auto xl:w-5/6">
 
-  <section class="main  m-auto  sm:col-span-2">
+  <!-- SECCION INFO TIEMPO -->
+  <section class="main  m-auto sm:col-span-2">
     <!-- INPUT DE BUSQUEDA -->
     <section class="input my-8">
       <input class="p-7 text-3xl sm:text-2xl font-bold border w-full rounded-full sm:p-4 sm:pl-8" type="text"
         placeholder="Buscar ciudad" id="busqueda">
     </section>
-    <!-- SECTION TIEMPO DE HOY -->
-    <section class="tiempo-container border-slate-900 border-2 p-4 sm:grid sm:grid-cols-5 rounded-2xl mt-2 sm:mr-8">
+    <!-- SECCION TIEMPO BUSCADO -->
+    <section class="tiempo-container border-slate-900 border-2 p-4 sm:grid sm:grid-cols-5 rounded-2xl mt-2 ">
       <section class="temperaturas  sm:col-span-3 ">
         <!-- Ciudad -->
         <h2 class="text-4xl font-black ">Murcia,ES</h2>
@@ -112,8 +113,8 @@
   </section>
 
   <!-- SECTION USUARIOS -->
-  <aside class="sm:min-w-max hidden py-4 sm:flex sm:flex-col gap-2 items-start justify-center mt-32 h-max">
-    <a routerLink="/user"
+  <aside class="sm:min-w-max sm:ml-8 hidden py-4 sm:flex sm:flex-col gap-2 items-start justify-center mt-32 h-max">
+    <a routerLink="user/publicacion"
       class="card-user border border-slate-900 flex flex-row rounded-full h-max w-max p-3 justify-center items-center">
       <img class="w-max h-max lg:mr-2" src="../assets/@user1.png" alt="">
       <div class="">
@@ -121,20 +122,23 @@
         <p class="sm:hidden lg:block">Hoy hace un dia estupendo</p>
       </div>
     </a>
-    <div class="card-user border border-slate-900 flex flex-row rounded-full h-max w-max p-3">
+    <a routerLink="user/publicacion"
+      class="card-user border border-slate-900 flex flex-row rounded-full h-max w-max p-3 justify-center items-center">
       <img class="w-max h-max lg:mr-2" src="../assets/@user1.png" alt="">
-      <div>
-        <h3 class="sm:hidden lg:block">&#64;user2</h3>
+      <div class="">
+        <h3 class="sm:hidden lg:block ">&#64;user2</h3>
         <p class="sm:hidden lg:block">Hoy hace un dia estupendo</p>
       </div>
-    </div>
-    <div class="card-user border border-slate-900 flex flex-row rounded-full h-max w-max p-3">
+    </a>
+    <a routerLink="user/publicacion"
+      class="card-user border border-slate-900 flex flex-row rounded-full h-max w-max p-3 justify-center items-center">
       <img class="w-max h-max lg:mr-2" src="../assets/@user1.png" alt="">
-      <div>
-        <h3 class="sm:hidden lg:block">&#64;user2</h3>
+      <div class="">
+        <h3 class="sm:hidden lg:block ">&#64;user2</h3>
         <p class="sm:hidden lg:block">Hoy hace un dia estupendo</p>
       </div>
-    </div>
+    </a>
+
 
   </aside>
 </main>
