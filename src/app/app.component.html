@@ -1,116 +1,146 @@
-<!-- TODO:Hay que hacer la maquetacion con grid Ya que en distintas resoluciones los objetos se moverán de un lugar a otro, Eso me da la posibilidad de tambien mover el buscador de arriba a abajo. 
+<!--  TODO:El menu de navegacion en inicio se queda muy pegado a los extremos habria que ajustar eso apartir de sm
+      TODO   Dentro de la tarjeta de tiempo deberia tener mas padding 
 
 -->
 
-
+<!-- NAV principal -->
 <section class="">
   <app-nav class=""></app-nav>
 </section>
-<main class="main w-4/5 m-auto sm:w-4/5  xl:w-3/6 ">
-  <!-- INPUT DE BUSQUEDA -->
-  <section class="input my-8 ">
-    <input class="  p-7 text-3xl sm:text-2xl font-bold border w-full rounded-full sm:p-4 sm:pl-8" type="text"
-      placeholder="Buscar ciudad" id="busqueda">
-  </section>
+<!-- Info Tiempo (section) y Comentarios usuarios (Aside) -->
+<main class="sm:grid sm:grid-cols-3">
 
-  <!-- SECTION TIEMPO DE HOY -->
-  <section class="tiempo-container border p-4 grid sm:grid-cols-5  rounded-2xl mt-2">
-    <section class="temperaturas  sm:col-span-3">
-      <!-- Ciudad -->
-      <h2 class="text-4xl font-black ">Murcia,ES</h2>
-      <!-- Temperaturas -->
-      <div class="flex flex-row justify-between sm:justify-start  items-center">
-        <div class="flex flex-row">
-          <h3 class="text-8xl font-black">22</h3>
-          <div class="flex flex-col mt-2 text-2xl font-black">
-            <span>ºC</span>
-            <span class="text-slate-300">ºF</span>
+  <section class="main w-4/5 m-auto sm:w-4/5  xl:w-5/6 sm:col-span-2">
+    <!-- INPUT DE BUSQUEDA -->
+    <section class="input my-8">
+      <input class="p-7 text-3xl sm:text-2xl font-bold border w-full rounded-full sm:p-4 sm:pl-8" type="text"
+        placeholder="Buscar ciudad" id="busqueda">
+    </section>
+    <!-- SECTION TIEMPO DE HOY -->
+    <section class="tiempo-container border-slate-900 border-2 p-4 sm:grid sm:grid-cols-5 rounded-2xl mt-2">
+      <section class="temperaturas  sm:col-span-3 ">
+        <!-- Ciudad -->
+        <h2 class="text-4xl font-black ">Murcia,ES</h2>
+        <!-- Temperaturas -->
+        <div class="flex flex-row justify-between sm:justify-start  items-center">
+          <div class="flex flex-row">
+            <h3 class="text-8xl font-black">22</h3>
+            <div class="flex flex-col mt-2 text-2xl font-black">
+              <span>ºC</span>
+              <span class="text-slate-300">ºF</span>
+            </div>
+          </div>
+          <div class="mr-8">
+            <img src="../assets/icons/sol_medio_dia.png" alt="icon">
           </div>
         </div>
-        <div class="mr-8">
+        <!-- max y min -->
+        <div class="info flex flex-col">
+          <article class="flex flex-row gap-4 mt-4 text-2xl font-bold">
+            <div class="flex flex-row ">
+              <img src="../assets/icons/temp_up.svg" alt="">
+              <p class="ml-1">25º</p>
+            </div>
+            <div class="flex flex-row">
+              <img src="../assets/icons/temp_down.svg" alt="">
+              <p class="ml-1">9º</p>
+            </div>
+          </article>
+          <!-- Descripcion, dia semana y hora actual -->
+          <div class="text-lg mb-8 font-bold">
+            <p>Despejado Vie, 12:00</p>
+          </div>
+        </div>
+      </section>
+      <!-- Publicaciones -->
+      <div class="grid grid-cols-2 gap-4  sm:grid-cols-2 sm:col-span-2">
+        <img class="aspect-square rounded-xl" src="{{ imgAbstracta }}" alt="">
+        <img class="aspect-square rounded-xl" src="{{ imagenDesierto }}" alt="">
+        <img class="aspect-square rounded-xl hidden sm:block " src="{{ imagenDesierto }}" alt="">
+        <img class="aspect-square rounded-xl hidden sm:block " src="{{ imagenDesierto }}" alt="">
+      </div>
+    </section>
+
+
+    <!-- SECTION TIEMPO PRONOSTICO -->
+    <section class="sm:grid sm:grid-cols-5 mt-8 hidden gap-4">
+      <div class="p-4 border text-center flex flex-col gap-2 rounded-3xl">
+        <h3 class="text-3xl font-bold">LUN</h3>
+        <div class="mr-8 flex  w-full justify-center">
           <img src="../assets/icons/sol_medio_dia.png" alt="icon">
         </div>
+        <div class="text-3xl font-bold text-blue-500">
+          <p>22º</p>
+          <p>9º</p>
+        </div>
       </div>
-      <!-- max y min -->
-      <div class="info flex flex-col">
-        <article class="flex flex-row gap-4 mt-4 text-2xl font-bold">
-          <div class="flex flex-row ">
-            <img src="../assets/icons/temp_up.svg" alt="">
-            <p class="ml-1">25º</p>
-          </div>
-          <div class="flex flex-row">
-            <img src="../assets/icons/temp_down.svg" alt="">
-            <p class="ml-1">9º</p>
-          </div>
-        </article>
-        <!-- Descripcion, dia semana y hora actual -->
-        <div class="text-lg mb-8 font-bold">
-          <p>Despejado Vie, 12:00</p>
+      <div class="p-4 border text-center flex flex-col gap-2 rounded-3xl">
+        <h3 class="text-3xl font-bold">LUN</h3>
+        <div class="mr-8 flex  w-full justify-center">
+          <img src="../assets/icons/sol_medio_dia.png" alt="icon">
+        </div>
+        <div class="text-3xl font-bold text-blue-500">
+          <p>22º</p>
+          <p>9º</p>
+        </div>
+      </div>
+      <div class="p-4 border text-center flex flex-col gap-2 rounded-3xl">
+        <h3 class="text-3xl font-bold">LUN</h3>
+        <div class="mr-8 flex  w-full justify-center">
+          <img src="../assets/icons/sol_medio_dia.png" alt="icon">
+        </div>
+        <div class="text-3xl font-bold text-blue-500">
+          <p>22º</p>
+          <p>9º</p>
+        </div>
+      </div>
+      <div class="p-4 border text-center flex flex-col gap-2 rounded-3xl">
+        <h3 class="text-3xl font-bold">LUN</h3>
+        <div class="mr-8 flex  w-full justify-center">
+          <img src="../assets/icons/sol_medio_dia.png" alt="icon">
+        </div>
+        <div class="text-3xl font-bold text-blue-500">
+          <p>22º</p>
+          <p>9º</p>
+        </div>
+      </div>
+      <div class="p-4 border text-center flex flex-col gap-2 rounded-3xl">
+        <h3 class="text-3xl font-bold">LUN</h3>
+        <div class="mr-8 flex  w-full justify-center">
+          <img src="../assets/icons/sol_medio_dia.png" alt="icon">
+        </div>
+        <div class="text-3xl font-bold text-blue-500">
+          <p>22º</p>
+          <p>9º</p>
         </div>
       </div>
     </section>
-    <!-- Publicaciones -->
-    <div class="grid grid-cols-2 gap-4  sm:grid-cols-2 sm:col-span-2">
-      <img class="aspect-square rounded-xl" src="{{ imgAbstracta }}" alt="">
-      <img class="aspect-square rounded-xl" src="{{ imagenDesierto }}" alt="">
-      <img class="aspect-square rounded-xl hidden sm:block " src="{{ imagenDesierto }}" alt="">
-      <img class="aspect-square rounded-xl hidden sm:block " src="{{ imagenDesierto }}" alt="">
-    </div>
-  </section>
 
-  <!-- SECTION TIEMPO PRONOSTICO -->
-  <section class="sm:grid sm:grid-cols-5 mt-8 hidden gap-4">
-    <div class="p-4 border text-center flex flex-col gap-2 rounded-3xl">
-      <h3 class="text-3xl font-bold">LUN</h3>
-      <div class="mr-8 flex  w-full justify-center">
-        <img src="../assets/icons/sol_medio_dia.png" alt="icon">
-      </div>
-      <div class="text-3xl font-bold text-blue-500">
-        <p>22º</p>
-        <p>9º</p>
-      </div>
-    </div>
-    <div class="p-4 border text-center flex flex-col gap-2 rounded-3xl">
-      <h3 class="text-3xl font-bold">LUN</h3>
-      <div class="mr-8 flex  w-full justify-center">
-        <img src="../assets/icons/sol_medio_dia.png" alt="icon">
-      </div>
-      <div class="text-3xl font-bold text-blue-500">
-        <p>22º</p>
-        <p>9º</p>
-      </div>
-    </div>
-    <div class="p-4 border text-center flex flex-col gap-2 rounded-3xl">
-      <h3 class="text-3xl font-bold">LUN</h3>
-      <div class="mr-8 flex  w-full justify-center">
-        <img src="../assets/icons/sol_medio_dia.png" alt="icon">
-      </div>
-      <div class="text-3xl font-bold text-blue-500">
-        <p>22º</p>
-        <p>9º</p>
-      </div>
-    </div>
-    <div class="p-4 border text-center flex flex-col gap-2 rounded-3xl">
-      <h3 class="text-3xl font-bold">LUN</h3>
-      <div class="mr-8 flex  w-full justify-center">
-        <img src="../assets/icons/sol_medio_dia.png" alt="icon">
-      </div>
-      <div class="text-3xl font-bold text-blue-500">
-        <p>22º</p>
-        <p>9º</p>
-      </div>
-    </div>
-    <div class="p-4 border text-center flex flex-col gap-2 rounded-3xl">
-      <h3 class="text-3xl font-bold">LUN</h3>
-      <div class="mr-8 flex  w-full justify-center">
-        <img src="../assets/icons/sol_medio_dia.png" alt="icon">
-      </div>
-      <div class="text-3xl font-bold text-blue-500">
-        <p>22º</p>
-        <p>9º</p>
-      </div>
-    </div>
   </section>
+  <aside class="sm:min-w-max hidden py-4 sm:flex sm:flex-col gap-2 items-start justify-center mt-32 h-max">
+    <div
+      class="card-user border border-slate-900 flex flex-row rounded-full h-max w-max p-3 justify-center items-center">
+      <img class="w-max h-max lg:mr-2" src="../assets/@user1.png" alt="">
+      <div class="">
+        <h3 class="sm:hidden lg:block ">&#64;user2</h3>
+        <p class="sm:hidden lg:block">Hoy hace un dia estupendo</p>
+      </div>
+    </div>
+    <div class="card-user border border-slate-900 flex flex-row rounded-full h-max w-max p-3">
+      <img class="w-max h-max lg:mr-2" src="../assets/@user1.png" alt="">
+      <div>
+        <h3 class="sm:hidden lg:block">&#64;user2</h3>
+        <p class="sm:hidden lg:block">Hoy hace un dia estupendo</p>
+      </div>
+    </div>
+    <div class="card-user border border-slate-900 flex flex-row rounded-full h-max w-max p-3">
+      <img class="w-max h-max lg:mr-2" src="../assets/@user1.png" alt="">
+      <div>
+        <h3 class="sm:hidden lg:block">&#64;user2</h3>
+        <p class="sm:hidden lg:block">Hoy hace un dia estupendo</p>
+      </div>
+    </div>
 
-  <router-outlet></router-outlet>
+  </aside>
 </main>
+<router-outlet></router-outlet>
