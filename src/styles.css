@@ -4,6 +4,11 @@
 @tailwind utilities;
 
 
+:root {
+    font-family: 'Roboto', sans-serif;
+}
+
+
 
 body {
     @apply w-full mx-auto;
