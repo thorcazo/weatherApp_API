@@ -5,6 +5,7 @@ import { RouterOutlet, RouterLink } from '@angular/router';
 import { TiempoComponent } from './components/tiempo/tiempo.component';
 import { NavComponent } from './components/nav/nav.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { AsideComponent } from './components/aside/aside.component';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
     TiempoComponent,
     NavComponent,
     RouterLink,
-    InicioComponent,
+    InicioComponent,AsideComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { AsideComponent } from '../aside/aside.component';
 
 @Component({
   selector: 'app-inicio',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink,AsideComponent],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css',
 })
