@@ -1,25 +1,24 @@
 <!-- COMPONENTE INICIO -->
 
 <!-- SECCION INFO TIEMPO y SECCION USUARIOS (Aside) -->
-<main class="sm:grid sm:grid-cols-3 w-4/5  sm:w-full sm:ml-2 m-auto xl:w-5/6">
+<main class="main-container">
 
   <!-- SECCION INFO TIEMPO -->
-  <section class="main  m-auto sm:col-span-2">
+  <section class="main info-tiempo">
     <!-- INPUT DE BUSQUEDA -->
     <section class="input my-8">
-      <input class="p-7 text-3xl sm:text-2xl font-bold border w-full rounded-full sm:p-4 sm:pl-8" type="text"
-        placeholder="Buscar ciudad" id="busqueda">
+      <input class="input-tiempo" type="text" placeholder="Buscar ciudad" id="busqueda">
     </section>
     <!-- SECCION TIEMPO BUSCADO -->
-    <section class="tiempo-container border-slate-900 border-2 p-4 sm:grid sm:grid-cols-5 rounded-2xl mt-2 ">
-      <section class="temperaturas  sm:col-span-3 ">
+    <section class="tiempo-container">
+      <section class="sm:col-span-3 ">
         <!-- Ciudad -->
         <h2 class="text-4xl font-black ">Murcia,ES</h2>
         <!-- Temperaturas -->
-        <div class="flex flex-row justify-between sm:justify-start  items-center">
-          <div class="flex flex-row">
+        <div class="temperaturas">
+          <div class="f-row">
             <h3 class="text-8xl font-black">22</h3>
-            <div class="flex flex-col mt-2 text-2xl font-black">
+            <div class="f-col mt-2 text-2xl font-black">
               <span>ºC</span>
               <span class="text-slate-300">ºF</span>
             </div>
@@ -29,13 +28,13 @@
           </div>
         </div>
         <!-- max y min -->
-        <div class="info flex flex-col">
-          <article class="flex flex-row gap-4 mt-4 text-2xl font-bold">
+        <div class="info f-col">
+          <article class="f-row gap-4 mt-4 text-2xl font-bold">
             <div class="flex flex-row ">
               <img src="../assets/icons/temp_up.svg" alt="">
               <p class="ml-1">25º</p>
             </div>
-            <div class="flex flex-row">
+            <div class="f-row">
               <img src="../assets/icons/temp_down.svg" alt="">
               <p class="ml-1">9º</p>
             </div>
@@ -47,20 +46,20 @@
         </div>
       </section>
       <!-- Publicaciones -->
-      <div class="grid grid-cols-2 gap-4  sm:grid-cols-2 sm:col-span-2">
-        <img class="aspect-square rounded-xl" src="{{ imgAbstracta }}" alt="">
-        <img class="aspect-square rounded-xl" src="{{ imagenDesierto }}" alt="">
-        <img class="aspect-square rounded-xl hidden sm:block " src="{{ imagenDesierto }}" alt="">
-        <img class="aspect-square rounded-xl hidden sm:block " src="{{ imagenDesierto }}" alt="">
+      <div class="publicaciones">
+        <img src="{{ imgAbstracta }}" alt="">
+        <img src="{{ imagenDesierto }}" alt="">
+        <img src="{{ imagenDesierto }}" alt="">
+        <img src="{{ imagenDesierto }}" alt="">
       </div>
     </section>
 
 
     <!-- SECTION TIEMPO PRONOSTICO -->
-    <section class="sm:grid sm:grid-cols-5 mt-8 hidden gap-4">
-      <div class="p-4 border text-center flex flex-col gap-2 rounded-3xl">
+    <section class="section-pronostico">
+      <div class="pronostico-dia">
         <h3 class="text-3xl font-bold">LUN</h3>
-        <div class="mr-8 flex  w-full justify-center">
+        <div class="mr-8 flex w-full justify-center">
           <img src="../assets/icons/sol_medio_dia.png" alt="icon">
         </div>
         <div class="text-3xl font-bold text-blue-500">
@@ -68,6 +67,7 @@
           <p>9º</p>
         </div>
       </div>
+      <!-- ESTA YA SE REPITE, es igual que el de arriba -->
       <div class="p-4 border text-center flex flex-col gap-2 rounded-3xl">
         <h3 class="text-3xl font-bold">LUN</h3>
         <div class="mr-8 flex  w-full justify-center">
@@ -109,13 +109,12 @@
         </div>
       </div>
     </section>
-
   </section>
 
   <!-- SECTION USUARIOS -->
-  <aside class="sm:min-w-max sm:ml-8 hidden py-4 sm:flex sm:flex-col gap-2 items-start justify-center mt-32 h-max">
-    <a routerLink="user/publicacion"
-      class="card-user border border-slate-900 flex flex-row rounded-full h-max w-max p-3 justify-center items-center">
+  <aside class="section-usuario">
+    <!-- PUBLICACION USUARIO -->
+    <a routerLink="user/publicacion" class="card-user publicacion-usuario">
       <img class="w-max h-max lg:mr-2" src="../assets/@user1.png" alt="">
       <div class="">
         <h3 class="sm:hidden lg:block ">&#64;user2</h3>
@@ -138,8 +137,6 @@
         <p class="sm:hidden lg:block">Hoy hace un dia estupendo</p>
       </div>
     </a>
-
-
   </aside>
 </main>
 <!-- FIN COMPONENTE INICIO -->
