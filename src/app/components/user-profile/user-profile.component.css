@@ -1,8 +1,12 @@
-.publicacion img {
-    @apply transition-all duration-500 ease-in-out;
+.publicacion-user {
+    @apply overflow-hidden border-2 border-slate-900 rounded-lg;
 }
 
-.publicacion:hover img {
-    @apply transform scale-105 transition-all duration-200 ease-in-out opacity-85;
+.publicacion-user img {
+    @apply transition-all duration-500 ease-in-out rounded-lg;
+}
+
+.publicacion-user:hover img {
+    @apply opacity-90 scale-105;
 
 }
