@@ -1,13 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment as env } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class OpenWeatherService {
-  apiKey = env.apiKey;
+  apiKey = '';
 
   constructor(private http: HttpClient) {}
 
@@ -17,7 +16,6 @@ export class OpenWeatherService {
     );
   }
 
-  
   /* https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid={API key} */
 
   getForecast(ciudad: string, lat: number, lon: number): Observable<any> {
