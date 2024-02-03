@@ -22,8 +22,5 @@ export class OpenWeatherService {
     return this.http.get<any>(url);
   }
 
-  get16DaysForecast(lat: number, lon: number): Observable<any> {
-    const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&lang=es&appid=${this.apikey3}&units=metric`;
-    return this.http.get<any>(url);
-  }
+
 }

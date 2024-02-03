@@ -42,7 +42,6 @@
       <div class="card-body" *ngIf="hourlyForecastData.length != 0">
         <div>
           <div *ngFor="let forecast of hourlyForecastData">
-            <h2>{{ forecast.name }}</h2>
             <p>Fecha y hora: {{ forecast.dt_txt }}</p>
             <p>Temperatura: {{ forecast.main.temp }} °C</p>
             <p>Descripción: {{ forecast.weather[0].description }}</p>
