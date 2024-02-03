@@ -6,6 +6,7 @@ import { TiempoComponent } from './components/tiempo/tiempo.component';
 import { NavComponent } from './components/nav/nav.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { AsideComponent } from './components/aside/aside.component';
+import { PieComponent } from './components/pie/pie.component';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ import { AsideComponent } from './components/aside/aside.component';
     TiempoComponent,
     NavComponent,
     RouterLink,
-    InicioComponent,AsideComponent
+    InicioComponent,AsideComponent,
+    PieComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
