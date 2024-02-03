@@ -7,24 +7,25 @@
   <section class="main info-tiempo">
     <!-- INPUT DE BUSQUEDA -->
     <section class="input my-8">
-      <input class="input-tiempo" type="text" placeholder="Buscar ciudad" id="busqueda">
+      <input #busqueda (keydown.enter)="mostrarDatos(busqueda.value)" class="input-tiempo" type="text" placeholder="Buscar ciudad" id="busqueda">
     </section>
     <!-- SECCION TIEMPO BUSCADO -->
     <section class="tiempo-container">
       <section class="sm:col-span-3 ">
         <!-- Ciudad -->
-        <h2 class="text-4xl font-black ">Murcia,ES</h2>
+        <h2 class="text-4xl font-black ">{{ posts.name }}</h2>
         <!-- Temperaturas -->
         <div class="temperaturas">
           <div class="f-row">
-            <h3 class="text-8xl font-black">22</h3>
+            <h3 class="text-8xl font-black">{{ posts.main.temp }}</h3>
             <div class="f-col mt-2 text-2xl font-black">
               <span>ºC</span>
               <span class="text-slate-300">ºF</span>
             </div>
           </div>
           <div class="mr-8">
-            <img src="../assets/icons/sol_medio_dia.png" alt="icon">
+            <!-- iconos {{ posts.weather[0].description }} -->
+            <img  src="../assets/icons/sol_medio_dia.png" alt="icon">
           </div>
         </div>
         <!-- max y min -->
@@ -32,16 +33,16 @@
           <article class="f-row gap-4 mt-4 text-2xl font-bold">
             <div class="flex flex-row ">
               <img src="../assets/icons/temp_up.svg" alt="">
-              <p class="ml-1">25º</p>
+              <p class="ml-1">{{ posts.main.temp_max }}</p>
             </div>
             <div class="f-row">
               <img src="../assets/icons/temp_down.svg" alt="">
-              <p class="ml-1">9º</p>
+              <p class="ml-1">{{ posts.main.temp_min }}</p>
             </div>
           </article>
           <!-- Descripcion, dia semana y hora actual -->
           <div class="text-lg mb-8 font-bold">
-            <p>Despejado Vie, 12:00</p>
+            <p>{{nombreDia}}, {{hora}}:{{minuto}}</p>
           </div>
         </div>
       </section>

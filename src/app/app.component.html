@@ -1,4 +1,9 @@
-<div>
+<section class="md:w-4/5 m-auto">
+  <app-nav></app-nav>
+  <router-outlet></router-outlet>
+</section>
+
+<!-- <div>
   <h3>Haz tu busqueda</h3>
   <input #busqueda (keydown.enter)="mostrarDatos(busqueda.value)" type="text" placeholder="Buscar una ciudad">
 </div>
@@ -13,5 +18,4 @@
   <p>Presión: {{ posts.main.pressure }} hPa</p>
   <p>Descripción: {{ posts.weather[0].description }}</p>
 </div>
-}
-<router-outlet></router-outlet>
+} -->

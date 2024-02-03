@@ -1,9 +1,11 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { AsyncPipe, CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { OpenWeatherService } from './services/open-weather.service';
 import { Observable, Subject, switchMap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { NavComponent } from './components/nav/nav.component';
+import { InicioComponent } from './components/inicio/inicio.component';
 
 @Component({
   selector: 'app-root',
