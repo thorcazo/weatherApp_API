@@ -1,42 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+// You can add global styles to this file, and also import other style files
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
+/// Colores principales del tema
 :root {
-    /* Colores */
-    -primario: #023047;
-    -degradado-azul: #8ECAE6;
-    -degradado-azul-oscuro: #219EBC;
-    -button: #FFB703;
-    -button-hover: #FB8500;
+    /// Color primario para el diseño
+    /// @type Color
+    --primario: #023047;
 
+    /// Color inicial para el degradado azul
+    /// @type Color
+    --degradado-azul: #8ECAE6;
 
+    /// Color final para el degradado azul oscuro
+    /// @type Color
+    --degradado-azul-oscuro: #219EBC;
 
+    /// Color de fondo para botones
+    /// @type Color
+    --button: #FFB703;
 
+    /// Color de fondo para botones al pasar el mouse
+    /// @type Colorw
+    --button-hover: #FB8500;
 }
-
-
-
 
 body {
     @apply w-full mx-auto;
 }
 
-
+/// Clase para estilizar el logo
 .logo {
     font-weight: 700;
     font-size: 44px;
 }
 
+/// Posicionamiento para el elemento h1 dentro de .logo
 .logo h1 {
     position: relative;
-
 }
 
-/* NAV */
+// NAV
 
+/// Efecto de degradado para el texto dentro de .logo
 .logo span {
     position: absolute;
     top: 25px;
@@ -48,62 +55,74 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-/* TIEMPO-CONTAINER */
+/// Contenedor principal para el tiempo con sombra y bordes
 .tiempo-container {
     box-shadow: 8px 8px 0px rgb(1, 10, 91);
     @apply border-slate-900 border-2 p-4 sm:grid sm:grid-cols-5 rounded-2xl mt-2;
 }
 
+/// Estilos para el contenedor principal
 .main-container {
     @apply sm:grid sm:grid-cols-3 w-4/5 sm:w-full sm:ml-2 m-auto xl:w-5/6;
 }
 
+/// Estilos para la información del tiempo
 .info-tiempo {
     @apply m-auto sm:col-span-2;
 }
 
+/// Estilos para el input del tiempo
 .input-tiempo {
     @apply p-7 text-3xl sm:text-2xl font-bold border w-full rounded-full sm:p-4 sm:pl-8;
 }
 
+/// Estilo para filas flexibles
 .f-row {
     @apply flex flex-row;
 }
 
+/// Estilo para columnas flexibles
 .f-col {
     @apply flex flex-col;
 }
 
+/// Estilos para la sección de publicaciones
 .publicaciones {
     @apply grid grid-cols-2 gap-4 sm:grid-cols-2 sm:col-span-2;
 }
 
+/// Estilos para las imágenes en publicaciones
 .publicaciones img {
     @apply aspect-square rounded-xl;
 }
 
+/// Oculta las terceras y cuartas imágenes en pantallas pequeñas
 .publicaciones img:nth-child(3),
 .publicaciones img:nth-child(4) {
     @apply hidden sm:block;
-
 }
 
+/// Estilos para la sección de pronóstico extendido
 .section-pronostico {
     @apply sm:grid sm:grid-cols-5 mt-8 hidden gap-4;
 }
 
+/// Estilos para cada día en el pronóstico
 .pronostico-dia {
     @apply p-4 border text-center flex flex-col gap-2 rounded-3xl;
 }
 
+/// Estilos para la sección de usuario
 .section-usuario {
     @apply sm:min-w-max sm:ml-8 hidden py-4 sm:flex sm:flex-col gap-2 items-start justify-center mt-32 h-max;
 }
 
+/// Estilos para la publicación de usuario
 .publicacion-usuario {
     @apply border border-slate-900 flex flex-row rounded-full h-max w-max p-3 justify-center items-center;
 }
 
+/// Estilos para las publicaciones en el perfil de usuario
 .publicaciones-perfil-usuario {
     @apply grid grid-cols-2 sm:grid-cols-3 gap-2 py-2;
 }
