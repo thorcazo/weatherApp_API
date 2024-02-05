@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { AsideComponent } from '../aside/aside.component';
 import { OpenWeatherService } from '../../services/open-weather.service';
 
 @Component({
   selector: 'app-inicio',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink,AsideComponent],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css',
 })

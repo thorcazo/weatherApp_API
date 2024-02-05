@@ -6,6 +6,8 @@ import { Observable, Subject, switchMap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { NavComponent } from './components/nav/nav.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { AsideComponent } from './components/aside/aside.component';
+import { PieComponent } from './components/pie/pie.component';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +18,8 @@ import { InicioComponent } from './components/inicio/inicio.component';
     RouterOutlet,
     NavComponent,
     RouterLink,
-    InicioComponent,
+    InicioComponent,AsideComponent,
+    PieComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
