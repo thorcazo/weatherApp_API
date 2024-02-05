@@ -1,52 +1,12 @@
-/* .asideWh .user1 {
-    display: flex;
-    
-    align-items: center;
-
-    
+.card-user {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.user1{
-
-    border: 10px solid black;
-
-    border-radius: 50px;
-
-    margin-bottom: 30px;
+.card-user:hover {
+    transform: scale(1.05);
+    background-color: #fff;
+    border: 1px solid #000;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: #000
 }
-
-.asideWh{
-    
-    float: right;
-
-    width: 40%;
-
-    height: 150px;
-
-    margin-top: 10%;
-
-    margin-right: 20px;
-}
-
-.asideWh .user1 img {
-    margin: 20px;
-    max-width: 100px;
-
-    border-radius: 50%;
-
-}
-
-.asideWh .user1 .profile-info {
-    display: flex;
-    flex-direction: column;
-}
-
-.profile-info{
-    margin-left: 100px;
-}
-
-
-.asideWh .user1 h1,
-.asideWh .user1 h5 {
-    margin: 0;
-} */

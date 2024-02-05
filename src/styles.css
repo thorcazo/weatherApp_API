@@ -4,6 +4,17 @@
 @tailwind utilities;
 
 
+:root {
+    /* Colores */
+
+
+
+
+
+}
+
+
+
 
 body {
     @apply w-full mx-auto;
