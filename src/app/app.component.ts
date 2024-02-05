@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AsyncPipe, CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { OpenWeatherService } from './services/open-weather.service';
+import { InicioComponent } from './components/inicio/inicio.component';
+import { NavComponent } from './components/nav/nav.component';
 
 @Component({
   selector: 'app-root',
@@ -17,57 +19,21 @@ import { OpenWeatherService } from './services/open-weather.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-
-
 export class AppComponent implements OnInit {
-[x: string]: any;
+  [x: string]: any;
   posts: any = [];
 
-
-  
   hourlyForecastData: any = []; // Nueva propiedad para los datos del pronóstico horario
   dieciseisDiasforecastData: any = []; // Nueva propiedad para los datos del pronóstico a 16 días
   constructor(private service: OpenWeatherService) {}
 
-
-
   // ESTO SE EJECUTA AL INICIO
   ngOnInit(): void {
     this.fetchPosts('Murcia'); // C con la ciudad de Murcia
-
-  } 
-  
+  }
 
 
 
-
-  // loadHourlyForecast(lat: number, lon: number): void {
-  //   this.service.getHourlyForecast(lat, lon).subscribe(
-  //     (res) => {
-  //       console.log('Respuesta de la API de pronóstico horario:', res);
-  //       this.hourlyForecastData = res.list; 
-  //     },
-  //     (error) => {
-  //       console.error('Error al obtener el pronóstico horario:', error);
-  //     }
-  //   );
-  // }
-  
-
-
-  // loadDiecesisDiasForecast(lat: number, lon: number): void {
-  //   this.service.get16DaysForecast(lat, lon).subscribe(
-  //     (res) => {
-  //       console.log('Respuesta de la API de pronóstico a 16 días:', res);
-  //       this.dieciseisDiasforecastData = res.list; 
-  //     },
-  //     (error) => {
-  //       console.error('Error al obtener el pronóstico a 16 días:', error);
-  //     }
-  //   );
-  // }
-  
-  
   fetchPosts(ciudad: string): void {
     this.service.getOpenWeather(ciudad).subscribe((res) => {
       this.posts = res;
@@ -75,7 +41,6 @@ export class AppComponent implements OnInit {
       const lon = res.coord.lon;
 
       this.loadHourlyForecast(lat, lon);
-
     });
   }
 
@@ -94,20 +59,5 @@ export class AppComponent implements OnInit {
       }
     );
   }
-  
-
-
 }
-
-  
-  // mostrarPronostico(ciudad: string) {
-  //   this.fetchPosts(ciudad).subscribe((datos) => {
-  //     this.getForecast(ciudad, datos.coord.lat, datos.coord.lon).subscribe(
-  //       (forecast) => {
-  //         console.log(forecast);
-  //       }
-  //     );
-  //   });
-  
-
 
