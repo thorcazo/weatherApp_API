@@ -28,17 +28,3 @@
     }
 
 }
-
-.card-user {
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.card-user:hover {
-    transform: scale(1.05);
-    background-color: #fff;
-    border: 1px solid #000;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-
-}
