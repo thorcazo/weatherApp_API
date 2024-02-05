@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { OpenWeatherService } from '../../services/open-weather.service';
 
@@ -9,42 +9,48 @@ import { OpenWeatherService } from '../../services/open-weather.service';
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css',
 })
-export class InicioComponent implements OnInit {
-  [x: string]: any;
-  posts: any = [];
+export class InicioComponent {
+  @Input() posts:any;
 
-  hourlyForecastData: any = []; // Nueva propiedad para los datos del pronóstico horario
-  dieciseisDiasforecastData: any = []; // Nueva propiedad para los datos del pronóstico a 16 días
+  fechaActual = new Date();
+
+  dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+  nombreDia = this.dias[this.fechaActual.getDay()];
+
+  hora = this.fechaActual.getHours();
+  minuto = this.fechaActual.getMinutes();
+
+  ciudades:Array<any> = [
+    'cartagena',
+    'cordoba',
+    'córdoba'
+  ]
+
   constructor(private service: OpenWeatherService) {}
 
-  // ESTO SE EJECUTA AL INICIO
   ngOnInit(): void {
     this.fetchPosts('Murcia'); // C con la ciudad de Murcia
-  }
+  } 
 
   fetchPosts(ciudad: string): void {
     this.service.getOpenWeather(ciudad).subscribe((res) => {
+      console.log(res);
       this.posts = res;
-      const lat = res.coord.lat;
-      const lon = res.coord.lon;
-
-      this.loadHourlyForecast(lat, lon);
     });
   }
 
   public mostrarDatos(ciudad: string) {
+    if ( this.ciudades.includes( ciudad.toLowerCase().trim() ) ) {
+      ciudad += ',es';
+    }
     return this.fetchPosts(ciudad);
   }
 
-  loadHourlyForecast(lat: number, lon: number): void {
-    this.service.getHourlyForecast(lat, lon).subscribe(
-      (res) => {
-        console.log('Respuesta de la API de pronóstico horario:', res);
-        this.hourlyForecastData = res.list; // Asegúrate de que 'res' tenga una propiedad 'list'
-      },
-      (error) => {
-        console.error('Error al obtener el pronóstico horario:', error);
-      }
-    );
-  }
+  imagenDesierto =
+    'https://images.unsplash.com/photo-1683009680116-b5c04463551d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+  imagenPrueba =
+    'https://images.unsplash.com/photo-1439792675105-701e6a4ab6f0?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+
+  imgAbstracta =
+    'https://plus.unsplash.com/premium_photo-1672329275106-073b5493c00f?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 }

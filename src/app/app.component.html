@@ -1,3 +1,21 @@
-<app-nav></app-nav>
+<section class="md:w-4/5 m-auto">
+  <app-nav></app-nav>
+  <router-outlet></router-outlet>
+</section>
 
-<router-outlet></router-outlet>
+<!-- <div>
+  <h3>Haz tu busqueda</h3>
+  <input #busqueda (keydown.enter)="mostrarDatos(busqueda.value)" type="text" placeholder="Buscar una ciudad">
+</div>
+
+<div>Resultados</div>
+@if(posts.length != 0){
+<div>
+  <h2>{{ posts.name }}</h2>
+  <p>Temp mínima: {{ posts.main.temp_min }}°C</p>
+  <p>Temp máxima: {{ posts.main.temp_max }}°C</p>
+  <p>Humedad: {{ posts.main.humidity }}%</p>
+  <p>Presión: {{ posts.main.pressure }} hPa</p>
+  <p>Descripción: {{ posts.weather[0].description }}</p>
+</div>
+} -->
