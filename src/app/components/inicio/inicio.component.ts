@@ -50,4 +50,8 @@ export class InicioComponent {
     }
     return this.fetchPosts(ciudad);
   }
+
+  convertirGrados(grados: any): number {
+    return Math.round(grados - 273.15);
+  }
 }
