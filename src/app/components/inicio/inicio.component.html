@@ -13,14 +13,14 @@
     <section class="tiempo-container">
       <section class="sm:col-span-3 ">
         <!-- Ciudad -->
-        <h2 class="text-4xl font-black ">{{ posts.name }}</h2>
+        <h2 class="text-4xl font-black ">{{ posts.city.name }}</h2>
         <!-- Temperaturas -->
         <div class="temperaturas">
           <div class="f-row">
-            <h3 class="text-8xl font-black">{{ posts.main.temp }}</h3>
+            <h3 #grados class="text-8xl font-black">{{ posts.list[0].temp.day}}</h3>
             <div class="f-col mt-2 text-2xl font-black">
-              <span>ºC</span>
-              <span class="text-slate-300">ºF</span>
+              <span (click)="cambiarTemperatura()" [class.text-black]="!esFahrenheit" [class.text-slate-300]="esFahrenheit">ºC</span>
+              <span (click)="cambiarTemperatura()" [class.text-black]="esFahrenheit" [class.text-slate-300]="!esFahrenheit">ºF</span>
             </div>
           </div>
           <div class="mr-8">
@@ -33,11 +33,11 @@
           <article class="f-row gap-4 mt-4 text-2xl font-bold">
             <div class="flex flex-row ">
               <img src="../assets/icons/temp_up.svg" alt="">
-              <p class="ml-1">{{ posts.main.temp_max }}</p>
+              <p class="ml-1">{{ posts.list[0].temp.max}}</p>
             </div>
             <div class="f-row">
               <img src="../assets/icons/temp_down.svg" alt="">
-              <p class="ml-1">{{ posts.main.temp_min }}</p>
+              <p class="ml-1">{{ posts.list[0].temp.min }}</p>
             </div>
           </article>
           <!-- Descripcion, dia semana y hora actual -->
@@ -56,57 +56,57 @@
     </section>
 
 
-    <!-- SECTION TIEMPO PRONOSTICO -->
+    SECTION TIEMPO PRONOSTICO
     <section class="section-pronostico">
       <div class="pronostico-dia">
-        <h3 class="text-3xl font-bold">LUN</h3>
+        <h3 class="text-3xl font-bold">{{dias[getDiaSiguiente(1)].toUpperCase().substring(0,3)}}</h3>
         <div class="mr-8 flex w-full justify-center">
           <img src="../assets/icons/sol_medio_dia.png" alt="icon">
         </div>
         <div class="text-3xl font-bold text-blue-500">
-          <p>22º</p>
-          <p>9º</p>
+          <p>{{ posts.list[1].temp.max}}</p>
+          <p>{{ posts.list[1].temp.min}}</p>
         </div>
       </div>
       <!-- ESTA YA SE REPITE, es igual que el de arriba -->
       <div class="p-4 border text-center flex flex-col gap-2 rounded-3xl">
-        <h3 class="text-3xl font-bold">LUN</h3>
+        <h3 class="text-3xl font-bold">{{dias[getDiaSiguiente(2)].toUpperCase().substring(0,3)}}</h3>
         <div class="mr-8 flex  w-full justify-center">
           <img src="../assets/icons/sol_medio_dia.png" alt="icon">
         </div>
         <div class="text-3xl font-bold text-blue-500">
-          <p>22º</p>
-          <p>9º</p>
+          <p>{{ posts.list[2].temp.max}}</p>
+          <p>{{ posts.list[2].temp.min}}</p>
         </div>
       </div>
       <div class="p-4 border text-center flex flex-col gap-2 rounded-3xl">
-        <h3 class="text-3xl font-bold">LUN</h3>
+        <h3 class="text-3xl font-bold">{{dias[getDiaSiguiente(3)].toUpperCase().substring(0,3)}}</h3>
         <div class="mr-8 flex  w-full justify-center">
           <img src="../assets/icons/sol_medio_dia.png" alt="icon">
         </div>
         <div class="text-3xl font-bold text-blue-500">
-          <p>22º</p>
-          <p>9º</p>
+          <p>{{ posts.list[3].temp.max}}</p>
+          <p>{{ posts.list[3].temp.min}}</p>
         </div>
       </div>
       <div class="p-4 border text-center flex flex-col gap-2 rounded-3xl">
-        <h3 class="text-3xl font-bold">LUN</h3>
+        <h3 class="text-3xl font-bold">{{dias[getDiaSiguiente(4)].toUpperCase().substring(0,3)}}</h3>
         <div class="mr-8 flex  w-full justify-center">
           <img src="../assets/icons/sol_medio_dia.png" alt="icon">
         </div>
         <div class="text-3xl font-bold text-blue-500">
-          <p>22º</p>
-          <p>9º</p>
+          <p>{{ posts.list[4].temp.max}}</p>
+          <p>{{ posts.list[4].temp.min}}</p>
         </div>
       </div>
       <div class="p-4 border text-center flex flex-col gap-2 rounded-3xl">
-        <h3 class="text-3xl font-bold">LUN</h3>
+        <h3 class="text-3xl font-bold">{{dias[getDiaSiguiente(5)].toUpperCase().substring(0,3)}}</h3>
         <div class="mr-8 flex  w-full justify-center">
           <img src="../assets/icons/sol_medio_dia.png" alt="icon">
         </div>
         <div class="text-3xl font-bold text-blue-500">
-          <p>22º</p>
-          <p>9º</p>
+          <p>{{ posts.list[5].temp.max}}</p>
+          <p>{{ posts.list[5].temp.min}}</p>
         </div>
       </div>
     </section>

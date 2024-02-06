@@ -24,6 +24,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 export class AppComponent implements OnInit {
   http = inject(HttpClient);
   posts: any = [];
+  posts2: any = []; 
 
   constructor(private service: OpenWeatherService) {}
 
