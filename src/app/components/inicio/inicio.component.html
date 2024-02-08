@@ -6,19 +6,19 @@
   <!-- SECCION INFO TIEMPO -->
   <section class="main info-tiempo">
     <!-- INPUT DE BUSQUEDA -->
-    <section class="input my-8">
-      <input #busqueda (keydown.enter)="mostrarDatos(busqueda.value)" class="input-tiempo" type="text"
-        placeholder="Buscar ciudad" id="busqueda">
+    <section class="input my-8 ">
+      <input  #busqueda (keydown.enter)="mostrarDatos(busqueda.value)"
+        class="input-tiempo" type="text" placeholder="Buscar ciudad" id="busqueda">
     </section>
     <!-- SECCION TIEMPO BUSCADO -->
     <section class="tiempo-container">
-      <section class="sm:col-span-3 ">
+      <section class="sm:col-span-3  ">
         <!-- Ciudad -->
-        <h2 class="text-4xl font-black ">{{ posts.name }}</h2>
+        <h2 class="text-4xl font-black text-primario ">{{ posts.name }}</h2>
         <!-- Temperaturas -->
         <div class="temperaturas">
-          <div class="f-row">
-            <h3 class="text-8xl font-black">{{ posts.main.temp }}</h3>
+          <div class="f-row ">
+            <h3 class="text-8xl font-black text-primario">{{ posts.main.temp }}</h3>
             <div class="f-col mt-2 text-2xl font-black">
 
               <span #temp (click)="convertirGrados(temp)">ºC</span>
@@ -27,7 +27,7 @@
           </div>
           <div class="mr-8">
             <!-- iconos {{ posts.weather[0].description }} -->
-            <img src="../assets/icons/sol_medio_dia.png" alt="icon">
+            <img src="../assets/img/sol_medio_dia.png" alt="">
           </div>
         </div>
         <!-- max y min -->
@@ -35,15 +35,15 @@
           <article class="f-row gap-4 mt-4 text-2xl font-bold">
             <div class="flex flex-row ">
               <img src="../assets/icons/temp_up.svg" alt="">
-              <p class="ml-1">{{ posts.main.temp_max }}</p>
+              <p class="ml-1 text-primario">{{ posts.main.temp_max }}</p>
             </div>
             <div class="f-row">
               <img src="../assets/icons/temp_down.svg" alt="">
-              <p class="ml-1">{{ posts.main.temp_min }}</p>
+              <p class="ml-1 text-primario">{{ posts.main.temp_min }}</p>
             </div>
           </article>
           <!-- Descripcion, dia semana y hora actual -->
-          <div class="text-lg mb-8 font-bold">
+          <div class="text-lg mb-8 font-bold text-primario">
             <p>{{nombreDia}}, {{hora}}:{{minuto}}</p>
           </div>
         </div>
