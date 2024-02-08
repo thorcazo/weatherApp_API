@@ -7,7 +7,8 @@
     "host": "ng serve --host 0.0.0.0",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "compodoc": "npx compodoc -p tsconfig.doc.json"
   },
   "private": true,
   "dependencies": {
@@ -28,6 +29,7 @@
     "@angular-devkit/build-angular": "^17.0.7",
     "@angular/cli": "^17.0.7",
     "@angular/compiler-cli": "^17.0.0",
+    "@compodoc/compodoc": "^1.1.23",
     "@types/jasmine": "~5.1.0",
     "autoprefixer": "^10.4.17",
     "jasmine-core": "~5.1.0",
