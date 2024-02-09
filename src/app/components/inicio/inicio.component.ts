@@ -51,7 +51,6 @@ export class InicioComponent {
 
   fetchPosts(ciudad: string): void {
     this.service.get6DaysForecast(ciudad).subscribe((res) => {
-      console.log(res);
       this.posts = res;
     });
   }
@@ -61,10 +60,6 @@ export class InicioComponent {
       ciudad += ',es';
     }
     return this.fetchPosts(ciudad);
-  }
-
-  get5DaysForecast(ciudad: string) {
-    this.service.get6DaysForecast(ciudad)
   }
 
   gradosAFahrenheit() {
