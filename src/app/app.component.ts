@@ -27,6 +27,7 @@ import { PieComponent } from './components/pie/pie.component';
 export class AppComponent implements OnInit {
   http = inject(HttpClient);
   posts: any = [];
+  posts2: any = []; 
 
   constructor(private service: OpenWeatherService) {}
 
