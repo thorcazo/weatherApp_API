@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AsideComponent } from '../aside/aside.component';
 import { OpenWeatherService } from '../../services/open-weather.service';
+import { UsuariosService } from '../../services/usuarios.service';
 
 @Component({
   selector: 'app-inicio',
@@ -11,7 +12,8 @@ import { OpenWeatherService } from '../../services/open-weather.service';
   styleUrl: './inicio.component.css',
 })
 export class InicioComponent {
-  @Input() posts: any
+
+  posts: any = [];
 
   fechaActual = new Date()
 
@@ -29,6 +31,19 @@ export class InicioComponent {
     'córdoba'
   ]
 
+  private usuariosDB = inject(UsuariosService)
+
+  getUsuarios() {
+    return this.usuariosDB.getUsuarios()
+  }
+
+  getusuariosPorCiudad(ciudad: string) {
+    if(!ciudad){
+      return this.usuariosDB.getUsuariosPorCiudad("murcia")
+    }
+    return this.usuariosDB.getUsuariosPorCiudad(ciudad.toLowerCase().trim())
+  }
+
   constructor(private service: OpenWeatherService) { }
 
   ngOnInit(): void {
@@ -37,7 +52,6 @@ export class InicioComponent {
 
   fetchPosts(ciudad: string): void {
     this.service.get6DaysForecast(ciudad).subscribe((res) => {
-      console.log(res);
       this.posts = res;
     });
   }
@@ -47,10 +61,6 @@ export class InicioComponent {
       ciudad += ',es';
     }
     return this.fetchPosts(ciudad);
-  }
-
-  get5DaysForecast(ciudad: string) {
-    this.service.get6DaysForecast(ciudad)
   }
 
   gradosAFahrenheit() {
