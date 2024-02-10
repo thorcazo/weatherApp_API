@@ -6,6 +6,6 @@ import { PublicacionDetailsComponent } from './components/publicacion-details/pu
 export const routes: Routes = [
   { path: '', component: InicioComponent },
   { path: 'user', component: UserProfileComponent },
-  { path: 'user/publicacion', component: PublicacionDetailsComponent },
+  { path: 'user/publicacion/:id', component: PublicacionDetailsComponent },
   { path: 'user/publicacion/user', redirectTo: 'user' },
 ];

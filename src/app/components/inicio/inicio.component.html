@@ -43,7 +43,7 @@
           </article>
           <!-- Descripcion, dia semana y hora actual -->
           <div class="text-lg mb-8 font-bold text-primario">
-            <p>{{nombreDia}}, {{hora}}:{{minuto}}</p>
+            <p class="ml-5">{{nombreDia}}, {{hora}}:{{minuto}}</p>
           </div>
         </div>
       </section>
@@ -52,8 +52,10 @@
         @for (user of getusuariosPorCiudad(busqueda.value); track user.id) {
           @for (publicacion of user.publicaciones; track $index) {
             @if (publicacion.url) {
-              <img [src]="'assets/img/' +  posts.city.name  + publicacion.url" [alt]="'imagen de ' + posts.city.name">
-            }
+              <a  [routerLink]="'/user/publicacion/' + publicacion.id">
+                <img [src]="'assets/img/' +  posts.city.name  + publicacion.url" [alt]="'imagen de ' + posts.city.name">
+              </a>
+              }
           }
         }
 
@@ -62,7 +64,7 @@
 
 
     <!-- SECTION TIEMPO PRONOSTICO -->
-    <section class="section-pronostico mb-8">
+    <section class="section-pronostico ">
       @for (post of posts.list.slice(1); track $index) {
         <div class="pronostico-dia">
           <h3 class="text-3xl font-bold">{{dias[getDiaSiguiente($index)].toUpperCase().substring(0,3)}}</h3>
@@ -70,8 +72,8 @@
             <img src="../assets/icons/sol_medio_dia.png" alt="icon">
           </div>
           <div class="text-3xl font-bold text-blue-500">
-            <p>{{ post.temp.max }}</p>
-            <p>{{ post.temp.min }}</p>
+            <p>{{ post.temp.max.toFixed(0) }}</p>
+            <p>{{ post.temp.min.toFixed(0) }}</p>
           </div>
         </div>
       }
