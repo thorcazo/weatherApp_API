@@ -7,8 +7,32 @@ export class UsuariosService {
 
 
   private usuarios = [
-    { id: 1, nombre: 'Juan', ciudad: 'murcia', imagenPerfil: 'imagen1.jpg', comentario: 'Buen tiempo, día soleado'},
-    { id: 2, nombre: 'Ana', ciudad: 'murcia', imagenPerfil: 'imagen2.jpg', comentario: 'Tiempo estupendo, sin nubes ni viento!' },
+    {
+      id: 1,
+      nombre: 'Juan',
+      ciudad: 'murcia',
+      imagenPerfil: 'juan.jpg',
+
+      publicaciones: [
+        {
+          id: 1,
+          comentario: 'Buen tiempo, día soleado',
+          url: '/img-amanecer.jpg'
+        }]
+
+    },
+    {
+      id: 2,
+      nombre: 'Ana',
+      ciudad: 'murcia',
+      imagenPerfil: 'ana.jpg',
+      publicaciones: [
+        {
+          id: 1,
+          comentario: 'Una noche estupenda',
+          url: '/img-noche.jpg'
+        }]
+    },
     { id: 3, nombre: 'Sergio', ciudad: 'murcia', imagenPerfil: 'imagen3.jpg', comentario: 'Tiempo genial para salir a pasear' },
     { id: 4, nombre: 'Pablo', ciudad: 'madrid', imagenPerfil: 'imagen4.jpg', comentario: 'Hoy está nublado y hace frio' },
     { id: 5, nombre: 'Sofia', ciudad: 'madrid', imagenPerfil: 'imagen5.jpg', comentario: 'No es el mejor día para ir al monte' },

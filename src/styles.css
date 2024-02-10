@@ -10,6 +10,7 @@
   --degradado-azul-oscuro: #219EBC;
   --button: #FFB703;
   --button-hover: #FB8500;
+  --fondo: #c5e6f5;
 }
 
 body {
@@ -68,7 +69,7 @@ body {
 }
 
 .publicaciones img {
-  @apply aspect-square rounded-xl;
+  @apply hover:scale-105 hover:shadow cursor-pointer transition-transform aspect-square object-cover  rounded-xl;
 }
 
 .publicaciones img:nth-child(3),

@@ -17,11 +17,11 @@
         <h2 class="text-4xl font-black ">{{ posts.city.name }}</h2>
         <!-- Temperaturas -->
         <div class="temperaturas">
-          <div class="f-row">
+          <div class="f-row ">
             <h3 #grados class="text-8xl font-black">{{ posts.list[0].temp.day}}</h3>
-            <div class="f-col mt-2 text-2xl font-black">
-              <span (click)="cambiarTemperatura()" [class.text-black]="!esFahrenheit" [class.text-slate-300]="esFahrenheit">ºC</span>
-              <span (click)="cambiarTemperatura()" [class.text-black]="esFahrenheit" [class.text-slate-300]="!esFahrenheit">ºF</span>
+            <div class="f-col mt-2 text-2xl font-black ml-4">
+              <span  class="cursor-pointer hover:text-button transition-colors  " (click)="cambiarTemperatura()" [class.text-primario]="!esFahrenheit" [class.text-slate-300]="esFahrenheit">ºC</span>
+              <span  class="cursor-pointer hover:text-button transition-colors " (click)="cambiarTemperatura()" [class.text-primario]="esFahrenheit" [class.text-slate-300]="!esFahrenheit">ºF</span>
             </div>
           </div>
           <div class="mr-8">
@@ -47,18 +47,22 @@
           </div>
         </div>
       </section>
-      <!-- Publicaciones -->
+      <!-- IMG Publicaciones -->
       <div class="publicaciones">
-        <img src="" alt="img1">
-        <img src="" alt="img2">
-        <img src="" alt="img3">
-        <img src="" alt="img3">
+        @for (user of getusuariosPorCiudad(busqueda.value); track user.id) {
+          @for (publicacion of user.publicaciones; track $index) {
+            @if (publicacion.url) {
+              <img [src]="'assets/img/' +  posts.city.name  + publicacion.url" [alt]="'imagen de ' + posts.city.name">
+            }
+          }
+        }
+
       </div>
     </section>
 
 
-    SECTION TIEMPO PRONOSTICO
-    <section class="section-pronostico">
+    <!-- SECTION TIEMPO PRONOSTICO -->
+    <section class="section-pronostico mb-8">
       @for (post of posts.list.slice(1); track $index) {
         <div class="pronostico-dia">
           <h3 class="text-3xl font-bold">{{dias[getDiaSiguiente($index)].toUpperCase().substring(0,3)}}</h3>
@@ -77,13 +81,17 @@
   <aside class="section-usuario">
     <!-- PUBLICACION USUARIO -->
     @for (user of getusuariosPorCiudad(busqueda.value); track user.id) {
-      <a routerLink="user/publicacion" class="card-user publicacion-usuario">
-        <img class="w-max h-max lg:mr-2" src="../assets/@user1.png" alt="">
-        <div class="">
-          <h3 class="sm:hidden lg:block ">{{user.nombre}}</h3>
-          <p class="sm:hidden lg:block">{{user.comentario}}</p>
-        </div>
-      </a>
+        @for (publicacion of user.publicaciones; track $index) {
+          @if (publicacion.id) {
+            <a routerLink="user/publicacion" class="card-user publicacion-usuario">
+              <img class="w-max h-max lg:mr-2" [src]="'assets/users/' +  user.nombre + '.png'" alt="">
+              <div class="">
+                <h3 class="sm:hidden lg:block ">{{user.nombre}}</h3>
+                <p class="sm:hidden lg:block">{{publicacion.comentario}}</p>
+              </div>
+            </a>
+          }
+        }
     }
     
   </aside>
