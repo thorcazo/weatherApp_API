@@ -17,7 +17,8 @@ export class UsuariosService {
         {
           id: 1,
           comentario: 'Buen tiempo, día soleado',
-          url: '/img-amanecer.jpg'
+          url: '/img-amanecer.jpg',
+          fechaPublicacion: '2020-10-10'
         }]
 
     },
@@ -25,7 +26,7 @@ export class UsuariosService {
       id: 2,
       nombre: 'Ana',
       ciudad: 'Murcia',
-      imagenPerfil: 'Ana.jpg',
+      imagenPerfil: 'Ana.png',
       publicaciones: [
         {
           id: 2,
@@ -63,32 +64,31 @@ export class UsuariosService {
     return this.usuarios.filter(usuario => usuario.ciudad == ciudad)
   }
 
-
-  getpublicacionPorId(id: number): any {
-    for (let usuario of this.usuarios) {
-      if (usuario.publicaciones) {
-        for (let publicacion of usuario.publicaciones) {
-          if (publicacion.id === id) {
-            // Crear y devolver un objeto que contenga tanto la publicación como los detalles del usuario
-            return {
-              usuario: {
-                id: usuario.id,
-                nombre: usuario.nombre,
-                ciudad: usuario.ciudad,
-                imagenPerfil: usuario.imagenPerfil
-              },
-              publicacion
-            };
-          }
+  getpublicacionPorId(userId: number, pubId: number): any {
+    const usuario = this.usuarios.find(u => u.id === userId);
+    const publicacion = usuario?.publicaciones?.find(p => p.id === pubId);
+    
+    if (usuario && publicacion) {
+      // Retorna un objeto que contiene tanto el usuario como la publicación.
+      return {
+        usuario: {
+          id: usuario.id,
+          nombre: usuario.nombre,
+          ciudad: usuario.ciudad,
+          imagenPerfil: usuario.imagenPerfil
+        },
+        publicacion: {
+          id: publicacion.id,
+          comentario: publicacion.comentario,
+          url: publicacion.url
         }
-      }
+      };
     }
-    return null; // Devuelve null si no encuentra la publicación y el usuario
+    return null; // Devuelve null si no se encuentra el usuario o la publicación.
   }
 
-
-
-
-
-  constructor() { }
+  /* getUsuariobyId */
+  getUsuariobyId(userId: number) {
+    return this.usuarios.find(u => u.id === userId);
+  }
 }

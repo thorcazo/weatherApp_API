@@ -52,13 +52,12 @@
         @for (user of getusuariosPorCiudad(busqueda.value); track user.id) {
           @for (publicacion of user.publicaciones; track $index) {
             @if (publicacion.url) {
-              <a  [routerLink]="'/user/publicacion/' + publicacion.id">
-                <img [src]="'assets/img/' +  posts.city.name  + publicacion.url" [alt]="'imagen de ' + posts.city.name">
+              <a  [routerLink]="['/user/'+user.id+ '/publicacion/'+publicacion.id]">
+                <img [src]="['assets/img/' +  posts.city.name  + publicacion.url]" [alt]="'imagen de ' + posts.city.name">
               </a>
               }
           }
         }
-
       </div>
     </section>
 
@@ -85,7 +84,7 @@
     @for (user of getusuariosPorCiudad(busqueda.value); track user.id) {
         @for (publicacion of user.publicaciones; track $index) {
           @if (publicacion.id) {
-            <a routerLink="user/publicacion" class="card-user publicacion-usuario">
+            <a [routerLink]="'/user/' +user.id +  '/publicacion/' + publicacion.id" class="card-user publicacion-usuario">
               <img class="w-max h-max lg:mr-2" [src]="'assets/users/' +  user.nombre + '.png'" alt="">
               <div class="">
                 <h3 class="sm:hidden lg:block ">{{user.nombre}}</h3>

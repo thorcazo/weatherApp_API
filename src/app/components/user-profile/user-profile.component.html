@@ -3,34 +3,21 @@
     <!-- BANNER USUARIO -->
     <section class="w-full bg-slate-900 rounded-lg p-12 relative">
         <div class="text-slate-100  absolute top-[-20px] left-20">
-            <a routerLink="user">
-                <img class="" src="../../../assets/@user1.png" alt="">
-                <p>Marcelo</p>
-            </a>
+                <img class="" [src]="'assets/users/' + usuario.imagenPerfil" alt="">
+                <p>{{ usuario.nombre}}</p>
         </div>
     </section>
     <!-- IMAGENES DE LAS PUBLICACIONES DEL USUARIO -->
     <section class="publicaciones-perfil-usuario">
+
+      @for (p of usuario.publicaciones; track p.id) {
         <div class="publicacion-user">
-            <a routerLink="publicacion">
-                <img src="../../../assets/img/img-atardecer.png" alt="foto paisaje soleado">
+            <a [routerLink]="'publicacion/' + usuario.id">
+                <img [src]="'assets/img/'+usuario.ciudad + p.url" alt="foto paisaje soleado">
             </a>
         </div>
-        <div class="publicacion border-2 border-slate-900 overflow-hidden rounded-lg ">
-            <img class="" src="../../../assets/img/img-lluvioso.jpg" alt="foto paisaje lluvioso">
-        </div>
-        <div class="publicacion border-2 border-slate-900 overflow-hidden rounded-lg ">
-            <img class="" src="../../../assets/img/img-lluvioso2.jpg" alt="foto paisaje lluvioso">
-        </div>
-        <div class="publicacion border-2 border-slate-900 overflow-hidden rounded-lg ">
-            <img class="" src="../../../assets/img/img-noche.jpg" alt="foto paisaje nocturno">
-        </div>
-        <div class="publicacion border-2 border-slate-900 overflow-hidden rounded-lg ">
-            <img class="" src="../../../assets/img/img-soleado2.jpeg" alt="foto paisaje soleado">
-        </div>
-        <div class="publicacion border-2 border-slate-900 overflow-hidden rounded-lg ">
-            <img class="" src="../../../assets/img/img-amanecer.jpeg"  alt="foto paisaje amanecer">
-        </div>
+
+      }
 
     </section>
 

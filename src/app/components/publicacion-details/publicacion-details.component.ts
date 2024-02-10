@@ -12,18 +12,15 @@ import { UsuariosService } from '../../services/usuarios.service';
 })
 export class PublicacionDetailsComponent {
   private serviceUsers = inject(UsuariosService);
+  private route: ActivatedRoute = inject(ActivatedRoute);
+  publiDet: any | undefined;
 
+  ngOnInit() {
+    const userId = this.route.snapshot.params['userId'];
+    const pubId = this.route.snapshot.params['pubId'];
 
-publiDet: any | undefined;
-
-mostrarPublicacion() {
-  console.log(this.publiDet);
-}
-constructor(private route: ActivatedRoute) { }
-
-
-ngOnInit() {
-  const id = +this.route.snapshot.paramMap.get('id')! ;
-  this.publiDet = this.serviceUsers.getpublicacionPorId(id);
-}
+    if (userId && pubId) {
+      this.publiDet = this.serviceUsers.getpublicacionPorId(+userId, +pubId);
+    }
+  }
 }
