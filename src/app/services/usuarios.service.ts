@@ -49,11 +49,22 @@ export class UsuariosService {
 
       ]
     },
-    { id: 5, nombre: 'Sofia', ciudad: 'Madrid', imagenPerfil: 'imagen5.jpg', comentario: 'No es el mejor día para ir al monte' },
-    { id: 6, nombre: 'Maria', ciudad: 'Madrid', imagenPerfil: 'imagen6.jpg', comentario: 'Hace mucho viento, mejor estar en casa' },
-    { id: 7, nombre: 'Joan', ciudad: 'Barcelona', imagenPerfil: 'imagen7.jpg', comentario: 'Avui fa sol.' },
-    { id: 8, nombre: 'Sergi', ciudad: 'Barcelona', imagenPerfil: 'imagen8.jpg', comentario: 'Demà plourà.' },
-    { id: 9, nombre: 'Adrià', ciudad: 'Barcelona', imagenPerfil: 'imagen9.jpg', comentario: "Aquesta nit fa fred." }
+    { id: 5, nombre: 'Sofia', 
+    ciudad: 'Madrid', 
+    imagenPerfil: 'Sofia.png',
+    publicaciones: [
+      {
+        id: 4,
+        comentario: 'No es el mejor día para ir al monte',
+        url: '/img-lluvia.jpg'
+      },
+   
+    ] 
+     },
+    { id: 6, nombre: 'Maria', ciudad: 'Madrid', imagenPerfil: 'imagen6.png', comentario: 'Hace mucho viento, mejor estar en casa' },
+    { id: 7, nombre: 'Joan', ciudad: 'Barcelona', imagenPerfil: 'imagen7.png', comentario: 'Avui fa sol.' },
+    { id: 8, nombre: 'Sergi', ciudad: 'Barcelona', imagenPerfil: 'imagen8.png', comentario: 'Demà plourà.' },
+    { id: 9, nombre: 'Adrià', ciudad: 'Barcelona', imagenPerfil: 'imagen9.png', comentario: "Aquesta nit fa fred." }
   ]
 
   getUsuarios() {

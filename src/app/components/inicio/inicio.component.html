@@ -12,7 +12,7 @@
     </section>
     <!-- SECCION TIEMPO BUSCADO -->
     <section class="tiempo-container">
-      <section class="sm:col-span-3  ">
+      <section class="sm:col-span-3">
         <!-- Ciudad -->
         <h2 class="text-4xl font-black ">{{ posts.city.name }}</h2>
         <!-- Temperaturas -->
@@ -20,8 +20,8 @@
           <div class="f-row ">
             <h3 #grados class="text-8xl font-black">{{ posts.list[0].temp.day}}</h3>
             <div class="f-col mt-2 text-2xl font-black ml-4">
-              <span  class="cursor-pointer hover:text-button transition-colors  " (click)="cambiarTemperatura()" [class.text-primario]="!esFahrenheit" [class.text-slate-300]="esFahrenheit">ºC</span>
-              <span  class="cursor-pointer hover:text-button transition-colors " (click)="cambiarTemperatura()" [class.text-primario]="esFahrenheit" [class.text-slate-300]="!esFahrenheit">ºF</span>
+              <span  class="cursor-pointer hover:text-button transition-colors  " (click)="cambiarTemperatura()" [class.text-stroke]="!esFahrenheit" [class.text-slate-300]="esFahrenheit">ºC</span>
+              <span  class="cursor-pointer hover:text-button transition-colors " (click)="cambiarTemperatura()" [class.text-stroke]="esFahrenheit" [class.text-slate-300]="!esFahrenheit">ºF</span>
             </div>
           </div>
           <div class="mr-8">
@@ -42,7 +42,7 @@
             </div>
           </article>
           <!-- Descripcion, dia semana y hora actual -->
-          <div class="text-lg mb-8 font-bold text-primario">
+          <div class="text-lg mb-8 font-bold text-stroke">
             <p class="ml-5">{{nombreDia}}, {{hora}}:{{minuto}}</p>
           </div>
         </div>
@@ -61,7 +61,6 @@
       </div>
     </section>
 
-
     <!-- SECTION TIEMPO PRONOSTICO -->
     <section class="section-pronostico ">
       @for (post of posts.list.slice(1); track $index) {
@@ -71,8 +70,27 @@
             <img src="../assets/icons/sol_medio_dia.png" alt="icon">
           </div>
           <div class="text-3xl font-bold text-blue-500">
-            <p>{{ post.temp.max.toFixed(0) }}</p>
-            <p>{{ post.temp.min.toFixed(0) }}</p>
+
+            <div class="f-row text-start gap-2 justify-center">
+              <img src="../assets/icons/temp_up.svg" alt="">
+              <p [ngClass]="{
+                'text-high': post.temp.max.toFixed(0) > 25,
+                'text-medium': post.temp.max.toFixed(0) >= 18 && post.temp.max.toFixed(0) < 25,
+                'text-low': post.temp.max.toFixed(0) < 18
+              }"> 
+                {{ post.temp.max.toFixed(0) }}
+              </p>
+            </div>
+            <div class="f-row justify-center gap-2">
+              <img   src="../assets/icons/temp_down.svg" alt="">
+              <p class="f-row" [ngClass]="{
+                'text-high': post.temp.min.toFixed(0) > 25,
+                'text-medium': post.temp.min.toFixed(0) >= 18 && post.temp.min.toFixed(0) < 25,
+                'text-low': post.temp.min.toFixed(0) < 18
+              }">
+                {{ post.temp.min.toFixed(0) }}
+              </p>
+            </div>
           </div>
         </div>
       }
@@ -94,7 +112,5 @@
           }
         }
     }
-    
   </aside>
 </main>
-<!-- FIN COMPONENTE INICIO -->

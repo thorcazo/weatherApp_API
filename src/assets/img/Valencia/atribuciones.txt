@@ -1,0 +1,15 @@
+imagen: img-soleado.jpg
+Fuente: Freepik
+
+Atribución: {
+	url: '<a href="https://www.freepik.es/foto-gratis/vista-panoramica-alicante_48815557.htm#query=valencia&position=4&from_view=search&track=sph&uuid=9d04663e-f813-471b-9616-f1d3d5281316">Imagen de frimufilms</a> en Freepik'
+
+}
+
+
+imagen: img-noche3.jpg
+Fuente: Freepik
+Atribucion: {
+	url: '<a href="https://www.freepik.es/foto-gratis/micalet-torre-catedral-valencia-espana_1328643.htm#query=valencia&position=9&from_view=search&track=sph&uuid=9d04663e-f813-471b-9616-f1d3d5281316">Imagen de bearfotos</a> en Freepik'
+
+}

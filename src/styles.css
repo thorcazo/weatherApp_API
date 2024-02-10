@@ -5,16 +5,26 @@
 
 :root {
   /* Colores */
-  --primario: #023047;
-  --degradado-azul: #8ECAE6;
-  --degradado-azul-oscuro: #219EBC;
-  --button: #FFB703;
-  --button-hover: #FB8500;
-  --fondo: #c5e6f5;
+  --background: #ffffff;
+  --headline: #094067;
+  --paragraph: #5f6c7b;
+  --button: #3da9fc;
+  --button-text: #ffffff;
+  --stroke: #094067;
+  --main: #ffffff;
+  --highlight: #3da9fc;
+  --secondary: #90b4ce;
+  --tertiary: #ef4565;
+
+  /* para la temperatura */
+  --high: #F28585;
+  --medium: #FFA447;
+  --low: #40A2E3;
 }
 
 body {
-  @apply w-full mx-auto text-primario;
+  @apply w-full mx-auto text-stroke;
+
 }
 
 .logo {
@@ -32,7 +42,7 @@ body {
   position: absolute;
   top: 25px;
   left: 20px;
-  background: linear-gradient(180deg, var(--degradado-azul), var(--degradado-azul-oscuro));
+  background: linear-gradient(45deg, var(--highlight), var(--headline));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -40,8 +50,8 @@ body {
 
 /* TIEMPO-CONTAINER */
 .tiempo-container {
-  box-shadow: 8px 8px 0px var(--primario);
-  @apply border-primario border-2 p-4 sm:grid sm:grid-cols-5 rounded-2xl mt-2;
+  box-shadow: 8px 8px 0px var(--stroke);
+  @apply border-stroke border-2 p-4 sm:grid sm:grid-cols-5 rounded-2xl mt-2;
 }
 
 .main-container {
@@ -53,7 +63,20 @@ body {
 }
 
 .input-tiempo {
-  @apply p-7 text-3xl sm:text-2xl font-bold border-2 border-primario w-full rounded-full sm:p-4 sm:pl-8;
+  @apply   bg-main focus:bg-stroke focus:text-main focus:transition-colors p-7 text-3xl sm:text-2xl font-bold border-2 border-stroke w-full rounded-full sm:p-4 sm:pl-8;
+}
+
+.input-tiempo::placeholder {
+  @apply text-secondary;
+}
+.input-tiempo:focus::placeholder {
+  @apply text-secondary;
+}
+
+.input-tiempo:hover{
+  box-shadow: inset 8px 8px 0px var(--stroke);
+  transition: box-shadow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
 }
 
 .f-row {
@@ -83,7 +106,7 @@ body {
 }
 
 .pronostico-dia {
-  @apply text-primario p-4 border-2 border-primario text-center flex flex-col gap-2 rounded-3xl;
+  @apply text-stroke p-4 border-2 border-stroke text-center flex flex-col gap-2 rounded-3xl;
 }
 
 .pronostico-dia{
@@ -95,7 +118,7 @@ body {
 .pronostico-dia:hover {
 
   /* boxshadow */
-  box-shadow: 8px 8px 0px var(--primario);
+  box-shadow: 8px 8px 0px var(--stroke);
 
 }
 
@@ -105,7 +128,7 @@ body {
 }
 
 .publicacion-usuario {
-  @apply border-2 border-primario flex flex-row rounded-full h-max w-max p-3 justify-center items-center;
+  @apply border-2 border-stroke flex flex-row rounded-full h-max w-max p-3 justify-center items-center;
 }
 
 .publicacion-usuario{
@@ -115,7 +138,7 @@ body {
 .publicacion-usuario:hover {
 
   /* boxshadow */
-  box-shadow: 8px 8px 0px var(--primario);
+  box-shadow: 8px 8px 0px var(--stroke);
 
 }
 

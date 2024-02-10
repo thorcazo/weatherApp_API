@@ -3,11 +3,13 @@ import { RouterLink } from '@angular/router';
 import { AsideComponent } from '../aside/aside.component';
 import { OpenWeatherService } from '../../services/open-weather.service';
 import { UsuariosService } from '../../services/usuarios.service';
+import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-inicio',
   standalone: true,
-  imports: [RouterLink, AsideComponent],
+  imports: [RouterLink, AsideComponent, CommonModule],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css',
 })
