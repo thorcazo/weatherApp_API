@@ -14,21 +14,16 @@ export class PublicacionDetailsComponent {
   private serviceUsers = inject(UsuariosService);
 
 
-route: ActivatedRoute = inject(ActivatedRoute);
-
-publicacionDetails: any | undefined;
+publiDet: any | undefined;
 
 mostrarPublicacion() {
-  console.log(this.publicacionDetails);
+  console.log(this.publiDet);
 }
+constructor(private route: ActivatedRoute) { }
 
 
-constructor() {
-  const publicacionId = Number(this.route.snapshot.params['id']); 
-  this.mostrarPublicacion();
-  this.publicacionDetails = this.serviceUsers.getpublicacionPorId(publicacionId);
- }
-
-
-
+ngOnInit() {
+  const id = +this.route.snapshot.paramMap.get('id')! ;
+  this.publiDet = this.serviceUsers.getpublicacionPorId(id);
+}
 }
