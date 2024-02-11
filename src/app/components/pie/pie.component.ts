@@ -5,9 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './pie.component.html',
-  styles: `#pie {
-    background-color: rgb(218, 255, 235);
-  }`
+  styleUrl: './pie.component.css'
 })
 export class PieComponent {
   private autor = "Luis Miguel Fernández Costa"
