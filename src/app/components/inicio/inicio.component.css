@@ -18,6 +18,10 @@
     @apply flex flex-row justify-between sm:justify-start items-center;
 }
 
+.temperaturas h3{
+  font-size:  clamp(8rem, 5vw, 2rem);
+}
+
 
 
 @media screen and (min-width: 640px) {
