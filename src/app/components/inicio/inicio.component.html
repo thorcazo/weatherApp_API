@@ -22,7 +22,7 @@
             <div class="f-col mt-2 text-2xl font-black ml-4">
               <span  class="cursor-pointer hover:text-button transition-colors  " (click)="cambiarTemperatura()" [class.text-stroke]="!esFahrenheit" [class.text-slate-300]="esFahrenheit">ºC</span>
               <span  class="cursor-pointer hover:text-button transition-colors " (click)="cambiarTemperatura()" [class.text-stroke]="esFahrenheit" [class.text-slate-300]="!esFahrenheit">ºF</span>
-            </div>
+                </div>
           </div>
           <div class="mr-8">
             <!-- iconos {{ posts.weather[0].description }} -->
@@ -60,7 +60,6 @@
         }
       </div>
     </section>
-
     <!-- SECTION TIEMPO PRONOSTICO -->
     <section class="section-pronostico ">
       @for (post of posts.list.slice(1); track $index) {
@@ -70,13 +69,12 @@
             <img src="../assets/icons/sol_medio_dia.png" alt="icon">
           </div>
           <div class="text-3xl font-bold text-blue-500">
-
             <div class="f-row text-start gap-2 justify-center">
               <img src="../assets/icons/temp_up.svg" alt="">
               <p [ngClass]="{
                 'text-high': post.temp.max.toFixed(0) > 25,
-                'text-medium': post.temp.max.toFixed(0) >= 18 && post.temp.max.toFixed(0) < 25,
-                'text-low': post.temp.max.toFixed(0) < 18
+                'text-medium': post.temp.max.toFixed(0) >= 20 && post.temp.max.toFixed(0) <= 25,
+                'text-low': post.temp.max.toFixed(0) <= 19
               }"> 
                 {{ post.temp.max.toFixed(0) }}
               </p>
@@ -84,8 +82,8 @@
             <div class="f-row justify-center gap-2">
               <img   src="../assets/icons/temp_down.svg" alt="">
               <p class="f-row" [ngClass]="{
-                'text-high': post.temp.min.toFixed(0) > 25,
-                'text-medium': post.temp.min.toFixed(0) >= 18 && post.temp.min.toFixed(0) < 25,
+                'text-high': post.temp.min.toFixed(0) >= 26,
+                'text-medium': post.temp.min.toFixed(0) >= 18 && post.temp.min.toFixed(0) <= 25,
                 'text-low': post.temp.min.toFixed(0) < 18
               }">
                 {{ post.temp.min.toFixed(0) }}
@@ -102,10 +100,10 @@
     @for (user of getusuariosPorCiudad(busqueda.value); track user.id) {
         @for (publicacion of user.publicaciones; track $index) {
           @if (publicacion.id) {
-            <a [routerLink]="'/user/' +user.id +  '/publicacion/' + publicacion.id" class="card-user publicacion-usuario">
-              <img class="w-max h-max lg:mr-2" [src]="'assets/users/' +  user.nombre + '.png'" alt="">
+            <a [routerLink]="'/user/' + user.id +  '/publicacion/' + publicacion.id" class="card-user publicacion-usuario">
+              <img class=" rounded-full  w-max h-max lg:mr-2" [src]="'assets/users/' +  user.nombre + '.png'" alt="">
               <div class="">
-                <h3 class="sm:hidden lg:block ">{{user.nombre}}</h3>
+                <h3 class=" font-bold sm:hidden lg:block "> &#64;{{user.nombre}}</h3>
                 <p class="sm:hidden lg:block">{{publicacion.comentario}}</p>
               </div>
             </a>

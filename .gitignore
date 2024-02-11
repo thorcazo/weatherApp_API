@@ -43,3 +43,6 @@ Thumbs.db
 src/environments/*.ts
 
 .vercel
+
+assets/photoshop/*.psd
+assets/illustrator/*.ai

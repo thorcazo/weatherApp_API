@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { OpenWeatherService } from '../../services/open-weather.service';
 
 @Component({
   selector: 'app-nav',
@@ -15,6 +14,5 @@ export class NavComponent {
 
   clicked() {
     this.clickToggle = !this.clickToggle;
-    console.log(this.clickToggle);
   }
 }

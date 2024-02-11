@@ -27,6 +27,12 @@ body {
 
 }
 
+/* SCROLL BAR*/
+body{
+  scrollbar-color: var(--stroke) var(--background);
+  scrollbar-width: none;
+}
+
 .logo {
   font-weight: 700;
   font-size: 44px;

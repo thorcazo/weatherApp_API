@@ -35,8 +35,8 @@ export class AppComponent implements OnInit {
 
   fetchPosts(ciudad: string): void {
     this.service.getOpenWeather(ciudad).subscribe((res) => {
-      console.log(res);
       this.posts = res;
+      console.log(this.posts);
     });
   }
 
