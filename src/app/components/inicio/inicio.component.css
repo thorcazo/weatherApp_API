@@ -1,34 +1,38 @@
-.main {
-    display: grid;
-    grid-template-areas:
+* {
+  
+}
 
-        "tiempo-container"
-        "input"
+
+.main {
+  display: grid;
+  grid-template-areas:
+    "tiempo-container"
+    "input"
 }
 
 .tiempo-container {
-    grid-area: tiempo-container;
+  grid-area: tiempo-container;
 }
 
 .input {
-    grid-area: input;
+  grid-area: input;
 }
 
 .temperaturas {
-    @apply flex flex-row justify-between sm:justify-start items-center;
+  @apply flex flex-row justify-between sm:justify-start items-center;
 }
 
-.temperaturas h3{
-  font-size:  clamp(8rem, 5vw, 2rem);
+.temperaturas h3 {
+  font-size: clamp(8rem, 5vw, 2rem);
 }
 
 
 
 @media screen and (min-width: 640px) {
-    .main {
-        grid-template-areas:
-            "input"
-            "tiempo-container"
-    }
+  .main {
+    grid-template-areas:
+      "input"
+      "tiempo-container"
+  }
 
 }

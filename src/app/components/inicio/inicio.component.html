@@ -7,8 +7,8 @@
   <section class="main info-tiempo">
     <!-- INPUT DE BUSQUEDA -->
     <section class="input my-8 ">
-      <input  #busqueda (keydown.enter)="mostrarDatos(busqueda.value)"
-        class="input-tiempo" type="text" placeholder="Buscar ciudad" id="busqueda">
+      <input #busqueda (keydown.enter)="mostrarDatos(busqueda.value)" class="input-tiempo" type="text"
+        placeholder="Buscar ciudad" id="busqueda">
     </section>
     <!-- SECCION TIEMPO BUSCADO -->
     <section class="tiempo-container">
@@ -17,11 +17,15 @@
         <h2 class="text-4xl font-black ">{{ posts.city.name }}, {{ posts.city.country }}</h2>
         <!-- Temperaturas -->
         <div class="temperaturas">
-          <div class="f-row justify-center items-center ">
-            <h3 #grados class="font-black">{{ posts.list[0].temp.day.toFixed(0)}}</h3>
-            <div class="f-col mt-2 text-2xl font-black ml-4">
-              <span  class="cursor-pointer hover:text-button transition-colors  " (click)="cambiarTemperatura()" [class.text-stroke]="!esFahrenheit" [class.text-slate-300]="esFahrenheit">ºC</span>
-              <span  class="cursor-pointer hover:text-button transition-colors " (click)="cambiarTemperatura()" [class.text-stroke]="esFahrenheit" [class.text-slate-300]="!esFahrenheit">ºF</span>
+          <div class="f-col sm:flex sm:flex-row justify-center items-center ">
+            <div class="f-row">
+              <h3 #grados class="font-black ">{{ posts.list[0].temp.day.toFixed(0)}}</h3>
+              <div class="f-col mt-8 text-2xl font-black ml-4">
+                <span class="cursor-pointer hover:text-button transition-colors  " (click)="cambiarTemperatura()"
+                  [class.text-stroke]="!esFahrenheit" [class.text-slate-300]="esFahrenheit">ºC</span>
+                <span class="cursor-pointer hover:text-button transition-colors " (click)="cambiarTemperatura()"
+                  [class.text-stroke]="esFahrenheit" [class.text-slate-300]="!esFahrenheit">ºF</span>
+              </div>
             </div>
             <app-weather-icons [icon]="allData.weather[0].icon"></app-weather-icons>
           </div>
@@ -50,47 +54,47 @@
       <!-- IMG Publicaciones -->
       <div class="publicaciones">
         @for (user of getusuariosPorCiudad(busqueda.value); track user.id) {
-          @for (publicacion of user.publicaciones; track $index) {
-            @if (publicacion.url) {
-              <a  [routerLink]="['/user/'+user.id+ '/publicacion/'+publicacion.id]">
-                <img [src]="['assets/img/' +  posts.city.name  + publicacion.url]" [alt]="'imagen de ' + posts.city.name">
-              </a>
-              }
-          }
+        @for (publicacion of user.publicaciones; track $index) {
+        @if (publicacion.url) {
+        <a [routerLink]="['/user/'+user.id+ '/publicacion/'+publicacion.id]">
+          <img [src]="['assets/img/' +  posts.city.name  + publicacion.url]" [alt]="'imagen de ' + posts.city.name">
+        </a>
+        }
+        }
         }
       </div>
     </section>
     <!-- SECTION TIEMPO PRONOSTICO -->
     <section class="section-pronostico ">
       @for (post of posts.list.slice(1); track $index) {
-        <div class="pronostico-dia">
-          <h3 class="text-3xl font-bold">{{dias[getDiaSiguiente($index)].toUpperCase().substring(0,3)}}</h3>
-          <div class="mr-8 flex w-full justify-center">
-            <app-weather-icons [icon]="post.weather[0].icon"  ></app-weather-icons>
-          </div>
-          <div class="text-3xl font-bold text-blue-500">
-            <div class="f-row text-start gap-2 justify-center">
-              <img src="../assets/icons/temp_up.svg" alt="">
-              <p [ngClass]="{
+      <div class="pronostico-dia">
+        <h3 class="text-3xl font-bold">{{dias[getDiaSiguiente($index)].toUpperCase().substring(0,3)}}</h3>
+        <div class="mr-8 flex w-full justify-center">
+          <app-weather-icons [icon]="post.weather[0].icon"></app-weather-icons>
+        </div>
+        <div class="text-3xl font-bold text-blue-500">
+          <div class="f-row text-start gap-2 justify-center">
+            <img src="../assets/icons/temp_up.svg" alt="">
+            <p [ngClass]="{
                 'text-high': post.temp.max.toFixed(0) > 25,
                 'text-medium': post.temp.max.toFixed(0) >= 20 && post.temp.max.toFixed(0) <= 25,
                 'text-low': post.temp.max.toFixed(0) <= 19
-              }"> 
-                {{ post.temp.max.toFixed(0) }}
-              </p>
-            </div>
-            <div class="f-row justify-center gap-2">
-              <img   src="../assets/icons/temp_down.svg" alt="">
-              <p class="f-row" [ngClass]="{
+              }">
+              {{ post.temp.max.toFixed(0) }}
+            </p>
+          </div>
+          <div class="f-row justify-center gap-2">
+            <img src="../assets/icons/temp_down.svg" alt="">
+            <p class="f-row" [ngClass]="{
                 'text-high': post.temp.min.toFixed(0) >= 26,
                 'text-medium': post.temp.min.toFixed(0) >= 18 && post.temp.min.toFixed(0) <= 25,
                 'text-low': post.temp.min.toFixed(0) < 18
               }">
-                {{ post.temp.min.toFixed(0) }}
-              </p>
-            </div>
+              {{ post.temp.min.toFixed(0) }}
+            </p>
           </div>
         </div>
+      </div>
       }
     </section>
   </section>
@@ -98,17 +102,17 @@
   <aside class="section-usuario">
     <!-- PUBLICACION USUARIO -->
     @for (user of getusuariosPorCiudad(busqueda.value); track user.id) {
-        @for (publicacion of user.publicaciones; track $index) {
-          @if (publicacion.id) {
-            <a [routerLink]="'/user/' + user.id +  '/publicacion/' + publicacion.id" class="card-user publicacion-usuario">
-              <img class=" rounded-full  w-max h-max lg:mr-2" [src]="'assets/users/' +  user.nombre + '.png'" alt="">
-              <div class="">
-                <h3 class=" font-bold sm:hidden lg:block "> &#64;{{user.nombre}}</h3>
-                <p class="sm:hidden lg:block">{{publicacion.comentario}}</p>
-              </div>
-            </a>
-          }
-        }
+    @for (publicacion of user.publicaciones; track $index) {
+    @if (publicacion.id) {
+    <a [routerLink]="'/user/' + user.id +  '/publicacion/' + publicacion.id" class="card-user publicacion-usuario">
+      <img class=" rounded-full  w-max h-max lg:mr-2" [src]="'assets/users/' +  user.nombre + '.png'" alt="">
+      <div class="">
+        <h3 class=" font-bold sm:hidden lg:block "> &#64;{{user.nombre}}</h3>
+        <p class="sm:hidden lg:block">{{publicacion.comentario}}</p>
+      </div>
+    </a>
+    }
+    }
     }
   </aside>
 </main>
