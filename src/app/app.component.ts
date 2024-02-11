@@ -24,25 +24,7 @@ import { PieComponent } from './components/pie/pie.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent implements OnInit {
-  http = inject(HttpClient);
-  posts: any = [];
-  posts2: any = []; 
+export class AppComponent {
 
-  constructor(private service: OpenWeatherService) {}
 
-  ngOnInit(): void {}
-
-  fetchPosts(ciudad: string): void {
-    this.service.getOpenWeather(ciudad).subscribe((res) => {
-      this.posts = res;
-      console.log(this.posts);
-    });
-  }
-
-  public mostrarDatos(ciudad: string) {
-    return this.fetchPosts(ciudad);
-  }
-
-  busqueda = this.mostrarDatos('Murcia');
 }

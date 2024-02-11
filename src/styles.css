@@ -48,7 +48,7 @@ body{
   position: absolute;
   top: 25px;
   left: 20px;
-  background: linear-gradient(45deg, var(--highlight), var(--headline));
+  background: linear-gradient(80deg, var(--highlight), var(--headline));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -57,11 +57,11 @@ body{
 /* TIEMPO-CONTAINER */
 .tiempo-container {
   box-shadow: 8px 8px 0px var(--stroke);
-  @apply border-stroke border-2 p-4 sm:grid sm:grid-cols-5 rounded-2xl mt-2;
+  @apply border-stroke border-2 p-8 sm:grid sm:grid-cols-5 rounded-2xl mt-2;
 }
 
 .main-container {
-  @apply sm:grid sm:grid-cols-3 w-4/5 sm:w-full sm:ml-2 m-auto xl:w-5/6;
+  @apply sm:grid sm:grid-cols-3 w-3/5 sm:w-full sm:ml-2 m-auto xl:w-5/6 ;
 }
 
 .info-tiempo {

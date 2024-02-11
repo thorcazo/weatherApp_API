@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
 export class InicioComponent {
 
   posts: any = [];
-
+  allData: any = [];
   fechaActual = new Date()
 
   dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
@@ -40,7 +40,7 @@ export class InicioComponent {
   }
 
   getusuariosPorCiudad(ciudad: string) {
-    if(!ciudad){
+    if (!ciudad) {
       return this.usuariosDB.getUsuariosPorCiudad("Murcia")
     }
     return this.usuariosDB.getUsuariosPorCiudad(ciudad.trim())
@@ -50,18 +50,26 @@ export class InicioComponent {
 
   ngOnInit(): void {
     this.fetchPosts('Murcia'); // C con la ciudad de Murcia
+
   }
 
   fetchPosts(ciudad: string): void {
     this.service.get6DaysForecast(ciudad).subscribe((res) => {
       this.posts = res;
+      console.log(this.posts);  // Muestra los datos en la consola
+    });
+
+    this.service.getOpenWeather(ciudad).subscribe((res) => {
+      this.allData = res;
+      console.log(this.allData);  // Muestra los datos en la consola
     });
   }
 
   public mostrarDatos(ciudad: string) {
-    if (this.ciudades.includes(ciudad.toLowerCase().trim())) {
+    if (this.ciudades.includes(ciudad.trim())) {
       ciudad += ',es';
     }
+
     return this.fetchPosts(ciudad);
   }
 
@@ -83,7 +91,7 @@ export class InicioComponent {
     }
   }
 
-  getDiaSiguiente(n:number) :number {
+  getDiaSiguiente(n: number): number {
     let dia = this.fechaActual.getDay() + n;
     if (dia > 6) {
       dia = dia - 7;

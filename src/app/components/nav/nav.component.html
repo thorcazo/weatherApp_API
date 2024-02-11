@@ -1,34 +1,25 @@
-<nav class="justify-around items-center py-4 mb-8 ml-8 sm:ml-00">
+<nav class="justify-around items-center py-4 mb-8 mx-8 sm:ml-00">
     <div class="flex flex-row">
         <div class="logo w-full">
             <a class="f-row aspect-square w-14 items-center gap-5" routerLink="/">
-                <svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 609 609">
-                    <defs>
-                        <style>
-                            .cls-1 {
-                                fill: #04e0e0;
-                                stroke: #000;
-                                stroke-miterlimit: 10;
-                                stroke-width: .25px;
-                            }
+              <div class="mt-8 hidden sm:block">
 
-                            .cls-2 {
-                                fill: #55acee;
-                            }
-                        </style>
-                    </defs>
-                    <g id="Capa_2-2" data-name="Capa 2">
-                        <g>
-                            <rect class="cls-2" x="0" y="0" width="609" height="609" rx="304.5" ry="304.5" />
-                            <path class="cls-1"
-                                d="m440.43,303.41c-1.56,0-3.11.06-4.65.17.22-2.91.33-5.84.33-8.8,0-63.16-51.2-114.35-114.35-114.35-47.09,0-87.52,28.47-105.05,69.12-6.46-1.46-13.18-2.24-20.09-2.24-50.05,0-90.62,40.57-90.62,90.62s40.57,90.62,90.62,90.62c.03,0,.06,0,.09,0v.03h243.62v-.03s.06,0,.1,0c34.56,0,62.57-28.01,62.57-62.57s-28.01-62.57-62.57-62.57Z" />
-                        </g>
-                    </g>
+                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70" fill="none">
+                  <g clip-path="url(#clip0_287_506)">
+                    <path d="M70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70C54.33 70 70 54.33 70 35Z" fill="#3da9fc"/>
+                    <path d="M50.6241 34.8747C50.4448 34.8747 50.2667 34.8816 50.0897 34.8942C50.1149 34.5598 50.1276 34.223 50.1276 33.8828C50.1276 26.623 44.2425 20.7391 36.9839 20.7391C31.5713 20.7391 26.9241 24.0115 24.9092 28.6839C24.1667 28.5161 23.3943 28.4264 22.6 28.4264C16.8471 28.4264 12.1839 33.0896 12.1839 38.8425C12.1839 44.5954 16.8471 49.2586 22.6 49.2586C22.6034 49.2586 22.6069 49.2586 22.6103 49.2586V49.2621H50.6126V49.2586C50.6126 49.2586 50.6195 49.2586 50.6241 49.2586C54.5965 49.2586 57.8161 46.0391 57.8161 42.0667C57.8161 38.0942 54.5965 34.8747 50.6241 34.8747Z" fill="#FEFFFF"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_287_506">
+                      <rect width="70" height="70" fill="white"/>
+                    </clipPath>
+                  </defs>
                 </svg>
+              </div>
                 <h1 class="text-stroke">Social <span>Weather</span></h1>
             </a>
         </div>
-        <div class="  icono w-full flex justify-end items-center">
+        <div class="icono w-full flex justify-end items-center">
             <div (click)="clicked()" class="cursor-pointer p-1 burger {{ clickToggle ? 'cross' : '' }}">
                 <div class="text-stroke"></div>
                 <div class="text-stroke"></div>

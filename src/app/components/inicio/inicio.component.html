@@ -14,15 +14,17 @@
     <section class="tiempo-container">
       <section class="sm:col-span-3">
         <!-- Ciudad -->
-        <h2 class="text-4xl font-black ">{{ posts.city.name }}</h2>
+        <h2 class="text-4xl font-black ">{{ posts.city.name }}, {{ posts.city.country }}</h2>
         <!-- Temperaturas -->
         <div class="temperaturas">
           <div class="f-row ">
-            <h3 #grados class="text-8xl font-black">{{ posts.list[0].temp.day}}</h3>
+            <h3 #grados class="text-8xl font-black">{{ posts.list[0].temp.day.toFixed(0)}}</h3>
             <div class="f-col mt-2 text-2xl font-black ml-4">
               <span  class="cursor-pointer hover:text-button transition-colors  " (click)="cambiarTemperatura()" [class.text-stroke]="!esFahrenheit" [class.text-slate-300]="esFahrenheit">ºC</span>
               <span  class="cursor-pointer hover:text-button transition-colors " (click)="cambiarTemperatura()" [class.text-stroke]="esFahrenheit" [class.text-slate-300]="!esFahrenheit">ºF</span>
-                </div>
+            
+              
+            </div>
           </div>
           <div class="mr-8">
             <!-- iconos {{ posts.weather[0].description }} -->
@@ -40,10 +42,14 @@
               <img src="../assets/icons/temp_down.svg" alt="">
               <p class="ml-1">{{ posts.list[0].temp.min }}</p>
             </div>
+
           </article>
           <!-- Descripcion, dia semana y hora actual -->
-          <div class="text-lg mb-8 font-bold text-stroke">
-            <p class="ml-5">{{nombreDia}}, {{hora}}:{{minuto}}</p>
+          <div class="ml-5 text-lg mb-8 font-bold text-stroke">
+            <p class="">{{nombreDia}}, {{hora}}:{{minuto}}</p>
+            <div>
+              <span>{{ allData.weather[0].description }}</span> 
+            </div>
           </div>
         </div>
       </section>

@@ -11,7 +11,6 @@ import { RouterLink } from '@angular/router';
 export class NavComponent {
   clickToggle = false;
 
-
   clicked() {
     this.clickToggle = !this.clickToggle;
   }

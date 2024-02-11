@@ -14,7 +14,7 @@ export class OpenWeatherService {
   constructor(private http: HttpClient) {}
 
   getOpenWeather(ciudad: string): Observable<any> {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${this.apikeySergio}&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&lang=es&appid=${this.apikeySergio}&units=metric`;
     return this.http.get<any>(url);
   } 
 
