@@ -1,5 +1,5 @@
 <!-- PERFIL DEL USUARIO -->
-<section class="h-screen">
+<section class="h-screen ">
     <!-- BANNER USUARIO -->
     <section class="w-full bg-slate-900 rounded-lg p-12 relative">
         <div class="text-slate-100  absolute top-[-20px] left-20">
@@ -8,7 +8,7 @@
         </div>
     </section>
     <!-- IMAGENES DE LAS PUBLICACIONES DEL USUARIO -->
-    <section class="publicaciones-perfil-usuario">
+    <section class="publicaciones-perfil-usuario w-4/6 m-auto">
 
       @for (p of usuario.publicaciones; track p.id) {
         <div class="publicacion-user">
@@ -16,9 +16,7 @@
                 <img [src]="'assets/img/'+usuario.ciudad + p.url" alt="foto paisaje soleado">
             </a>
         </div>
-
       }
-
     </section>
 
 </section>
