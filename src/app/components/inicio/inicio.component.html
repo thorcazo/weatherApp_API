@@ -7,6 +7,7 @@
   <section class="main info-tiempo">
     <!-- INPUT DE BUSQUEDA -->
     <section class="input my-8 ">
+      <label for="busqueda">Buscar tu ciudad</label>
       <input #busqueda (keydown.enter)="mostrarDatos(busqueda.value)" class="input-tiempo" type="text"
         placeholder="Buscar ciudad" id="busqueda">
     </section>
@@ -70,7 +71,8 @@
     <section class="section-pronostico ">
       @for (post of posts.list.slice(1); track $index) {
       <div class="pronostico-dia">
-        <h3 class="text-3xl font-bold">{{dias[getDiaSiguiente($index)].toUpperCase().substring(0,3)}}</h3>
+        <h3 class="text-3xl font-bold" [ariaLabel]="dias[getDiaSiguiente($index)].toUpperCase()">
+          {{dias[getDiaSiguiente($index)].toUpperCase().substring(0,3)}}</h3>
         <div class="mr-8 flex w-full justify-center">
           <app-weather-icons [icon]="post.weather[0].icon"></app-weather-icons>
         </div>
