@@ -29,9 +29,11 @@ export class InicioComponent {
   esFahrenheit: boolean = false
 
   ciudades: Array<any> = [
-    'Cartagena',
-    'Cordoba',
-    'Córdoba'
+    'cartagena',
+    'cordoba',
+    'córdoba',
+    'merida',
+    'mérida'
   ]
 
   private usuariosDB = inject(UsuariosService)
