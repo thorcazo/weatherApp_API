@@ -26,23 +26,22 @@
         <span class="py-1 px-3 rounded-full bg-red-100">Murcia</span>
         <span class="py-1 px-3 rounded-full bg-green-100">Despejado</span>
         <span class="py-1 px-3 rounded-full bg-yellow-100">18 Abril 22</span>
-        <div>
-          @if (publiDet.publicacion.url.endsWith('.mp4')) {
+      </div>
+      <div>
+        @if (publiDet.publicacion.url.endsWith('.mp4')) {
           <a [href]="'assets/videos' + publiDet.publicacion.url" download>
             <button
               class=" my-8 hover:bg-stroke font-bold rounded transition-colors hover:text-main border p-4 text-stroke"
               type="button">Descargar video</button>
           </a>
           } @else {
-         
             
           <a [href]="'assets/img/' + publiDet.usuario.ciudad + publiDet.publicacion.url" download>
             <button
               class=" my-8 hover:bg-stroke font-bold rounded transition-colors hover:text-main border p-4 text-stroke"
               type="button">Descargar imagen</button>
           </a>
-          }
-        </div>
+        }
       </div>
     </div>
   </article>

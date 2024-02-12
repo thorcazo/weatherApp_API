@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { UsuariosService } from '../../services/usuarios.service';

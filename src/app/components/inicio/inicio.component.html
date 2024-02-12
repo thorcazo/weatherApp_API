@@ -7,9 +7,9 @@
   <section class="main info-tiempo">
     <!-- INPUT DE BUSQUEDA -->
     <section class="input my-8 ">
-      <label class=" text-xl ml-8 mb-4 font-bold" for="busqueda">Busca el tiempo de tu ciudad </label>
-      <input #busqueda (keydown.enter)="mostrarDatos(busqueda.value)" class="input-tiempo mt-4" type="text"
-        placeholder="Madrid, Barcelona, Dinamarca ..." id="busqueda">
+      <label  class="pl-8 pb-4 font-bold text-2xl block" for="busqueda"> Buscar tu ciudad</label>
+        <input #busqueda (keydown.enter)="mostrarDatos(busqueda.value.toLocaleLowerCase())" class="input-tiempo" type="text"
+          placeholder="Buscar ciudad" id="busqueda">
     </section>
     <!-- SECCION TIEMPO BUSCADO -->
     <section class="tiempo-container">
@@ -20,7 +20,7 @@
         <div class="temperaturas">
           <div class="f-col sm:flex sm:flex-row justify-center items-center ">
             <div class="f-row">
-              <h3 #grados class="font-black ">{{ posts.list[0].temp.day.toFixed(0)}}</h3>
+              <h3 #grados class="font-black ">{{ allData.main.temp.toFixed(0)}}</h3>
               <div class="f-col mt-8 text-2xl font-black ml-4">
                 <span class="cursor-pointer hover:text-button transition-colors  " (click)="cambiarTemperatura()"
                   [class.text-stroke]="!esFahrenheit" [class.text-slate-300]="esFahrenheit">ºC</span>
@@ -72,8 +72,7 @@
     <section class="section-pronostico ">
       @for (post of posts.list.slice(1); track $index) {
       <div class="pronostico-dia">
-        <h3 class="text-3xl font-bold" [ariaLabel]="dias[getDiaSiguiente($index)].toUpperCase()">
-          {{dias[getDiaSiguiente($index)].toUpperCase().substring(0,3)}}</h3>
+        <h3 class="text-3xl font-bold">{{dias[getDiaSiguiente($index+1)].toUpperCase().substring(0,3)}}</h3>
         <div class="mr-8 flex w-full justify-center">
           <img class="hidden sm:block" [src]="'https://openweathermap.org/img/wn/'+ post.weather[0].icon + '@4x.png'"
             alt="{{post.weather[0].description}}">

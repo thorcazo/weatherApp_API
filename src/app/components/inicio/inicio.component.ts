@@ -37,7 +37,13 @@ export class InicioComponent {
 
   esFahrenheit: boolean = false;
 
-  ciudades: Array<any> = ['Cartagena', 'Cordoba', 'Córdoba'];
+  ciudades: Array<any> = [
+    'cartagena',
+    'cordoba',
+    'córdoba',
+    'merida',
+    'mérida'
+  ]
 
   private usuariosDB = inject(UsuariosService);
 
@@ -54,19 +60,19 @@ export class InicioComponent {
 
   constructor(private service: OpenWeatherService) {}
 
+  //Método que se ejecuta al cargar la pagina
   ngOnInit(): void {
     this.fetchPosts('Murcia'); // C con la ciudad de Murcia
   }
 
+  //Método que se ejecuta al pulsar el botón de buscar
   fetchPosts(ciudad: string): void {
     this.service.get6DaysForecast(ciudad).subscribe((res) => {
       this.posts = res;
-      console.log(this.posts); // Muestra los datos en la consola
     });
 
     this.service.getOpenWeather(ciudad).subscribe((res) => {
       this.allData = res;
-      console.log(this.allData); // Muestra los datos en la consola
     });
   }
 
@@ -74,29 +80,17 @@ export class InicioComponent {
     if (this.ciudades.includes(ciudad.trim())) {
       ciudad += ',es';
     }
-
     return this.fetchPosts(ciudad);
-  }
-
-  gradosAFahrenheit() {
-    this.posts.main.temp = Math.round(this.posts.list[0].temp.day * 1.8 + 32);
-    return this.posts.main.temp;
   }
 
   cambiarTemperatura() {
     if (!this.esFahrenheit) {
       // Si está en Celsius, convierte a Fahrenheit
-      this.posts.list[0].temp.day = +(
-        (this.posts.list[0].temp.day * 9) / 5 +
-        32
-      ).toFixed(2);
+      this.allData.main.temp = +(this.allData.main.temp * 9 / 5 + 32).toFixed(2);
       this.esFahrenheit = true; // Actualiza el indposts.list[0].temp.dayicador
     } else {
       // Si ya está en Fahrenheit, convierte de nuevo a Celsius (opcional, si deseas permitir volver a Celsius)
-      this.posts.list[0].temp.day = +(
-        ((this.posts.list[0].temp.day - 32) * 5) /
-        9
-      ).toFixed(2);
+      this.allData.main.temp = +((this.allData.main.temp - 32) * 5 / 9).toFixed(2);
       this.esFahrenheit = false; // Vuelve a Celsius
     }
   }

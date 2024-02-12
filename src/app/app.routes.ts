@@ -9,5 +9,5 @@ export const routes: Routes = [
   { path: 'user/:UserId', component: UserProfileComponent },
   { path: 'user/:userId/publicacion/:pubId', component: PublicacionDetailsComponent },
   { path: 'user/:userId/publicacion/:pubId/user/:UserId', redirectTo: 'user/:UserId' },
-  { path: 'atribuciones', component: AtribucionesComponent}
+  { path: 'atribuciones', component: AtribucionesComponent},
 ];
