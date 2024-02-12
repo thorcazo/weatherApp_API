@@ -76,20 +76,14 @@ export class InicioComponent {
     return this.fetchPosts(ciudad);
   }
 
-  gradosAFahrenheit() {
-    this.posts.main.temp = Math.round(this.posts.list[0].temp.day * 1.8 + 32);
-    return this.posts.main.temp;
-  }
-
-
   cambiarTemperatura() {
     if (!this.esFahrenheit) {
       // Si está en Celsius, convierte a Fahrenheit
-      this.posts.list[0].temp.day = +(this.posts.list[0].temp.day * 9 / 5 + 32).toFixed(2);
+      this.allData.main.temp = +(this.allData.main.temp * 9 / 5 + 32).toFixed(2);
       this.esFahrenheit = true; // Actualiza el indposts.list[0].temp.dayicador
     } else {
       // Si ya está en Fahrenheit, convierte de nuevo a Celsius (opcional, si deseas permitir volver a Celsius)
-      this.posts.list[0].temp.day = +((this.posts.list[0].temp.day - 32) * 5 / 9).toFixed(2);
+      this.allData.main.temp = +((this.allData.main.temp - 32) * 5 / 9).toFixed(2);
       this.esFahrenheit = false; // Vuelve a Celsius
     }
   }
