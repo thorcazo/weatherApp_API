@@ -1,24 +1,27 @@
 <section class="w-full bg-slate-900 sm:rounded-lg py-12 relative">
-    <a [routerLink]="'user/' + publiDet.usuario.id " class="text-slate-100  absolute top-[-20px] left-20">
-        <img class="" [src]="'assets/users/' + publiDet.usuario.imagenPerfil" alt="">
-        <p class="text-stroke "></p>
-    </a>
+  <a [routerLink]="'user/' + publiDet.usuario.id " class="text-slate-100  absolute top-[-20px] left-20">
+    <img class="" [src]="'assets/users/' + publiDet.usuario.imagenPerfil" alt="">
+    <p class="text-stroke "></p>
+  </a>
 </section>
 <section class="h-screen">
-    <article  class="w-4/6 m-auto sm:grid flex flex-col sm:grid-cols-5 gap-8 mt-8  ">
-        <div class="w-full h-full border sm:col-span-2 sm:rounded-xl  overflow-hidden">
-          <img class="w-full h-full"   [src]="'assets/img/' + publiDet.usuario.ciudad + publiDet.publicacion.url" alt="">
-        </div>
-        <div class="px-8 col-span-2 sm:mt-4">
-            <p><span class=" font-bold">{{publiDet.usuario.nombre}}</span>
-              {{ publiDet.publicacion.comentario }}
-            </p>
-            <div class="my-4 flex flex-wrap gap-2">
-                <span class="py-1 px-3 rounded-full bg-cyan-100" arial-label="pato">22ºC</span>
-                <span class="py-1 px-3 rounded-full bg-red-100">Murcia</span>
-                <span class="py-1 px-3 rounded-full bg-green-100">Despejado</span>
-                <span class="py-1 px-3 rounded-full bg-yellow-100">18 Abril 22</span>
-            </div>
-        </div>
-    </article>
+  <article class="w-4/6 m-auto sm:grid flex flex-col sm:grid-cols-5 gap-8 mt-8  ">
+    <div class="w-full h-full border sm:col-span-2 sm:rounded-xl  overflow-hidden">
+      <img class="w-full h-full" [src]="'assets/img/' + publiDet.usuario.ciudad + publiDet.publicacion.url" alt="">
+    </div>
+    <div class="px-8 col-span-2 sm:mt-4">
+      <p><span class=" font-bold">{{publiDet.usuario.nombre}}</span>
+        {{ publiDet.publicacion.comentario }}
+      </p>
+      <div class="my-4 flex flex-wrap gap-2">
+        <span class="py-1 px-3 rounded-full bg-cyan-100" arial-label="pato">22ºC</span>
+        <span class="py-1 px-3 rounded-full bg-red-100">Murcia</span>
+        <span class="py-1 px-3 rounded-full bg-green-100">Despejado</span>
+        <span class="py-1 px-3 rounded-full bg-yellow-100">18 Abril 22</span>
+        <a [href]="'assets/img/' + publiDet.usuario.ciudad + publiDet.publicacion.url" download>
+          <button class=" my-8 hover:bg-stroke font-bold rounded transition-colors hover:text-main border p-4 text-stroke" type="button">Download</button>
+        </a>
+      </div>
+    </div>
+  </article>
 </section>
