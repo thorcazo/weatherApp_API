@@ -19,7 +19,16 @@ export class UsuariosService {
           comentario: 'Buen tiempo, día soleado',
           url: '/img-amanecer.jpg',
           fechaPublicacion: '2020-10-10'
-        }]
+        },
+        {
+          id: 2,
+          comentario: 'Un video de mi dia libre con lluvia, hoy me quedo en casa',
+          url: '/lluvia.mp4',
+          fechaPublicacione: '2021-11-10'
+        }
+      
+      
+      ]
 
     },
     {
