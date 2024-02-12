@@ -4,13 +4,12 @@ import { AsideComponent } from '../aside/aside.component';
 import { OpenWeatherService } from '../../services/open-weather.service';
 import { UsuariosService } from '../../services/usuarios.service';
 import { CommonModule } from '@angular/common';
-import { WeatherIconsComponent } from '../weather-icons/weather-icons.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-inicio',
   standalone: true,
-  imports: [RouterLink, AsideComponent, CommonModule, WeatherIconsComponent, HttpClientModule],
+  imports: [RouterLink, AsideComponent, CommonModule, HttpClientModule],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css',
 })
@@ -20,8 +19,13 @@ export class InicioComponent {
   allData: any = [];
   fechaActual = new Date()
 
+  
+
   dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
+
   nombreDia = this.dias[this.fechaActual.getDay()]
+
+  today=new Date().getDate()
 
   hora = this.fechaActual.getHours()
   minuto = this.fechaActual.getMinutes()

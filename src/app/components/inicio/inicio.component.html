@@ -38,17 +38,17 @@
           <article class="f-row gap-4 mt-4 text-2xl font-bold">
             <div class="flex flex-row ">
               <img src="../assets/icons/temp_up.svg" alt="">
-              <p class="ml-1">{{ posts.list[0].temp.max}}</p>
+              <p class="ml-1" aria-label="Temperatura máxima">{{ posts.list[0].temp.max}}</p>
             </div>
             <div class="f-row">
               <img src="../assets/icons/temp_down.svg" alt="">
-              <p class="ml-1">{{ posts.list[0].temp.min }}</p>
+              <p class="ml-1" aria-label="Temperatura mínima">{{ posts.list[0].temp.min }}</p>
             </div>
 
           </article>
           <!-- Descripcion, dia semana y hora actual -->
           <div class="ml-5 text-lg mb-8 font-bold text-stroke">
-            <p class="">{{nombreDia}}, {{hora}}:{{minuto}}</p>
+            <p class="">{{nombreDia}} {{today}}, {{hora}}:{{minuto}}</p>
           </div>
         </div>
       </section>
@@ -74,7 +74,7 @@
         <h3 class="text-3xl font-bold" [ariaLabel]="dias[getDiaSiguiente($index)].toUpperCase()">
           {{dias[getDiaSiguiente($index)].toUpperCase().substring(0,3)}}</h3>
         <div class="mr-8 flex w-full justify-center">
-          <app-weather-icons [icon]="post.weather[0].icon"></app-weather-icons>
+          <img class="hidden sm:block" [src]="'https://openweathermap.org/img/wn/'+ post.weather[0].icon + '@4x.png'" alt="{{post.weather[0].description}}">
         </div>
         <div class="text-3xl font-bold text-blue-500">
           <div class="f-row text-start gap-2 justify-center">
@@ -83,7 +83,7 @@
                 'text-high': post.temp.max.toFixed(0) > 25,
                 'text-medium': post.temp.max.toFixed(0) >= 20 && post.temp.max.toFixed(0) <= 25,
                 'text-low': post.temp.max.toFixed(0) <= 19
-              }">
+              }" arial-label="Temperatura máxima">
               {{ post.temp.max.toFixed(0) }}
             </p>
           </div>
@@ -93,7 +93,7 @@
                 'text-high': post.temp.min.toFixed(0) >= 26,
                 'text-medium': post.temp.min.toFixed(0) >= 18 && post.temp.min.toFixed(0) <= 25,
                 'text-low': post.temp.min.toFixed(0) < 18
-              }">
+              }" arial-label="Temperatura mínima">
               {{ post.temp.min.toFixed(0) }}
             </p>
           </div>
