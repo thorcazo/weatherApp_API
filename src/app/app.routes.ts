@@ -3,11 +3,13 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { InicioComponent } from './components/inicio/inicio.component';
 import { PublicacionDetailsComponent } from './components/publicacion-details/publicacion-details.component';
 import { AtribucionesComponent } from './components/atribuciones/atribuciones.component';
+import { PublicacionesComponent } from './publicaciones/publicaciones.component';
 
 export const routes: Routes = [
   { path: '', component: InicioComponent },
   { path: 'user/:UserId', component: UserProfileComponent },
   { path: 'user/:userId/publicacion/:pubId', component: PublicacionDetailsComponent },
   { path: 'user/:userId/publicacion/:pubId/user/:UserId', redirectTo: 'user/:UserId' },
-  { path: 'atribuciones', component: AtribucionesComponent}
+  { path: 'atribuciones', component: AtribucionesComponent},
+  {path: 'publicaciones', component: PublicacionesComponent}
 ];
