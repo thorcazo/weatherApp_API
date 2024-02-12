@@ -3,14 +3,15 @@
     <!-- BANNER USUARIO -->
     <section class="w-full bg-slate-900 rounded-lg p-12 relative">
         <div class="text-slate-100  absolute top-[-20px] left-20">
-                <img class="" [src]="'assets/users/' + usuario.imagenPerfil" alt="{{ usuario.imagenPerfil }}">
+                <img class="w-32 h-32" [src]="'assets/users/' + usuario.imagenPerfil" alt="{{ usuario.imagenPerfil }}">
                 <p class=" text-xl font-bold text-center "> &#64;{{ usuario.nombre}}</p>
         </div>
     </section>
     <!-- IMAGENES DE LAS PUBLICACIONES DEL USUARIO -->
-    <section class="publicaciones-perfil-usuario w-4/6 m-auto">
+    <h2 class="text-3xl text-center p-8 font-bold">Publicaciones de {{ usuario.nombre }}</h2>
+    <section class="publicaciones-perfil-usuario w-4/6 m-auto rounded-xl ">
       @for (p of usuario.publicaciones; track p.id) {
-        <div class="publicacion-user">
+        <div class="publicacion-user h-max">
           @if (p.url.endsWith('.mp4')){
             <a  class="block" [routerLink]="'publicacion/' + p.id">
               <video controls >
@@ -18,7 +19,7 @@
               </video>
             </a>
           } @else {
-            <a  class="block" [routerLink]="'publicacion/' + p.id">
+            <a    class="block" [routerLink]="'publicacion/' + p.id">
                 <img [src]="'assets/img/'+usuario.ciudad + p.url" alt="{{ p.url }}">
             </a>
           }

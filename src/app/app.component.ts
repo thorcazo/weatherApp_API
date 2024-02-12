@@ -2,7 +2,7 @@ import { Component, } from '@angular/core';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
-import {  HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NavComponent } from './components/nav/nav.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { AsideComponent } from './components/aside/aside.component';
