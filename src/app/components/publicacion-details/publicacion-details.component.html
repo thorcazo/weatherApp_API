@@ -12,7 +12,9 @@
         <source [src]="'assets/videos' + publiDet.publicacion.url" type="video/mp4">
       </video>
       } @else {
-      <img class="w-full h-full" [src]="'assets/img/' + publiDet.usuario.ciudad + publiDet.publicacion.url" alt="">
+      <img class="w-full h-full object-cover" [src]="'assets/img/' + publiDet.usuario.ciudad + publiDet.publicacion.url" alt="">
+      @if (publiDet.publicacion.url.includes('gen')) { 
+        <p class=" italic">Esta imagen está generada con <a href="https://gencraft.com/">Gen Craft</a></p>}
       }
     </div>
     <div class="px-8 col-span-2 sm:mt-4">
@@ -32,6 +34,8 @@
               type="button">Descargar video</button>
           </a>
           } @else {
+         
+            
           <a [href]="'assets/img/' + publiDet.usuario.ciudad + publiDet.publicacion.url" download>
             <button
               class=" my-8 hover:bg-stroke font-bold rounded transition-colors hover:text-main border p-4 text-stroke"

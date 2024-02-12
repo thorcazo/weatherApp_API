@@ -40,7 +40,7 @@ export class UsuariosService {
         {
           id: 1,
           comentario: 'Una noche estupenda',
-          url: '/img-noche.jpg'
+          url: '/gen-img-noche.jpg'
         }]
     },
     { id: 3, 
