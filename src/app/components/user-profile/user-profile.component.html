@@ -1,5 +1,5 @@
 <!-- PERFIL DEL USUARIO -->
-<section class="h-screen ">
+<section class="h-screen">
     <!-- BANNER USUARIO -->
     <section class="w-full bg-stroke rounded-lg p-12 relative">
         <div class="text-slate-100  absolute top-[-20px] left-20">
@@ -9,7 +9,7 @@
     </section>
     <!-- IMAGENES DE LAS PUBLICACIONES DEL USUARIO -->
     <h2 class="text-3xl text-center p-8 font-bold">Publicaciones de {{ usuario.nombre }}</h2>
-    <section class="publicaciones-perfil-usuario w-4/6 m-auto rounded-xl ">
+    <section class="publicaciones-perfil-usuario sm:w-4/6 m-auto rounded-xl ">
       @for (p of usuario.publicaciones; track p.id) {
         <div class="publicacion-user h-max">
           @if (p.url.endsWith('.mp4')){

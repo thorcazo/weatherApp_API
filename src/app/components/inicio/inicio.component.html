@@ -8,7 +8,7 @@
     <!-- INPUT DE BUSQUEDA -->
     <section class="input my-8 ">
       <label  class="pl-8 pb-4 font-bold text-2xl block" for="busqueda"> Buscar tu ciudad</label>
-        <input #busqueda (keydown.enter)="mostrarDatos(busqueda.value.toLocaleLowerCase())" class="input-tiempo" type="text"
+        <input #busqueda   (keydown.enter)="mostrarDatos(busqueda.value.toLocaleLowerCase())" class="input-tiempo" type="text"
           placeholder="Buscar ciudad" id="busqueda">
     </section>
     <!-- SECCION TIEMPO BUSCADO -->

@@ -18,6 +18,12 @@ export class UsuariosService {
           url: '/img-amanecer.jpg',
           fechaPublicacion: '2020-10-10',
         },
+        {
+          id: 2,
+            comentario: 'Grabé un día de lluvia en Murcia, increíble',
+          url: '/lluvia.mp4',
+          fechaPublicacion: '2020-10-10',
+        },
       ],
     },
     {

@@ -77,6 +77,7 @@ export class InicioComponent {
   }
 
   public mostrarDatos(ciudad: string) {
+    
     if (this.ciudades.includes(ciudad.trim())) {
       ciudad += ',es';
     }
