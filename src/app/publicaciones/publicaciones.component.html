@@ -1,0 +1,50 @@
+@for (u of getUsuarios(); track $index) {
+  @for (c of getPublicacionesPorID(u.id); track $index){
+    <section class="w-full bg-slate-900 sm:rounded-lg py-12 relative">
+      <a [routerLink]="'user/' + u.id " class="text-slate-100  absolute top-[-20px] left-20">
+        <img class="" [src]="'assets/users/' + u.imagenPerfil" alt="">
+        <p class="text-stroke "></p>
+      </a>
+    </section>
+    <section class="h-screen">
+      <article class="w-4/6 m-auto sm:grid flex flex-col sm:grid-cols-5 gap-8 mt-8  ">
+        <div class="w-full h-full sm:col-span-2 sm:rounded-xl">
+          @if (c.url.endsWith('.mp4')) {
+          <video width="400" controls>
+            <source [src]="'assets/videos' + c.url" type="video/mp4">
+          </video>
+          } @else {
+          <img class="w-full h-full object-cover" [src]="'assets/img/' +u.ciudad + c.url" alt="">
+          @if (c.url.includes('gen')) { 
+            <p class=" italic">Esta imagen está generada con <a href="https://gencraft.com/">Gen Craft</a></p>}
+          }
+        </div>
+        <div class="px-8 col-span-2 sm:mt-4">
+          <p><span class=" font-bold">{{u.nombre}}</span>
+            {{u.comentario }}
+          </p>
+          <div class="my-4 flex flex-wrap gap-2">
+            <span class="py-1 px-3 rounded-full bg-red-100">{{u.ciudad}}</span>
+            <span class="py-1 px-3 rounded-full bg-green-100">Despejado</span>
+            <span class="py-1 px-3 rounded-full bg-yellow-100">{{c.fechaPublicacion}}</span>
+            <div>
+              @if (c.url.endsWith('.mp4')) {
+                <a [href]="'assets/videos' + c.url" download>
+             
+                </a>
+              
+                } @else {
+               
+                  
+                <a [href]="'assets/img/' + u.ciudad + c.url" download>
+              
+                </a>
+      
+                }
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+  }
+}

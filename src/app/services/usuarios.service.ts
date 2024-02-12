@@ -24,7 +24,7 @@ export class UsuariosService {
           id: 2,
           comentario: 'Un video de mi dia libre con lluvia, hoy me quedo en casa',
           url: '/lluvia.mp4',
-          fechaPublicacione: '2021-11-10'
+          fechaPublicacion: '2021-11-10'
         }
       
       
@@ -40,14 +40,18 @@ export class UsuariosService {
         {
           id: 1,
           comentario: 'Una noche estupenda',
-          url: '/gen-img-noche.jpg'
+          url: '/gen-img-noche.jpg',
+          fechaPublicacion: '2021-11-10'
+
         }]
     },
     { id: 3, 
       nombre: 'Sergio', 
       ciudad: 'Murcia', 
       imagenPerfil: 'imagen3.jpg', 
-      comentario: 'Tiempo genial para salir a pasear' },
+      comentario: 'Tiempo genial para salir a pasear',
+      fechaPublicacion: '2021-11-10'
+    },
     {
       id: 4,
       nombre: 'Pablo',
@@ -57,7 +61,9 @@ export class UsuariosService {
         {
           id: 1,
           comentario: 'Hoy está nublado y hace frio',
-          url: '/img-nublado.jpg'
+          url: '/img-nublado.jpg',
+          fechaPublicacion: '2021-11-10'
+
         }
 
       ]
@@ -69,12 +75,16 @@ export class UsuariosService {
       {
         id: 1,
         comentario: 'No es el mejor día para ir al monte',
-        url: '/img-lluvia.jpg'
+        url: '/img-lluvia.jpg',
+        fechaPublicacion: '2021-11-10'
+
       },
       {
         id: 2,
         comentario: 'Disfrutando del atardecer, hot salgo a tomar algo',
-        url: '/img-atardecer.jpg'
+        url: '/img-atardecer.jpg',
+        fechaPublicacion: '2021-11-10'
+
       }
    
     ] 
@@ -87,7 +97,9 @@ export class UsuariosService {
         {
           id: 1,
           comentario: 'Hoy hace una noche estupenda para salir',
-          url: '/img-noche.jpg'
+          url: '/img-noche.jpg',
+          fechaPublicacion: '2021-11-10'
+
         }
       ] 
     },
@@ -130,8 +142,20 @@ export class UsuariosService {
     return null; // Devuelve null si no se encuentra el usuario o la publicación.
   }
 
+  getPublicacionesPorId2(userId: number) {
+    const usuario = this.usuarios.find(u => u.id === userId);
+    return usuario?.publicaciones || [];
+    
+  }
   /* getUsuariobyId */
   getUsuariobyId(userId: number) {
     return this.usuarios.find(u => u.id === userId);
+  }
+ getPublicaciones(){
+    return this.usuarios.map(u => u.publicaciones).flat();
+  
+ }
+  getCiudades( ){
+    return this.usuarios.map(u => u.ciudad).filter((v, i, a) => a.indexOf(v) === i);
   }
 }
