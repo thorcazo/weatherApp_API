@@ -33,6 +33,19 @@ body{
   scrollbar-width: none;
 }
 
+
+
+
+a{
+  @apply hover:text-button;
+
+}
+
+h1{
+  @apply text-2xl;
+
+}
+
 .logo {
   font-weight: 700;
   font-size: 44px;

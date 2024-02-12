@@ -6,8 +6,16 @@
 </section>
 <section class="h-screen">
   <article class="w-4/6 m-auto sm:grid flex flex-col sm:grid-cols-5 gap-8 mt-8  ">
-    <div class="w-full h-full border sm:col-span-2 sm:rounded-xl  overflow-hidden">
-      <img class="w-full h-full" [src]="'assets/img/' + publiDet.usuario.ciudad + publiDet.publicacion.url" alt="">
+    <div class="w-full h-full sm:col-span-2 sm:rounded-xl">
+      @if (publiDet.publicacion.url.endsWith('.mp4')) {
+      <video width="400" controls>
+        <source [src]="'assets/videos' + publiDet.publicacion.url" type="video/mp4">
+      </video>
+      } @else {
+      <img class="w-full h-full object-cover" [src]="'assets/img/' + publiDet.usuario.ciudad + publiDet.publicacion.url" alt="">
+      @if (publiDet.publicacion.url.includes('gen')) { 
+        <p class=" italic">Esta imagen está generada con <a href="https://gencraft.com/">Gen Craft</a></p>}
+      }
     </div>
     <div class="px-8 col-span-2 sm:mt-4">
       <p><span class=" font-bold">{{publiDet.usuario.nombre}}</span>
@@ -18,9 +26,23 @@
         <span class="py-1 px-3 rounded-full bg-red-100">Murcia</span>
         <span class="py-1 px-3 rounded-full bg-green-100">Despejado</span>
         <span class="py-1 px-3 rounded-full bg-yellow-100">18 Abril 22</span>
-        <a [href]="'assets/img/' + publiDet.usuario.ciudad + publiDet.publicacion.url" download>
-          <button class=" my-8 hover:bg-stroke font-bold rounded transition-colors hover:text-main border p-4 text-stroke" type="button">Download</button>
-        </a>
+        <div>
+          @if (publiDet.publicacion.url.endsWith('.mp4')) {
+          <a [href]="'assets/videos' + publiDet.publicacion.url" download>
+            <button
+              class=" my-8 hover:bg-stroke font-bold rounded transition-colors hover:text-main border p-4 text-stroke"
+              type="button">Descargar video</button>
+          </a>
+          } @else {
+         
+            
+          <a [href]="'assets/img/' + publiDet.usuario.ciudad + publiDet.publicacion.url" download>
+            <button
+              class=" my-8 hover:bg-stroke font-bold rounded transition-colors hover:text-main border p-4 text-stroke"
+              type="button">Descargar imagen</button>
+          </a>
+          }
+        </div>
       </div>
     </div>
   </article>
