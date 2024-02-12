@@ -28,7 +28,8 @@
                   [class.text-stroke]="esFahrenheit" [class.text-slate-300]="!esFahrenheit">ºF</span>
               </div>
             </div>
-            <app-weather-icons [icon]="allData.weather[0].icon"></app-weather-icons>
+            <img [src]="'https://openweathermap.org/img/wn/' + allData.weather[0].icon + '@4x.png' "
+              alt="icono del tiempo">
           </div>
           <div class="">
           </div>
@@ -74,7 +75,8 @@
         <h3 class="text-3xl font-bold" [ariaLabel]="dias[getDiaSiguiente($index)].toUpperCase()">
           {{dias[getDiaSiguiente($index)].toUpperCase().substring(0,3)}}</h3>
         <div class="mr-8 flex w-full justify-center">
-          <img class="hidden sm:block" [src]="'https://openweathermap.org/img/wn/'+ post.weather[0].icon + '@4x.png'" alt="{{post.weather[0].description}}">
+          <img class="hidden sm:block" [src]="'https://openweathermap.org/img/wn/'+ post.weather[0].icon + '@4x.png'"
+            alt="{{post.weather[0].description}}">
         </div>
         <div class="text-3xl font-bold text-blue-500">
           <div class="f-row text-start gap-2 justify-center">
@@ -110,7 +112,8 @@
     @if (publicacion.id) {
     <a [routerLink]="'/user/' + user.id +  '/publicacion/' + publicacion.id"
       class="border card-user publicacion-usuario">
-      <img class="w-[50px] border-2 border-slate-950 rounded-full lg:mr-2" [src]="'assets/users/' +  user.nombre + '.png'" alt="">
+      <img class="w-[50px] border-2 border-slate-950 rounded-full lg:mr-2"
+        [src]="'assets/users/' +  user.nombre + '.png'" alt="">
       <div class="pr-0 lg:pr-8 w-max">
         <h3 class=" font-bold sm:hidden lg:block">&#64;{{user.nombre}}</h3>
         <p class="sm:hidden lg:block line-clamp-1 w-max">{{publicacion.comentario}}</p>
