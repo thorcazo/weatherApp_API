@@ -19,7 +19,16 @@ export class UsuariosService {
           comentario: 'Buen tiempo, día soleado',
           url: '/img-amanecer.jpg',
           fechaPublicacion: '2020-10-10'
-        }]
+        },
+        {
+          id: 2,
+          comentario: 'Un video de mi dia libre con lluvia, hoy me quedo en casa',
+          url: '/lluvia.mp4',
+          fechaPublicacione: '2021-11-10'
+        }
+      
+      
+      ]
 
     },
     {
@@ -31,7 +40,7 @@ export class UsuariosService {
         {
           id: 1,
           comentario: 'Una noche estupenda',
-          url: '/img-noche.jpg'
+          url: '/gen-img-noche.jpg'
         }]
     },
     { id: 3, 

@@ -44,5 +44,9 @@ src/environments/*.ts
 
 .vercel
 
-assets/photoshop/*.psd
-assets/illustrator/*.ai
+
+# Carpetas nuevas a ocultar que aparecene en commits anteriores
+# Todo lo que está dentro de estas carpetas incluidas las carpeta en si
+assets/photoshop/
+assets/illustrator/
+documentation/

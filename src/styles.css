@@ -33,6 +33,19 @@ body{
   scrollbar-width: none;
 }
 
+
+
+
+a{
+  @apply hover:text-button;
+
+}
+
+h1{
+  @apply text-2xl;
+
+}
+
 .logo {
   font-weight: 700;
   font-size: 44px;
@@ -69,14 +82,14 @@ body{
 }
 
 .input-tiempo {
-  @apply   bg-main focus:bg-stroke focus:text-main focus:transition-colors p-7 text-3xl sm:text-2xl font-bold border-2 border-stroke w-full rounded-full sm:p-4 sm:pl-8;
+  @apply    focus:bg-stroke focus:text-main focus:transition-colors p-7 text-3xl sm:text-2xl font-bold border-2 border-stroke w-full rounded-full sm:p-4 sm:pl-8;
 }
 
 .input-tiempo::placeholder {
   @apply text-secondary;
 }
 .input-tiempo:focus::placeholder {
-  @apply text-secondary;
+  @apply text-stroke;
 }
 
 .input-tiempo:hover{

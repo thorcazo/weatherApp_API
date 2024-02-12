@@ -7,7 +7,7 @@
   <section class="main info-tiempo">
     <!-- INPUT DE BUSQUEDA -->
     <section class="input my-8 ">
-      <input #busqueda (keydown.enter)="mostrarDatos(busqueda.value.toLocaleLowerCase()); busqueda.value=''" class="input-tiempo" type="text"
+      <input #busqueda (keydown.enter)="mostrarDatos(busqueda.value)" class="input-tiempo" type="text"
         placeholder="Buscar ciudad" id="busqueda">
     </section>
     <!-- SECCION TIEMPO BUSCADO -->
@@ -55,7 +55,7 @@
       <div class="publicaciones ">
         @for (user of getusuariosPorCiudad(busqueda.value); track user.id) {
         @for (publicacion of user.publicaciones; track $index) {
-        @if (publicacion.url) {
+        @if (publicacion.url.endsWith('.jpg')) {
         <a class="h-max" [routerLink]="['/user/'+user.id+ '/publicacion/'+publicacion.id]">
           <img class="" [src]="['assets/img/' +  posts.city.name  + publicacion.url]"
             [alt]="'imagen de ' + posts.city.name">
@@ -70,7 +70,7 @@
     <section class="section-pronostico ">
       @for (post of posts.list.slice(1); track $index) {
       <div class="pronostico-dia">
-        <h3 class="text-3xl font-bold">{{dias[getDiaSiguiente($index+1)].toUpperCase().substring(0,3)}}</h3>
+        <h3 class="text-3xl font-bold">{{dias[getDiaSiguiente($index)].toUpperCase().substring(0,3)}}</h3>
         <div class="mr-8 flex w-full justify-center">
           <app-weather-icons [icon]="post.weather[0].icon"></app-weather-icons>
         </div>
@@ -106,11 +106,12 @@
     @for (user of getusuariosPorCiudad(busqueda.value); track user.id) {
     @for (publicacion of user.publicaciones; track $index) {
     @if (publicacion.id) {
-    <a [routerLink]="'/user/' + user.id +  '/publicacion/' + publicacion.id" class="card-user publicacion-usuario">
+    <a [routerLink]="'/user/' + user.id +  '/publicacion/' + publicacion.id"
+      class="border card-user publicacion-usuario">
       <img class=" rounded-full  w-max h-max lg:mr-2" [src]="'assets/users/' +  user.nombre + '.png'" alt="">
-      <div class="">
+      <div class="pr-0 lg:pr-8 w-max">
         <h3 class=" font-bold sm:hidden lg:block">&#64;{{user.nombre}}</h3>
-        <p class="sm:hidden lg:block">{{publicacion.comentario}}</p>
+        <p class="sm:hidden lg:block line-clamp-1 w-max">{{publicacion.comentario}}</p>
       </div>
     </a>
     }
