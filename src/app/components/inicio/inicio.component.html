@@ -110,7 +110,7 @@
     @if (publicacion.id) {
     <a [routerLink]="'/user/' + user.id +  '/publicacion/' + publicacion.id"
       class="border card-user publicacion-usuario">
-      <img class=" rounded-full  w-max h-max lg:mr-2" [src]="'assets/users/' +  user.nombre + '.png'" alt="">
+      <img class="w-[50px] border-2 border-slate-950 rounded-full lg:mr-2" [src]="'assets/users/' +  user.nombre + '.png'" alt="">
       <div class="pr-0 lg:pr-8 w-max">
         <h3 class=" font-bold sm:hidden lg:block">&#64;{{user.nombre}}</h3>
         <p class="sm:hidden lg:block line-clamp-1 w-max">{{publicacion.comentario}}</p>

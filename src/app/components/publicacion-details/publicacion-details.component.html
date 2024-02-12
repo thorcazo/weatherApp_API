@@ -1,6 +1,6 @@
-<section class="w-full bg-slate-900 sm:rounded-lg py-12 relative">
-  <a [routerLink]="'user/' + publiDet.usuario.id " class="text-slate-100  absolute top-[-20px] left-20">
-    <img class="" [src]="'assets/users/' + publiDet.usuario.imagenPerfil" alt="">
+<section class="w-full bg-stroke sm:rounded-lg py-12 relative">
+  <a  class="border" [routerLink]="'user/' + publiDet.usuario.id " class="text-slate-100  absolute top-[-20px] left-20">
+    <img class="w-[85px] hover:scale-105 transition-transform border-2 border-stroke rounded-full" [src]="'assets/users/' + publiDet.usuario.imagenPerfil" alt="">
     <p class="text-stroke "></p>
   </a>
 </section>

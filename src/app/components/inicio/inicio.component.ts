@@ -23,6 +23,8 @@ export class InicioComponent {
   dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
   nombreDia = this.dias[this.fechaActual.getDay()]
 
+  numeroDia = this.fechaActual.getDate()  
+
   hora = this.fechaActual.getHours()
   minuto = this.fechaActual.getMinutes()
 
