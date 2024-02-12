@@ -14,59 +14,59 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrl: './inicio.component.css',
 })
 export class InicioComponent {
-
   posts: any = [];
   allData: any = [];
-  fechaActual = new Date()
+  fechaActual = new Date();
 
-  
+  dias = [
+    'Domingo',
+    'Lunes',
+    'Martes',
+    'Miércoles',
+    'Jueves',
+    'Viernes',
+    'Sábado',
+  ];
 
-  dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
+  nombreDia = this.dias[this.fechaActual.getDay()];
 
-  nombreDia = this.dias[this.fechaActual.getDay()]
+  today = new Date().getDate();
 
-  today=new Date().getDate()
+  hora = this.fechaActual.getHours();
+  minuto = this.fechaActual.getMinutes();
 
-  hora = this.fechaActual.getHours()
-  minuto = this.fechaActual.getMinutes()
+  esFahrenheit: boolean = false;
 
-  esFahrenheit: boolean = false
+  ciudades: Array<any> = ['Cartagena', 'Cordoba', 'Córdoba'];
 
-  ciudades: Array<any> = [
-    'Cartagena',
-    'Cordoba',
-    'Córdoba'
-  ]
-
-  private usuariosDB = inject(UsuariosService)
+  private usuariosDB = inject(UsuariosService);
 
   getUsuarios() {
-    return this.usuariosDB.getUsuarios()
+    return this.usuariosDB.getUsuarios();
   }
 
   getusuariosPorCiudad(ciudad: string) {
     if (!ciudad) {
-      return this.usuariosDB.getUsuariosPorCiudad("Murcia")
+      return this.usuariosDB.getUsuariosPorCiudad('Murcia');
     }
-    return this.usuariosDB.getUsuariosPorCiudad(ciudad.trim())
+    return this.usuariosDB.getUsuariosPorCiudad(ciudad.trim());
   }
 
-  constructor(private service: OpenWeatherService) { }
+  constructor(private service: OpenWeatherService) {}
 
   ngOnInit(): void {
     this.fetchPosts('Murcia'); // C con la ciudad de Murcia
-
   }
 
   fetchPosts(ciudad: string): void {
     this.service.get6DaysForecast(ciudad).subscribe((res) => {
       this.posts = res;
-      console.log(this.posts);  // Muestra los datos en la consola
+      console.log(this.posts); // Muestra los datos en la consola
     });
 
     this.service.getOpenWeather(ciudad).subscribe((res) => {
       this.allData = res;
-      console.log(this.allData);  // Muestra los datos en la consola
+      console.log(this.allData); // Muestra los datos en la consola
     });
   }
 
@@ -83,15 +83,20 @@ export class InicioComponent {
     return this.posts.main.temp;
   }
 
-
   cambiarTemperatura() {
     if (!this.esFahrenheit) {
       // Si está en Celsius, convierte a Fahrenheit
-      this.posts.list[0].temp.day = +(this.posts.list[0].temp.day * 9 / 5 + 32).toFixed(2);
+      this.posts.list[0].temp.day = +(
+        (this.posts.list[0].temp.day * 9) / 5 +
+        32
+      ).toFixed(2);
       this.esFahrenheit = true; // Actualiza el indposts.list[0].temp.dayicador
     } else {
       // Si ya está en Fahrenheit, convierte de nuevo a Celsius (opcional, si deseas permitir volver a Celsius)
-      this.posts.list[0].temp.day = +((this.posts.list[0].temp.day - 32) * 5 / 9).toFixed(2);
+      this.posts.list[0].temp.day = +(
+        ((this.posts.list[0].temp.day - 32) * 5) /
+        9
+      ).toFixed(2);
       this.esFahrenheit = false; // Vuelve a Celsius
     }
   }
@@ -101,6 +106,6 @@ export class InicioComponent {
     if (dia > 6) {
       dia = dia - 7;
     }
-    return dia
+    return dia;
   }
 }
