@@ -12,7 +12,7 @@
 
       @for (p of usuario.publicaciones; track p.id) {
         <div class="publicacion-user">
-            <a [routerLink]="'publicacion/' + usuario.id">
+            <a  class="block" [routerLink]="'publicacion/' + p.id">
                 <img [src]="'assets/img/'+usuario.ciudad + p.url" alt="foto paisaje soleado">
             </a>
         </div>

@@ -52,12 +52,14 @@
         </div>
       </section>
       <!-- IMG Publicaciones -->
-      <div class="publicaciones">
+      <div class="publicaciones ">
         @for (user of getusuariosPorCiudad(busqueda.value); track user.id) {
         @for (publicacion of user.publicaciones; track $index) {
         @if (publicacion.url) {
-        <a [routerLink]="['/user/'+user.id+ '/publicacion/'+publicacion.id]">
-          <img [src]="['assets/img/' +  posts.city.name  + publicacion.url]" [alt]="'imagen de ' + posts.city.name">
+        <a class="h-max" [routerLink]="['/user/'+user.id+ '/publicacion/'+publicacion.id]">
+          <img class="" [src]="['assets/img/' +  posts.city.name  + publicacion.url]"
+            [alt]="'imagen de ' + posts.city.name">
+          <span class="">&#64;{{ user.nombre }}</span>
         </a>
         }
         }
@@ -107,7 +109,7 @@
     <a [routerLink]="'/user/' + user.id +  '/publicacion/' + publicacion.id" class="card-user publicacion-usuario">
       <img class=" rounded-full  w-max h-max lg:mr-2" [src]="'assets/users/' +  user.nombre + '.png'" alt="">
       <div class="">
-        <h3 class=" font-bold sm:hidden lg:block "> &#64;{{user.nombre}}</h3>
+        <h3 class=" font-bold sm:hidden lg:block">&#64;{{user.nombre}}</h3>
         <p class="sm:hidden lg:block">{{publicacion.comentario}}</p>
       </div>
     </a>

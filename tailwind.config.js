@@ -43,9 +43,12 @@ module.exports = {
         'high': '#F28585',
         'medium': '#FFA447',
         'low': '#40A2E3',
-
-
-
+      },
+      botton:{
+        '-8px': '-8px',
+        '-16px': '-16px',
+        '-24px': '-24px',
+        '-32px': '-32px',
       }
     }
   },

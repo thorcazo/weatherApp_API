@@ -29,12 +29,16 @@ export class UsuariosService {
       imagenPerfil: 'Ana.png',
       publicaciones: [
         {
-          id: 2,
+          id: 1,
           comentario: 'Una noche estupenda',
           url: '/img-noche.jpg'
         }]
     },
-    { id: 3, nombre: 'Sergio', ciudad: 'Murcia', imagenPerfil: 'imagen3.jpg', comentario: 'Tiempo genial para salir a pasear' },
+    { id: 3, 
+      nombre: 'Sergio', 
+      ciudad: 'Murcia', 
+      imagenPerfil: 'imagen3.jpg', 
+      comentario: 'Tiempo genial para salir a pasear' },
     {
       id: 4,
       nombre: 'Pablo',
@@ -42,7 +46,7 @@ export class UsuariosService {
       imagenPerfil: 'Pablo.png',
       publicaciones: [
         {
-          id: 3,
+          id: 1,
           comentario: 'Hoy está nublado y hace frio',
           url: '/img-nublado.jpg'
         }
@@ -54,24 +58,43 @@ export class UsuariosService {
     imagenPerfil: 'Sofia.png',
     publicaciones: [
       {
-        id: 4,
+        id: 1,
         comentario: 'No es el mejor día para ir al monte',
         url: '/img-lluvia.jpg'
       },
+      {
+        id: 2,
+        comentario: 'Disfrutando del atardecer, hot salgo a tomar algo',
+        url: '/img-atardecer.jpg'
+      }
    
     ] 
      },
-    { id: 6, nombre: 'Maria', ciudad: 'Madrid', imagenPerfil: 'imagen6.png', comentario: 'Hace mucho viento, mejor estar en casa' },
+    { id: 6, 
+      nombre: 'Maria', 
+      ciudad: 'Madrid', 
+      imagenPerfil: 'Maria.png',
+      publicaciones:[
+        {
+          id: 1,
+          comentario: 'Hoy hace una noche estupenda para salir',
+          url: '/img-noche.jpg'
+        }
+      ] 
+    },
     { id: 7, nombre: 'Joan', ciudad: 'Barcelona', imagenPerfil: 'imagen7.png', comentario: 'Avui fa sol.' },
     { id: 8, nombre: 'Sergi', ciudad: 'Barcelona', imagenPerfil: 'imagen8.png', comentario: 'Demà plourà.' },
     { id: 9, nombre: 'Adrià', ciudad: 'Barcelona', imagenPerfil: 'imagen9.png', comentario: "Aquesta nit fa fred." }
-  ]
+  ] 
 
   getUsuarios() {
     return this.usuarios
   }
 
   getUsuariosPorCiudad(ciudad: string) {
+
+    /* Para que la primera letra siempre sea mayuscula */
+    ciudad = ciudad.charAt(0).toUpperCase() + ciudad.slice(1).toLowerCase();
     return this.usuarios.filter(usuario => usuario.ciudad == ciudad)
   }
 
