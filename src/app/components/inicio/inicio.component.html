@@ -7,9 +7,9 @@
   <section class="main info-tiempo">
     <!-- INPUT DE BUSQUEDA -->
     <section class="input my-8 ">
-      <label for="busqueda">Buscar tu ciudad</label>
-      <input #busqueda (keydown.enter)="mostrarDatos(busqueda.value)" class="input-tiempo" type="text"
-        placeholder="Buscar ciudad" id="busqueda">
+      <label class=" text-xl ml-8 mb-4 font-bold"  for="busqueda">Busca el tiempo de tu ciudad </label>
+      <input #busqueda (keydown.enter)="mostrarDatos(busqueda.value)" class="input-tiempo mt-4" type="text"
+        placeholder="Madrid, Barcelona, Dinamarca ..." id="busqueda">
     </section>
     <!-- SECCION TIEMPO BUSCADO -->
     <section class="tiempo-container">
@@ -110,7 +110,7 @@
     @if (publicacion.id) {
     <a [routerLink]="'/user/' + user.id +  '/publicacion/' + publicacion.id" class="card-user publicacion-usuario">
       <img class=" rounded-full  w-max h-max lg:mr-2" [src]="'assets/users/' +  user.nombre + '.png'" alt="">
-      <div class="">
+      <div class="pr-0 lg:pr-8">
         <h3 class=" font-bold sm:hidden lg:block">&#64;{{user.nombre}}</h3>
         <p class="sm:hidden lg:block">{{publicacion.comentario}}</p>
       </div>
