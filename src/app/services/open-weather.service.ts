@@ -16,11 +16,6 @@ export class OpenWeatherService {
   getOpenWeather(ciudad: string): Observable<any> {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&lang=es&appid=${this.apikeySergio}&units=metric`;
     return this.http.get<any>(url);
-  } 
-
-  getHourlyForecast(lat: number, lon: number): Observable<any> {
-    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${this.apikeySergio}&units=metric`;
-    return this.http.get<any>(url);
   }
 
   get6DaysForecast(ciudad: string): Observable<any> {
