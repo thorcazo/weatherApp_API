@@ -125,9 +125,9 @@ export class UsuariosService {
     },
     {
       id:11,
-      nombre: 'Luisa',
+      nombre: 'Antonia',
       ciudad: 'Sevilla',
-      imagenPerfil: 'Luisa.png',
+      imagenPerfil: 'Antonia.png',
       publicaciones:[
           {
               id:1,

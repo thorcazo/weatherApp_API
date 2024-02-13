@@ -2,7 +2,7 @@
   <a class="border" [routerLink]="'user/' + publiDet.usuario.id " class="text-slate-100  absolute top-[-20px] left-20">
     <img class="w-[85px] hover:scale-105 transition-transform border-2 border-stroke rounded-full"
       [src]="'assets/users/' + publiDet.usuario.imagenPerfil" alt="">
-    <p class="text-stroke "></p>
+    <p class="text-main font-bold ">&#64;{{ publiDet.usuario.nombre }}</p>
   </a>
 </section>
 <section class="h-screen">
@@ -12,7 +12,21 @@
       <video width="400" controls>
         <source [src]="'assets/videos' + publiDet.publicacion.url" type="video/mp4">
       </video>
-      } @else {
+      } @else if (publiDet.publicacion.url.includes('youtube') ) {
+      <!-- la mejor etiqueta para mostrar un video de youtube -->
+      <div class="w-full border">
+        <iframe width="420px" height="236px" src="https://www.youtube.com/embed/sepQ1zPB-QE?si=oZ1XeNvcmYNN2wg0"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+      }
+
+
+
+      @else {
       <img class="w-full h-full object-cover" [src]="'assets/img/' + publiDet.usuario.ciudad + publiDet.publicacion.url"
         alt="">
       @if (publiDet.publicacion.url.includes('gen')) {
@@ -36,15 +50,6 @@
             class=" my-8 hover:bg-stroke font-bold rounded transition-colors hover:text-main border p-4 text-stroke"
             type="button">Descargar video</button>
         </a>
-        } @else if (publiDet.publicacion.url.includes('youtube') ) {
-        <!-- la mejor etiqueta para mostrar un video de youtube -->
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/sepQ1zPB-QE?si=oZ1XeNvcmYNN2wg0"
-          title="YouTube video player" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
-        <button disabled class=" my-8  bg-slate-300 font-bold rounded transition-colors border p-4 text-slate-400"
-          type="button">Descargar video</button>
-
         }
 
         @else {
@@ -52,7 +57,8 @@
         <a [href]="'assets/img/' + publiDet.usuario.ciudad + publiDet.publicacion.url" download>
           <button
             class=" my-8 hover:bg-stroke font-bold rounded transition-colors hover:text-main border p-4 text-stroke"
-            type="button">Descargar imagen</button>
+            type="button">Descargar imagen
+          </button>
         </a>
         }
       </div>
