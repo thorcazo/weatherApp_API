@@ -22,8 +22,10 @@
   @apply flex flex-row justify-between sm:justify-start items-center;
 }
 
+
+
 .temperaturas h3 {
-  font-size: clamp(8rem, 5vw, 2rem);
+  font-size: clamp(6rem, 5vw, 2rem);
 }
 
 
@@ -69,4 +71,8 @@
 .publicaciones a:hover span {
   bottom: 0;
   transition: all 0.1s;
+}
+
+.pronostico-dia h3{
+  font-size: clamp(1.1rem, 5vw, 1.7rem);
 }
