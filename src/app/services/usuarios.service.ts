@@ -20,7 +20,7 @@ export class UsuariosService {
         },
         {
           id: 2,
-            comentario: 'Grabé un día de lluvia en Murcia, increíble',
+          comentario: 'Grabé un día de lluvia en Murcia, increíble',
           url: '/lluvia.mp4',
           fechaPublicacion: '2020-10-10',
         },
@@ -123,6 +123,20 @@ export class UsuariosService {
         },
       ],
     },
+    {
+      id:11,
+      nombre: 'Luisa',
+      ciudad: 'Sevilla',
+      imagenPerfil: 'Luisa.png',
+      publicaciones:[
+          {
+              id:1,
+              comentario: 'Se ha caio la palmera, señores!',
+              url: 'https://www.youtube.com/embed/sepQ1zPB-QE?si=oZ1XeNvcmYNN2wg0',
+              fuente: 'La vanguardia'
+          }
+      ]
+    }
   ];
 
   getUsuarios() {
@@ -151,8 +165,7 @@ export class UsuariosService {
         publicacion: {
           id: publicacion.id,
           comentario: publicacion.comentario,
-          url: publicacion.url,
-        },
+          url: publicacion.url,      },
       };
     }
     return null; // Devuelve null si no se encuentra el usuario o la publicación.
