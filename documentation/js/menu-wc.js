@@ -60,6 +60,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="components/AsideComponent.html" data-type="entity-link" >AsideComponent</a>
                             </li>
                             <li class="link">
+                                <a href="components/AtribucionesComponent.html" data-type="entity-link" >AtribucionesComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/Error404Component.html" data-type="entity-link" >Error404Component</a>
+                            </li>
+                            <li class="link">
                                 <a href="components/InicioComponent.html" data-type="entity-link" >InicioComponent</a>
                             </li>
                             <li class="link">
@@ -69,10 +75,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="components/PieComponent.html" data-type="entity-link" >PieComponent</a>
                             </li>
                             <li class="link">
+                                <a href="components/PodcastComponent.html" data-type="entity-link" >PodcastComponent</a>
+                            </li>
+                            <li class="link">
                                 <a href="components/PublicacionDetailsComponent.html" data-type="entity-link" >PublicacionDetailsComponent</a>
                             </li>
                             <li class="link">
-                                <a href="components/TiempoComponent.html" data-type="entity-link" >TiempoComponent</a>
+                                <a href="components/PublicacionesUsuariosComponent.html" data-type="entity-link" >PublicacionesUsuariosComponent</a>
                             </li>
                             <li class="link">
                                 <a href="components/UserProfileComponent.html" data-type="entity-link" >UserProfileComponent</a>
@@ -89,6 +98,22 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <ul class="links collapse " ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
                                 <li class="link">
                                     <a href="injectables/OpenWeatherService.html" data-type="entity-link" >OpenWeatherService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/UsuariosService.html" data-type="entity-link" >UsuariosService</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="chapter">
+                            <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ? 'data-bs-target="#pipes-links"' :
+                                'data-bs-target="#xs-pipes-links"' }>
+                                <span class="icon ion-md-add"></span>
+                                <span>Pipes</span>
+                                <span class="icon ion-ios-arrow-down"></span>
+                            </div>
+                            <ul class="links collapse " ${ isNormalMode ? 'id="pipes-links"' : 'id="xs-pipes-links"' }>
+                                <li class="link">
+                                    <a href="pipes/CelsiusPipe.html" data-type="entity-link" >CelsiusPipe</a>
                                 </li>
                             </ul>
                         </li>

@@ -157,6 +157,12 @@
                 <td class="col-md-9"><code>true</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>RouterLink</code>
+                </td>
+            </tr>
 
 
 
@@ -194,46 +200,30 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { RouterLink } from &#x27;@angular/router&#x27;;
 
 @Component({
   selector: &#x27;app-aside&#x27;,
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: &#x27;./aside.component.html&#x27;,
-  styleUrl: &#x27;./aside.component.css&#x27;
+  styleUrl: &#x27;./aside.component.css&#x27;,
 })
-export class AsideComponent {
-
-}
+export class AsideComponent {}
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;sm:min-w-max sm:ml-8 hidden py-4 sm:flex sm:flex-col gap-2 items-start justify-center mt-32 h-max&quot;&gt;
-    &lt;div class&#x3D;&quot;user1&quot;&gt;
-        &lt;img src&#x3D;&quot;../../assets/Walter.jpg&quot; alt&#x3D;&quot;&quot;&gt;
-        &lt;div class&#x3D;&quot;profile-info&quot;&gt;
-            &lt;h1&gt;Walter White&lt;/h1&gt;    
-            &lt;h5&gt;Descripción del perfil&lt;/h5&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;aside class&#x3D;&quot;section-usuario&quot;&gt;
+    &lt;a routerLink&#x3D;&quot;user/publicacion&quot; class&#x3D;&quot;card-user publicacion-usuario&quot;&gt;
+        &lt;img class&#x3D;&quot;w-max h-max lg:mr-2&quot; src&#x3D;&quot;../assets/@user1.png&quot; alt&#x3D;&quot;&quot;&gt;
+        &lt;div class&#x3D;&quot;&quot;&gt;
+            &lt;h3 class&#x3D;&quot;sm:hidden lg:block &quot;&gt;&amp;#64;user2&lt;/h3&gt;
+            &lt;p class&#x3D;&quot;sm:hidden lg:block&quot;&gt;Hoy hace un dia estupendo&lt;/p&gt;
         &lt;/div&gt;
-    &lt;/div&gt;
+    &lt;/a&gt;
 
-    &lt;div class&#x3D;&quot;user1&quot;&gt;
-        &lt;img src&#x3D;&quot;../../assets/Walter.jpg&quot; alt&#x3D;&quot;&quot;&gt;
-        &lt;div class&#x3D;&quot;profile-info&quot;&gt;
-            &lt;h1&gt;Walter White&lt;/h1&gt;    
-            &lt;h5&gt;Descripción del perfil&lt;/h5&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-
-    &lt;div class&#x3D;&quot;user1&quot;&gt;
-        &lt;img src&#x3D;&quot;../../assets/Walter.jpg&quot; alt&#x3D;&quot;&quot;&gt;
-        &lt;div class&#x3D;&quot;profile-info&quot;&gt;
-            &lt;h1&gt;Walter White&lt;/h1&gt;    
-            &lt;h5&gt;Descripción del perfil&lt;/h5&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+&lt;/aside&gt;</code></pre>
     </div>
 
 
@@ -262,8 +252,8 @@ export class AsideComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="sm:min-w-max sm:ml-8 hidden py-4 sm:flex sm:flex-col gap-2 items-start justify-center mt-32 h-max">    <div class="user1">        <img src="../../assets/Walter.jpg" alt="">        <div class="profile-info">            <h1>Walter White</h1>                <h5>Descripción del perfil</h5>        </div>    </div>    <div class="user1">        <img src="../../assets/Walter.jpg" alt="">        <div class="profile-info">            <h1>Walter White</h1>                <h5>Descripción del perfil</h5>        </div>    </div>    <div class="user1">        <img src="../../assets/Walter.jpg" alt="">        <div class="profile-info">            <h1>Walter White</h1>                <h5>Descripción del perfil</h5>        </div>    </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AsideComponent', 'selector': 'app-aside'},{'name': 'InicioComponent', 'selector': 'app-inicio'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'PieComponent', 'selector': 'app-pie'},{'name': 'PublicacionDetailsComponent', 'selector': 'app-publicacion-details'},{'name': 'TiempoComponent', 'selector': 'app-tiempo'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'}];
+        var COMPONENT_TEMPLATE = '<div><aside class="section-usuario">    <a routerLink="user/publicacion" class="card-user publicacion-usuario">        <img class="w-max h-max lg:mr-2" src="../assets/@user1.png" alt="">        <div class="">            <h3 class="sm:hidden lg:block ">&#64;user2</h3>            <p class="sm:hidden lg:block">Hoy hace un dia estupendo</p>        </div>    </a></aside></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AsideComponent', 'selector': 'app-aside'},{'name': 'AtribucionesComponent', 'selector': 'app-atribuciones'},{'name': 'Error404Component', 'selector': 'app-error404'},{'name': 'InicioComponent', 'selector': 'app-inicio'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'PieComponent', 'selector': 'app-pie'},{'name': 'PodcastComponent', 'selector': 'app-podcast'},{'name': 'PublicacionDetailsComponent', 'selector': 'app-publicacion-details'},{'name': 'PublicacionesUsuariosComponent', 'selector': 'app-publicaciones-usuarios'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AsideComponent'};
 </script>

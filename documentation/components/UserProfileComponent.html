@@ -188,20 +188,202 @@
     </table>
 </section>
 
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#route" >route</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#serviceUsers" >serviceUsers</a>
+                            </li>
+                            <li>
+                                <a href="#usuario" >usuario</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
 
 
 
 
 
 
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
 
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="18"
+                                    class="link-to-prism">src/app/components/user-profile/user-profile.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="route"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>route</b></span>
+                        <a href="#route"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ActivatedRoute</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(ActivatedRoute)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/user-profile/user-profile.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="serviceUsers"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>serviceUsers</b></span>
+                        <a href="#serviceUsers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(UsuariosService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/user-profile/user-profile.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="usuario"></a>
+                    <span class="name">
+                        <span ><b>usuario</b></span>
+                        <a href="#usuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/user-profile/user-profile.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
-import { RouterLink, RouterOutlet } from &#x27;@angular/router&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, inject } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute, RouterLink, RouterOutlet } from &#x27;@angular/router&#x27;;
+import { UsuariosService } from &#x27;../../services/usuarios.service&#x27;;
 
 @Component({
   selector: &#x27;app-user-profile&#x27;,
@@ -210,46 +392,57 @@ import { RouterLink, RouterOutlet } from &#x27;@angular/router&#x27;;
   templateUrl: &#x27;./user-profile.component.html&#x27;,
   styleUrl: &#x27;./user-profile.component.css&#x27;,
 })
-export class UserProfileComponent {}
+export class UserProfileComponent {
+  private serviceUsers &#x3D; inject(UsuariosService);
+  private route: ActivatedRoute &#x3D; inject(ActivatedRoute);
+  usuario: any | undefined;
+
+
+  ngOnInit() {
+    const userId &#x3D; this.route.snapshot.params[&#x27;UserId&#x27;];
+
+    if (userId) {
+      this.usuario &#x3D; this.serviceUsers.getUsuariobyId(+userId);
+    }
+  }
+
+
+
+
+
+}
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;border h-screen&quot;&gt;
-
-    &lt;section class&#x3D;&quot;w-full bg-slate-900 rounded-lg p-12 relative&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;!-- PERFIL DEL USUARIO --&gt;
+&lt;section class&#x3D;&quot;h-screen&quot;&gt;
+    &lt;!-- BANNER USUARIO --&gt;
+    &lt;section class&#x3D;&quot;w-full bg-stroke rounded-lg p-12 relative&quot;&gt;
         &lt;div class&#x3D;&quot;text-slate-100  absolute top-[-20px] left-20&quot;&gt;
-            &lt;a routerLink&#x3D;&quot;user&quot;&gt;
-                &lt;img class&#x3D;&quot;&quot; src&#x3D;&quot;../../../assets/@user1.png&quot; alt&#x3D;&quot;&quot;&gt;
-                &lt;p&gt;Marcelo&lt;/p&gt;
-            &lt;/a&gt;
+                &lt;img class&#x3D;&quot;w-32 h-32 border-stroke border-2  rounded-full&quot; [src]&#x3D;&quot;&#x27;assets/users/&#x27; + usuario.imagenPerfil&quot; alt&#x3D;&quot;{{ usuario.imagenPerfil }}&quot;&gt;
+                &lt;p class&#x3D;&quot; text-xl font-bold text-center text-stroke &quot;&gt; &amp;#64;{{ usuario.nombre}}&lt;/p&gt;
         &lt;/div&gt;
     &lt;/section&gt;
-
-
-    &lt;section class&#x3D;&quot;publicaciones-container grid grid-cols-2 sm:grid-cols-3 gap-2 py-2&quot;&gt;
-        &lt;div class&#x3D;&quot;publicacion border-2 border-slate-900 overflow-hidden rounded-lg&quot;&gt;
-            &lt;a routerLink&#x3D;&quot;publicacion&quot;&gt;
-                &lt;img src&#x3D;&quot;../../../assets/img/img-atardecer.png&quot; alt&#x3D;&quot;foto paisaje soleado&quot;&gt;
+    &lt;!-- IMAGENES DE LAS PUBLICACIONES DEL USUARIO --&gt;
+    &lt;h2 class&#x3D;&quot;text-3xl text-center p-8 font-bold&quot;&gt;Publicaciones de {{ usuario.nombre }}&lt;/h2&gt;
+    &lt;section class&#x3D;&quot;publicaciones-perfil-usuario sm:w-4/6 m-auto rounded-xl &quot;&gt;
+      @for (p of usuario.publicaciones; track p.id) {
+        &lt;div class&#x3D;&quot;publicacion-user h-max&quot;&gt;
+          @if (p.url.endsWith(&#x27;.mp4&#x27;)){
+            &lt;a  class&#x3D;&quot;block&quot; [routerLink]&#x3D;&quot;&#x27;publicacion/&#x27; + p.id&quot;&gt;
+              &lt;video controls &gt;
+                &lt;source [src]&#x3D;&quot;&#x27;assets/videos&#x27; + p.url&quot; type&#x3D;&quot;video/mp4&quot;&gt;
+              &lt;/video&gt;
             &lt;/a&gt;
+          } @else {
+            &lt;a    class&#x3D;&quot;block&quot; [routerLink]&#x3D;&quot;&#x27;publicacion/&#x27; + p.id&quot;&gt;
+                &lt;img [src]&#x3D;&quot;&#x27;assets/img/&#x27;+usuario.ciudad + p.url&quot; alt&#x3D;&quot;{{ p.url }}&quot;&gt;
+            &lt;/a&gt;
+          }
         &lt;/div&gt;
-        &lt;div class&#x3D;&quot;publicacion border-2 border-slate-900 overflow-hidden rounded-lg &quot;&gt;
-            &lt;img class&#x3D;&quot;&quot; src&#x3D;&quot;../../../assets/img/img-lluvioso.jpg&quot; alt&#x3D;&quot;foto paisaje lluvioso&quot;&gt;
-        &lt;/div&gt;
-        &lt;div class&#x3D;&quot;publicacion border-2 border-slate-900 overflow-hidden rounded-lg &quot;&gt;
-            &lt;img class&#x3D;&quot;&quot; src&#x3D;&quot;../../../assets/img/img-lluvioso2.jpg&quot; alt&#x3D;&quot;foto paisaje lluvioso&quot;&gt;
-        &lt;/div&gt;
-        &lt;div class&#x3D;&quot;publicacion border-2 border-slate-900 overflow-hidden rounded-lg &quot;&gt;
-            &lt;img class&#x3D;&quot;&quot; src&#x3D;&quot;../../../assets/img/img-noche.jpg&quot; alt&#x3D;&quot;foto paisaje nocturno&quot;&gt;
-        &lt;/div&gt;
-        &lt;div class&#x3D;&quot;publicacion border-2 border-slate-900 overflow-hidden rounded-lg &quot;&gt;
-            &lt;img class&#x3D;&quot;&quot; src&#x3D;&quot;../../../assets/img/img-soleado2.jpeg&quot; alt&#x3D;&quot;foto paisaje soleado&quot;&gt;
-        &lt;/div&gt;
-        &lt;div class&#x3D;&quot;publicacion border-2 border-slate-900 overflow-hidden rounded-lg &quot;&gt;
-            &lt;img class&#x3D;&quot;&quot; src&#x3D;&quot;../../../assets/img/img-amanecer.jpeg&quot;  alt&#x3D;&quot;foto paisaje amanecer&quot;&gt;
-        &lt;/div&gt;
+      }
     &lt;/section&gt;
-
 &lt;/section&gt;</code></pre>
     </div>
 
@@ -279,8 +472,8 @@ export class UserProfileComponent {}
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section class="border h-screen">    <section class="w-full bg-slate-900 rounded-lg p-12 relative">        <div class="text-slate-100  absolute top-[-20px] left-20">            <a routerLink="user">                <img class="" src="../../../assets/@user1.png" alt="">                <p>Marcelo</p>            </a>        </div>    </section>    <section class="publicaciones-container grid grid-cols-2 sm:grid-cols-3 gap-2 py-2">        <div class="publicacion border-2 border-slate-900 overflow-hidden rounded-lg">            <a routerLink="publicacion">                <img src="../../../assets/img/img-atardecer.png" alt="foto paisaje soleado">            </a>        </div>        <div class="publicacion border-2 border-slate-900 overflow-hidden rounded-lg ">            <img class="" src="../../../assets/img/img-lluvioso.jpg" alt="foto paisaje lluvioso">        </div>        <div class="publicacion border-2 border-slate-900 overflow-hidden rounded-lg ">            <img class="" src="../../../assets/img/img-lluvioso2.jpg" alt="foto paisaje lluvioso">        </div>        <div class="publicacion border-2 border-slate-900 overflow-hidden rounded-lg ">            <img class="" src="../../../assets/img/img-noche.jpg" alt="foto paisaje nocturno">        </div>        <div class="publicacion border-2 border-slate-900 overflow-hidden rounded-lg ">            <img class="" src="../../../assets/img/img-soleado2.jpeg" alt="foto paisaje soleado">        </div>        <div class="publicacion border-2 border-slate-900 overflow-hidden rounded-lg ">            <img class="" src="../../../assets/img/img-amanecer.jpeg"  alt="foto paisaje amanecer">        </div>    </section></section></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AsideComponent', 'selector': 'app-aside'},{'name': 'InicioComponent', 'selector': 'app-inicio'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'PieComponent', 'selector': 'app-pie'},{'name': 'PublicacionDetailsComponent', 'selector': 'app-publicacion-details'},{'name': 'TiempoComponent', 'selector': 'app-tiempo'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'}];
+        var COMPONENT_TEMPLATE = '<div><!-- PERFIL DEL USUARIO --><section class="h-screen">    <!-- BANNER USUARIO -->    <section class="w-full bg-stroke rounded-lg p-12 relative">        <div class="text-slate-100  absolute top-[-20px] left-20">                <img class="w-32 h-32 border-stroke border-2  rounded-full" [src]="\'assets/users/\' + usuario.imagenPerfil" alt="{{ usuario.imagenPerfil }}">                <p class=" text-xl font-bold text-center text-stroke "> &#64;{{ usuario.nombre}}</p>        </div>    </section>    <!-- IMAGENES DE LAS PUBLICACIONES DEL USUARIO -->    <h2 class="text-3xl text-center p-8 font-bold">Publicaciones de {{ usuario.nombre }}</h2>    <section class="publicaciones-perfil-usuario sm:w-4/6 m-auto rounded-xl ">      @for (p of usuario.publicaciones; track p.id) {        <div class="publicacion-user h-max">          @if (p.url.endsWith(\'.mp4\')){            <a  class="block" [routerLink]="\'publicacion/\' + p.id">              <video controls >                <source [src]="\'assets/videos\' + p.url" type="video/mp4">              </video>            </a>          } @else {            <a    class="block" [routerLink]="\'publicacion/\' + p.id">                <img [src]="\'assets/img/\'+usuario.ciudad + p.url" alt="{{ p.url }}">            </a>          }        </div>      }    </section></section></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AsideComponent', 'selector': 'app-aside'},{'name': 'AtribucionesComponent', 'selector': 'app-atribuciones'},{'name': 'Error404Component', 'selector': 'app-error404'},{'name': 'InicioComponent', 'selector': 'app-inicio'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'PieComponent', 'selector': 'app-pie'},{'name': 'PodcastComponent', 'selector': 'app-podcast'},{'name': 'PublicacionDetailsComponent', 'selector': 'app-publicacion-details'},{'name': 'PublicacionesUsuariosComponent', 'selector': 'app-publicaciones-usuarios'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'UserProfileComponent'};
 </script>

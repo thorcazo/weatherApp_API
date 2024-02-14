@@ -328,35 +328,45 @@ export class NavComponent {
 
   clicked() {
     this.clickToggle &#x3D; !this.clickToggle;
-    console.log(this.clickToggle);
   }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;nav class&#x3D;&quot; justify-around items-center p-4 mb-8&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;nav class&#x3D;&quot;justify-around items-center py-4 mb-8 mx-8 sm:ml-00 sm:w-4/6 sm:m-auto&quot;&gt;
     &lt;div class&#x3D;&quot;flex flex-row&quot;&gt;
         &lt;div class&#x3D;&quot;logo w-full&quot;&gt;
-            &lt;a routerLink&#x3D;&quot;/&quot;&gt;
-                &lt;h1 class&#x3D;&quot;&quot;&gt;Social &lt;span&gt;Weather&lt;/span&gt;&lt;/h1&gt;
-            &lt;/a&gt;
+            &lt;a class&#x3D;&quot;f-row aspect-square w-14 items-center gap-5&quot; routerLink&#x3D;&quot;/&quot;&gt;
+              &lt;div class&#x3D;&quot;mt-8 hidden sm:block&quot;&gt;
 
+                &lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; width&#x3D;&quot;70&quot; height&#x3D;&quot;70&quot; viewBox&#x3D;&quot;0 0 70 70&quot; fill&#x3D;&quot;none&quot;&gt;
+                  &lt;g clip-path&#x3D;&quot;url(#clip0_287_506)&quot;&gt;
+                    &lt;path d&#x3D;&quot;M70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70C54.33 70 70 54.33 70 35Z&quot; fill&#x3D;&quot;#3da9fc&quot;/&gt;
+                    &lt;path d&#x3D;&quot;M50.6241 34.8747C50.4448 34.8747 50.2667 34.8816 50.0897 34.8942C50.1149 34.5598 50.1276 34.223 50.1276 33.8828C50.1276 26.623 44.2425 20.7391 36.9839 20.7391C31.5713 20.7391 26.9241 24.0115 24.9092 28.6839C24.1667 28.5161 23.3943 28.4264 22.6 28.4264C16.8471 28.4264 12.1839 33.0896 12.1839 38.8425C12.1839 44.5954 16.8471 49.2586 22.6 49.2586C22.6034 49.2586 22.6069 49.2586 22.6103 49.2586V49.2621H50.6126V49.2586C50.6126 49.2586 50.6195 49.2586 50.6241 49.2586C54.5965 49.2586 57.8161 46.0391 57.8161 42.0667C57.8161 38.0942 54.5965 34.8747 50.6241 34.8747Z&quot; fill&#x3D;&quot;#FEFFFF&quot;/&gt;
+                  &lt;/g&gt;
+                  &lt;defs&gt;
+                    &lt;clipPath id&#x3D;&quot;clip0_287_506&quot;&gt;
+                      &lt;rect width&#x3D;&quot;70&quot; height&#x3D;&quot;70&quot; fill&#x3D;&quot;white&quot;/&gt;
+                    &lt;/clipPath&gt;
+                  &lt;/defs&gt;
+                &lt;/svg&gt;
+              &lt;/div&gt;
+                &lt;h1 class&#x3D;&quot;text-5xl text-stroke&quot;&gt;Social &lt;span&gt;Weather&lt;/span&gt;&lt;/h1&gt;
+            &lt;/a&gt;
         &lt;/div&gt;
-        &lt;div class&#x3D;&quot;  icono w-full flex justify-end items-center&quot;&gt;
+        &lt;div class&#x3D;&quot;icono w-full flex justify-end items-center&quot;&gt;
             &lt;div (click)&#x3D;&quot;clicked()&quot; class&#x3D;&quot;cursor-pointer p-1 burger {{ clickToggle ? &#x27;cross&#x27; : &#x27;&#x27; }}&quot;&gt;
-                &lt;div&gt;&lt;/div&gt;
-                &lt;div&gt;&lt;/div&gt;
-                &lt;div&gt;&lt;/div&gt;
+                &lt;div class&#x3D;&quot;text-stroke&quot;&gt;&lt;/div&gt;
+                &lt;div class&#x3D;&quot;text-stroke&quot;&gt;&lt;/div&gt;
+                &lt;div class&#x3D;&quot;text-stroke&quot;&gt;&lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-
-
-    &lt;ul class&#x3D;&quot;{{ clickToggle ? &#x27;menu-active&#x27; : &#x27;menu&#x27; }}&quot;&gt;
-        &lt;li class&#x3D;&quot;cursor-pointer&quot;&gt;&lt;a routerLink&#x3D;&quot;/user&quot;&gt;Publicaciones&lt;/a&gt;&lt;/li&gt;
-        &lt;li class&#x3D;&quot;cursor-pointer&quot;&gt;&lt;a routerLink&#x3D;&quot;/about&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
-        &lt;li class&#x3D;&quot;cursor-pointer&quot;&gt;&lt;a routerLink&#x3D;&quot;/contact&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
+    &lt;ul class&#x3D;&quot;{{ clickToggle ? &#x27;menu-active&#x27; : &#x27;menu&#x27; }} text-stroke font-black&quot;&gt;
+        &lt;li class&#x3D;&quot;cursor-pointer hover:text-button&quot;&gt;&lt;a routerLink&#x3D;&quot;/publicaciones-usuarios&quot;&gt;Publicaciones&lt;/a&gt;&lt;/li&gt;
+        &lt;li class&#x3D;&quot;cursor-pointer hover:text-button&quot;&gt;&lt;a routerLink&#x3D;&quot;/atribuciones&quot;&gt;Atribuciones&lt;/a&gt;&lt;/li&gt;
+        &lt;li class&#x3D;&quot;cursor-pointer hover:text-button&quot;&gt;&lt;a routerLink&#x3D;&quot;/podcast&quot;&gt;Podcast&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
 &lt;/nav&gt;</code></pre>
     </div>
@@ -387,8 +397,8 @@ export class NavComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><nav class=" justify-around items-center p-4 mb-8">    <div class="flex flex-row">        <div class="logo w-full">            <a routerLink="/">                <h1 class="">Social <span>Weather</span></h1>            </a>        </div>        <div class="  icono w-full flex justify-end items-center">            <div (click)="clicked()" class="cursor-pointer p-1 burger {{ clickToggle ? \'cross\' : \'\' }}">                <div></div>                <div></div>                <div></div>            </div>        </div>    </div>    <ul class="{{ clickToggle ? \'menu-active\' : \'menu\' }}">        <li class="cursor-pointer"><a routerLink="/user">Publicaciones</a></li>        <li class="cursor-pointer"><a routerLink="/about">About</a></li>        <li class="cursor-pointer"><a routerLink="/contact">Contact</a></li>    </ul></nav></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AsideComponent', 'selector': 'app-aside'},{'name': 'InicioComponent', 'selector': 'app-inicio'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'PieComponent', 'selector': 'app-pie'},{'name': 'PublicacionDetailsComponent', 'selector': 'app-publicacion-details'},{'name': 'TiempoComponent', 'selector': 'app-tiempo'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'}];
+        var COMPONENT_TEMPLATE = '<div><nav class="justify-around items-center py-4 mb-8 mx-8 sm:ml-00 sm:w-4/6 sm:m-auto">    <div class="flex flex-row">        <div class="logo w-full">            <a class="f-row aspect-square w-14 items-center gap-5" routerLink="/">              <div class="mt-8 hidden sm:block">                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70" fill="none">                  <g clip-path="url(#clip0_287_506)">                    <path d="M70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70C54.33 70 70 54.33 70 35Z" fill="#3da9fc"/>                    <path d="M50.6241 34.8747C50.4448 34.8747 50.2667 34.8816 50.0897 34.8942C50.1149 34.5598 50.1276 34.223 50.1276 33.8828C50.1276 26.623 44.2425 20.7391 36.9839 20.7391C31.5713 20.7391 26.9241 24.0115 24.9092 28.6839C24.1667 28.5161 23.3943 28.4264 22.6 28.4264C16.8471 28.4264 12.1839 33.0896 12.1839 38.8425C12.1839 44.5954 16.8471 49.2586 22.6 49.2586C22.6034 49.2586 22.6069 49.2586 22.6103 49.2586V49.2621H50.6126V49.2586C50.6126 49.2586 50.6195 49.2586 50.6241 49.2586C54.5965 49.2586 57.8161 46.0391 57.8161 42.0667C57.8161 38.0942 54.5965 34.8747 50.6241 34.8747Z" fill="#FEFFFF"/>                  </g>                  <defs>                    <clipPath id="clip0_287_506">                      <rect width="70" height="70" fill="white"/>                    </clipPath>                  </defs>                </svg>              </div>                <h1 class="text-5xl text-stroke">Social <span>Weather</span></h1>            </a>        </div>        <div class="icono w-full flex justify-end items-center">            <div (click)="clicked()" class="cursor-pointer p-1 burger {{ clickToggle ? \'cross\' : \'\' }}">                <div class="text-stroke"></div>                <div class="text-stroke"></div>                <div class="text-stroke"></div>            </div>        </div>    </div>    <ul class="{{ clickToggle ? \'menu-active\' : \'menu\' }} text-stroke font-black">        <li class="cursor-pointer hover:text-button"><a routerLink="/publicaciones-usuarios">Publicaciones</a></li>        <li class="cursor-pointer hover:text-button"><a routerLink="/atribuciones">Atribuciones</a></li>        <li class="cursor-pointer hover:text-button"><a routerLink="/podcast">Podcast</a></li>    </ul></nav></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AsideComponent', 'selector': 'app-aside'},{'name': 'AtribucionesComponent', 'selector': 'app-atribuciones'},{'name': 'Error404Component', 'selector': 'app-error404'},{'name': 'InicioComponent', 'selector': 'app-inicio'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'PieComponent', 'selector': 'app-pie'},{'name': 'PodcastComponent', 'selector': 'app-podcast'},{'name': 'PublicacionDetailsComponent', 'selector': 'app-publicacion-details'},{'name': 'PublicacionesUsuariosComponent', 'selector': 'app-publicaciones-usuarios'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'NavComponent'};
 </script>
