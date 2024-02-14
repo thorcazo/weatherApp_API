@@ -10,6 +10,21 @@
           <source src="assets/aud/aud-for-1.mp3" type="audio/mpeg">
           Tu navegador no soporta el elemento de audio.
         </audio>
+        <h2 (click)="toggleText()" class="my-4 cursor-pointer border p-2 w-max select-none hover:bg-slate-100 rounded">
+          Transcripción</h2>
+          @if (activateText) {
+            <div class="">
+        
+              <p>
+                Bienvenidos a Social Weather, página número 1 en Climatología. Si desea buscar el tiempo de su ciudad, ponga el nombre de esta en la barra de navegación y pulse Enter.
+Al pulsar, se le actualizará la página con la temperatura respectiva de su ciudad.
+Además, debajo de esta encontrará la climatología de los 5 días siguientes con total precisión, tanto máximas como bajas en temperatura.
+Si desea darse una vuelta por nuestra web, a mano derecha de esta encontrará las publicaciones de los usuarios de la ciudad en la que usted ha buscado la temperatura.
+Espero que se lo pase bien.
+              </p>
+              
+            </div>
+            }
       </div>
     </div>
     <div class="my-8">
