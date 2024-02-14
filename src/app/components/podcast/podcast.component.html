@@ -1,11 +1,51 @@
-<section>
-  <audio controls>
-    <source src="ruta/al/audio1.mp3" type="audio/mpeg">
-    Tu navegador no soporta el elemento de audio.
-  </audio>
+<section class="flex mt-24 flex-col  w-4/5 m-auto  gap-4 h-[580px]">
+  <div class="bg-stroke text-main p-8 w-full text-center text-4xl font-bold">
+    <h2 class="">Sección Podcast Guía </h2>
+  </div>
+  <div>
+    <h1 class="mb-4">¿Qué puedes hacer en Social Weather?</h1>
+    <div class="">
+      <audio controls>
+        <source src="assets/aud/aud-for-1.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+      </audio>
+    </div>
+    <h1 (click)="toggleText()" class="my-4 cursor-pointer border p-4 w-max select-none hover:bg-slate-100 rounded">
+      Transcripción</h1>
 
-  <audio controls>
-    <source src="ruta/al/audio2.mp3" type="audio/mpeg">
-    Tu navegador no soporta el elemento de audio.
-  </audio>
+    @if (activateText) {
+    <div class="">
+
+      <p>
+        ¡Descubre Social Weather! Tu ventana al clima y a la comunidad
+        ¿Quieres saber qué tiempo hará en tu ciudad o en cualquier otro lugar del mundo? Con Social Weather, no solo
+        tendrás acceso a la información meteorológica más precisa y actualizada, sino que también podrás conectar con
+        una
+        comunidad de usuarios apasionados por el clima.
+      </p>
+      <p>Nuestra aplicación te ofrece:</p>
+      <p>
+        Pronósticos detallados: Obtén información precisa sobre la temperatura, la humedad, la precipitación, el viento
+        y
+        mucho más, para hoy, mañana y los próximos días.
+        Búsqueda por ciudad o ubicación: Encuentra el lugar que te interesa de forma rápida y sencilla.
+        Radar meteorológico interactivo: Sigue la evolución de las condiciones climáticas en tiempo real.
+        Alertas de mal tiempo: Recibe notificaciones sobre posibles tormentas, inundaciones u otros eventos climáticos
+        adversos.
+        Comparte fotos y experiencias: Publica fotos del cielo en tu ciudad y descubre lo que otros usuarios están
+        compartiendo.
+        Conéctate con la comunidad: Únete a grupos de conversación sobre el clima y comparte tus conocimientos con otros
+        usuarios.
+        Social Weather es más que una simple aplicación del tiempo. Es una comunidad vibrante donde puedes:
+
+        Aprender sobre el clima: Comparte tus conocimientos y descubre cosas nuevas sobre el fascinante mundo de la
+        meteorología.
+        Planificar tus actividades: Decide qué hacer con tu tiempo libre en función de las condiciones climáticas.
+        Conocer gente nueva: Conecta con personas que comparten tus intereses y aficiones.
+
+      </p>
+    </div>
+    }
+
+  </div>
 </section>
