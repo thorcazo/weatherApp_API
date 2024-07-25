@@ -6,30 +6,26 @@
   <!-- SECCION INFO TIEMPO -->
   <section class="main info-tiempo">
     <!-- INPUT DE BUSQUEDA -->
-    <section class="input my-8 ">
-      <label  class="pl-8 pb-4 font-bold text-2xl block" for="busqueda"> Buscar tu ciudad</label>
-        <input #busqueda (keydown.enter)="mostrarDatos(busqueda.value.toLocaleLowerCase())" class="input-tiempo" type="text"
-          placeholder="Buscar ciudad" id="busqueda">
+    <section class="input my-8">
+      <label class="pl-8 pb-4 font-bold text-2xl block" for="busqueda">Buscar tu ciudad</label>
+      <input #busqueda (keydown.enter)="mostrarDatos(busqueda.value.toLocaleLowerCase())" class="input-tiempo" type="text" placeholder="Buscar ciudad" id="busqueda">
     </section>
     <!-- SECCION TIEMPO BUSCADO -->
     <section class="tiempo-container">
       <section class="sm:col-span-3">
         <!-- Ciudad -->
-        <h2 class="text-4xl font-black ">{{ posts.city.name }}, {{ posts.city.country }}</h2>
+        <h2 class="text-4xl font-black">{{ cityName }}</h2>
         <!-- Temperaturas -->
         <div class="temperaturas">
-          <div class="f-col sm:flex sm:flex-row justify-center items-center ">
+          <div class="f-col sm:flex sm:flex-row justify-center items-center">
             <div class="f-row">
-              <h3 #grados class="font-black">{{ allData.current.temp.toFixed(0)}}</h3>
+              <h3 #grados class="font-black">{{ allData.current?.temp?.toFixed(0) }}</h3>
               <div class="f-col mt-8 text-2xl font-black ml-4">
-                <span class="cursor-pointer hover:text-button transition-colors  " (click)="cambiarTemperatura()"
-                  [class.text-stroke]="!esFahrenheit" [class.text-slate-300]="esFahrenheit">ºC</span>
-                <span class="cursor-pointer hover:text-button transition-colors " (click)="cambiarTemperatura()"
-                  [class.text-stroke]="esFahrenheit" [class.text-slate-300]="!esFahrenheit">ºF</span>
+                <span class="cursor-pointer hover:text-button transition-colors" (click)="cambiarTemperatura()" [class.text-stroke]="!esFahrenheit" [class.text-slate-300]="esFahrenheit">ºC</span>
+                <span class="cursor-pointer hover:text-button transition-colors" (click)="cambiarTemperatura()" [class.text-stroke]="esFahrenheit" [class.text-slate-300]="!esFahrenheit">ºF</span>
               </div>
             </div>
-            <img [src]="'https://openweathermap.org/img/wn/' + allData.weather[0].icon + '@4x.png' "
-              alt="icono del tiempo">
+            <img [src]="'https://openweathermap.org/img/wn/' + allData.current?.weather[0]?.icon + '@4x.png'" alt="icono del tiempo">
           </div>
           <div class="">
           </div>
@@ -37,30 +33,28 @@
         <!-- max y min -->
         <div class="info f-col">
           <article class="f-row gap-4 mt-4 text-2xl font-bold">
-            <div class="flex flex-row ">
+            <div class="flex flex-row">
               <img src="../assets/icons/temp_up.svg" alt="">
-              <p class="ml-1" aria-label="Temperatura máxima">{{ posts.list[0].temp.max}}</p>
+              <p class="ml-1" aria-label="Temperatura máxima">{{ forecastData[0]?.temp?.max }}</p>
             </div>
             <div class="f-row">
               <img src="../assets/icons/temp_down.svg" alt="">
-              <p class="ml-1" aria-label="Temperatura mínima">{{ posts.list[0].temp.min }}</p>
+              <p class="ml-1" aria-label="Temperatura mínima">{{ forecastData[0]?.temp?.min }}</p>
             </div>
-
           </article>
           <!-- Descripcion, dia semana y hora actual -->
           <div class="ml-5 text-lg mb-8 font-bold text-stroke">
-            <p class="">{{nombreDia}} {{today}}, {{hora}}:{{minuto}}</p>
+            <p class="">{{ nombreDia }} {{ today }}, {{ hora }}:{{ minuto }}</p>
           </div>
         </div>
       </section>
       <!-- IMG Publicaciones -->
-      <div class="publicaciones ">
+      <div class="publicaciones">
         @for (user of getusuariosPorCiudad(busqueda.value); track user.id) {
         @for (publicacion of user.publicaciones; track $index) {
         @if (publicacion.url.endsWith('.jpg')) {
-        <a class="h-max" [routerLink]="['/user/'+user.id+ '/publicacion/'+publicacion.id]">
-          <img class="" [src]="['assets/img/' +  posts.city.name  + publicacion.url]"
-            [alt]="'imagen de ' + posts.city.name">
+        <a class="h-max" [routerLink]="['/user/' + user.id + '/publicacion/' + publicacion.id]">
+          <img class="" [src]="'assets/img/' + user.nombre + publicacion.url" [alt]="'imagen de ' + user.nombre">
           <span class="">&#64;{{ user.nombre }}</span>
         </a>
         }
@@ -69,18 +63,17 @@
       </div>
     </section>
     <!-- SECTION TIEMPO PRONOSTICO -->
-    <section class="section-pronostico ">
-      @for (post of posts.list.slice(1); track $index) {
+    <section class="section-pronostico">
+      @for (post of forecastData; track $index) {
       <div class="pronostico-dia">
-        <h3 class=" font-bold">{{dias[getDiaSiguiente($index+1)].toUpperCase().substring(0,3)}}</h3>
+        <h3 class="font-bold">{{ dias[getDiaSiguiente($index + 1)].toUpperCase().substring(0, 3) }}</h3>
         <div class="mr-8 flex w-full justify-center">
-          <img class="hidden sm:block" [src]="'https://openweathermap.org/img/wn/'+ post.weather[0].icon + '@4x.png'"
-            alt="{{post.weather[0].description}}">
+          <img class="hidden sm:block" [src]="'https://openweathermap.org/img/wn/' + post.weather[0]?.icon + '@4x.png'" alt="{{ post.weather[0]?.description }}">
         </div>
-        <div class=" text-2xl font-bold text-blue-500">
+        <div class="text-2xl font-bold text-blue-500">
           <div class="pronostico f-row text-start gap-2 justify-center">
             <img src="../assets/icons/temp_up.svg" alt="">
-            <p  [ngClass]="{
+            <p [ngClass]="{
                 'text-high': post.temp.max.toFixed(0) > 25,
                 'text-medium': post.temp.max.toFixed(0) >= 20 && post.temp.max.toFixed(0) <= 25,
                 'text-low': post.temp.max.toFixed(0) <= 19
@@ -109,13 +102,11 @@
     @for (user of getusuariosPorCiudad(busqueda.value); track user.id) {
     @for (publicacion of user.publicaciones; track $index) {
     @if (publicacion.id) {
-    <a [routerLink]="'/user/' + user.id +  '/publicacion/' + publicacion.id"
-      class="border card-user publicacion-usuario">
-      <img class="w-[50px] border-2 border-slate-950 rounded-full lg:mr-2"
-        [src]="'assets/users/' +  user.nombre + '.png'" alt="">
+    <a [routerLink]="'/user/' + user.id + '/publicacion/' + publicacion.id" class="border card-user publicacion-usuario">
+      <img class="w-[50px] border-2 border-slate-950 rounded-full lg:mr-2" [src]="'assets/users/' + user.nombre + '.png'" alt="">
       <div class="pr-0 lg:pr-8 w-max">
-        <h3 class=" font-bold sm:hidden lg:block">&#64;{{user.nombre}}</h3>
-        <p class="sm:hidden lg:block line-clamp-1 w-max">{{publicacion.comentario}}</p>
+        <h3 class="font-bold sm:hidden lg:block">&#64;{{ user.nombre }}</h3>
+        <p class="sm:hidden lg:block line-clamp-1 w-max">{{ publicacion.comentario }}</p>
       </div>
     </a>
     }

@@ -11,12 +11,14 @@ import { HttpClientModule } from '@angular/common/http';
   standalone: true,
   imports: [RouterLink, AsideComponent, CommonModule, HttpClientModule],
   templateUrl: './inicio.component.html',
-  styleUrl: './inicio.component.css',
+  styleUrls: ['./inicio.component.css'],
 })
 export class InicioComponent {
   posts: any = [];
   allData: any = [];
+  forecastData: any = [];
   fechaActual = new Date();
+  cityName: string = '';
 
   dias = [
     'Domingo',
@@ -58,29 +60,27 @@ export class InicioComponent {
     return this.usuariosDB.getUsuariosPorCiudad(ciudad.trim());
   }
 
-  constructor(private service: OpenWeatherService) {}
+  constructor(private service: OpenWeatherService) { }
 
-  //Método que se ejecuta al cargar la pagina
   ngOnInit(): void {
-    this.fetchPosts('Murcia'); // C con la ciudad de Murcia
+    this.fetchPosts('Murcia'); // Cargar con la ciudad de Murcia
   }
 
-  //Método que se ejecuta al pulsar el botón de buscar
   fetchPosts(ciudad: string): void {
     this.service.get6DaysForecast(ciudad).subscribe((res) => {
-
       console.log(res);
-      this.posts = res;
+      this.forecastData = res.daily.slice(0, 6); // Obtener solo los próximos 6 días
+      // NOTE: Los datos no se muestra como se espera revisar this.cityName
+      this.cityName = res.name; // Nombre de la ciudad
     });
 
-    this.service.getOpenWeather(ciudad).subscribe((res:any) => {
+    this.service.getOpenWeather(ciudad).subscribe((res: any) => {
       console.log(res);
       this.allData = res;
     });
   }
 
   public mostrarDatos(ciudad: string) {
-    
     if (this.ciudades.includes(ciudad.trim())) {
       ciudad += ',es';
     }
@@ -90,11 +90,11 @@ export class InicioComponent {
   cambiarTemperatura() {
     if (!this.esFahrenheit) {
       // Si está en Celsius, convierte a Fahrenheit
-      this.allData.main.temp = +(this.allData.main.temp * 9 / 5 + 32).toFixed(2);
-      this.esFahrenheit = true; // Actualiza el indposts.list[0].temp.dayicador
+      this.allData.current.temp = +(this.allData.current.temp * 9 / 5 + 32).toFixed(2);
+      this.esFahrenheit = true; // Actualiza el indicador
     } else {
       // Si ya está en Fahrenheit, convierte de nuevo a Celsius (opcional, si deseas permitir volver a Celsius)
-      this.allData.main.temp = +((this.allData.main.temp - 32) * 5 / 9).toFixed(2);
+      this.allData.current.temp = +((this.allData.current.temp - 32) * 5 / 9).toFixed(2);
       this.esFahrenheit = false; // Vuelve a Celsius
     }
   }
