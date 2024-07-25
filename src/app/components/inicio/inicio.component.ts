@@ -68,10 +68,13 @@ export class InicioComponent {
   //Método que se ejecuta al pulsar el botón de buscar
   fetchPosts(ciudad: string): void {
     this.service.get6DaysForecast(ciudad).subscribe((res) => {
+
+      console.log(res);
       this.posts = res;
     });
 
-    this.service.getOpenWeather(ciudad).subscribe((res) => {
+    this.service.getOpenWeather(ciudad).subscribe((res:any) => {
+      console.log(res);
       this.allData = res;
     });
   }
